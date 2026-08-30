@@ -1,11 +1,13 @@
 # Project Status: Inception Phase
 **Owner:** Liam Pheng |
-**Project Name:** Accountabilibuddy
+**Project Name:** Accountabilibuddy | **Last Update** <2026-08-30>
 
 # Table of Contents
 1. Introduction
 2. How to Navigate
 3. What is Missing
+4. What has been Added
+5. Fixes
 
 ### Introduction
 This repository was built by Liam Pheng, a Senior at Concordia University-Wisconsin, for his Senior Capstone Project. When completed, this will be the repository of a Military Focused Communication and accountability app, with text chat and calendar event features. 
@@ -22,5 +24,18 @@ This repository has been organized into several folders which are crucial to lat
 - **LICENSE** = This is where the project license is held
 - **README.md** = This is what you are reading right now! It is a detailed explanation and instruction manual of how to operate the software and navigate the repository. It is also an updated notification log discussing the Project Progress
 
+**Project Board**
+This can be navigated to by clicking the "Projects" tab on the top of the repository menu. This project board shows what is currently being worked on, what has been completed, and what future features are planned to be added.
+
 ### What is Missing
 This project is still within the Inception phase, so a lot of the folders only contain README.md files which are placeholders for later projects. 
+
+## What's New 
+- Added Project Charter
+- Added Hours-Log
+- Created Project Board
+- Added AI-usage log
+- Created and Updated README.md
+
+## Fixes
+- None
