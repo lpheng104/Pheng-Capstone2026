@@ -1,5 +1,5 @@
 # Project Status: Inception Phase
-**Owner:** Liam Pheng
+**Owner:** Liam Pheng |
 **Project Name:** Accountabilibuddy
 
 # Table of Contents
