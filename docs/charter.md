@@ -4,7 +4,7 @@
 
 ## 1. Purpose
 
-My goal for this Capstone project is to create and develop a project by following the practices of experienced software engineers. I want to learn how to develop a product, test the product, and deploy a project through the use of proper design, documentation, and production. By the end of the project, I will have a completed, tested, and deployed application that shows my technical/programming skills and my ability to follow a professional software development process.
+By the end of week 16, I will have completed military-focused accountability and communications application that will allow  privileged users to push out important information, track personnel, and create/view unit events in a single place. My goal is to have new users from across all different ranks and leadership positions, be able to create an account, view their assigned information, and message relevant peers through my documentation in the README.md files. I will be successful if the program allows for interpersonal communication within military echelons and is understandable and useable from my github installation.
 
 ## 2. Project (filled in Week 2, after the scoping decision)
 
@@ -44,8 +44,8 @@ My goal for this Capstone project is to create and develop a project by followin
 
 | # | Risk | Likelihood (L/M/H) | Impact (L/M/H) | Early warning sign | What I will do |
 |---|---|---|---|---|---|
-| R1 | Procrastination | L | H | Putting Less than 15 hours a week and starting Milestones late | Put more hours in the weeks after and force myself to work on the project rather than recreational activities |
-| R2 | Project Becomes too Big for 16 Weeks | L | M | Towards weeks 10 - 12 I have not developed the calendar based system for accountability tracking | Focus on the Chain of Command and echelon communication systems. Cutting off the calendar and even tracking function |
+| R1 | Procrastination | L | H | Putting Less than 15 hours a week and starting Milestones late | Dedicate more hours from the following weeks to make up and catch up to the 24o hour milestones. (i.e if I procrastinate on week 7 and only put in 9 hours, Week 8 will have 6 additional hours to make up for the lost time. I will find more time by cutting non-essential/mandatory extracurricular activities, (i.e going out with friends, playing video games, or going to the Gym |
+| R2 | Project Becomes too Big for 16 Weeks | L | M | Towards weeks 10 - 12 I have not developed the calendar based system for accountability tracking or I am not completed all the functions and features of the Interpersonal communication/text focus of inter-echelon communication | Put an emphasis on finishing and refining the communication/chain of command systems by cutting features listed in the Section 7 "When I fall behind" segment. (i.e I will cut the advanced calendar features first to give me more time to focus on the communication system) |
 | R3 | Computer Failure or Data Loss | L | L | Updated Project files are only on my computer and have not been uploaded to the GitHub Repository | Always upload my files to the repository after every project work session |
 
 ## 7. Working agreement
