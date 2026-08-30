@@ -1,13 +1,6 @@
-# AI Usage Log — <project name>
+# AI Usage Log — Acountabilibuddy
 
-<!--
-  Milestone 1 template. Copy this file into your repository as docs/ai-usage.md.
-  The policy header is written ONCE, in Week 1, before you need it. The table
-  grows one row per Amber-zone use, all semester, written the day it happens.
-  This file is a required artifact in the Week 16 submission.
--->
-
-**Owner:** <name> · **Policy set:** <YYYY-MM-DD> · **Last entry:** <YYYY-MM-DD>
+**Owner:** Liam Pheng · **Policy set:** <2026-08-30> · **Last entry:** <2006-08-30>
 
 ## Policy
 
@@ -22,8 +15,8 @@ without the tool in front of me, it does not go in.
 
 | Tool / product | Model or version, as best I can name it | What I will use it for | What I will never use it for |
 |---|---|---|---|
-| | | | |
-| | | | |
+| ChatGPT | 5.6-Luna | Debugging Code and Proofreading documentation | Writing my code or writing my documentation |
+| GitHub CoPilot | 1.388.x Visual Studio Extension | Assist in Code generation | Completely write my code or documentation |
 
 ### Zones
 
