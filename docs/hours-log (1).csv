@@ -1,0 +1,9 @@
+date,start,end,hours,phase,hat,task,estimate_hours,blocked_hours,notes
+2026-09-07,19:00,21:15,2.25,inception,project-manager,create repo + scaffold docs/ tree,1.50,0.00,underestimated .gitignore research
+2026-09-08,20:00,21:00,1.00,inception,project-manager,board columns + WIP limit + 6 cards,1.00,0.00,
+2026-09-09,17:00,18:30,1.50,inception,project-manager,read chapter 1 + on-page quiz,1.50,0.00,
+2026-09-10,17:30,20:30,3.00,inception,project-manager,draft charter: purpose + constraints,2.00,0.50,blocked 30m on institution GitHub SSO
+2026-09-11,09:00,10:30,1.50,inception,release-engineer,clean-clone repo into a fresh cloud environment,1.00,0.00,worked first try
+2026-09-11,13:00,14:00,1.00,inception,project-manager,AI policy header + first 2 ai-usage entries,0.75,0.00,
+2026-09-12,13:00,16:00,3.00,inception,project-manager,charter non-goals + risks; rewrote purpose,2.00,0.00,rework: first purpose statement was unverifiable
+2026-09-13,10:00,11:45,1.75,inception,project-manager,calendar-block 15 wks; move week-11 hours forward,1.00,0.00,two weeks are already broken (fall break + OS midterm)
