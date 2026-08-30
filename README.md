@@ -24,8 +24,8 @@ This repository has been organized into several folders which are crucial to lat
 - **LICENSE** = This is where the project license is held
 - **README.md** = This is what you are reading right now! It is a detailed explanation and instruction manual of how to operate the software and navigate the repository. It is also an updated notification log discussing the Project Progress
 
-**Project Board**
-/n This can be navigated to by clicking the "Projects" tab on the top of the repository menu. This project board shows what is currently being worked on, what has been completed, and what future features are planned to be added.
+**Project Board**: 
+This can be navigated to by clicking the "Projects" tab on the top of the repository menu. This project board shows what is currently being worked on, what has been completed, and what future features are planned to be added.
 
 ### What is Missing
 This project is still within the Inception phase, so a lot of the folders only contain README.md files which are placeholders for later projects. 
