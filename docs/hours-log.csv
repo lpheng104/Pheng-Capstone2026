@@ -1,2 +1,2 @@
 date,start,end,hours,phase,hat,task,estimate_hours,blocked_hours,notes
-2026-09-30,10:30,13:30,3.00,inception,project-manager,create repo + scaffold docs/ tree,3.00,0.00,underestimated .gitignore research
+2026-09-30,10:30,13:30,3.00,inception,project-manager,create repo + scaffold docs/ tree,3.00,0.00,underestimated charter development time
