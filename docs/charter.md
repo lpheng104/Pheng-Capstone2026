@@ -1,6 +1,6 @@
-# Project Charter — <Liam Pheng>
+# Project Charter — Liam Pheng
 
-**Owner:** <Liam Pheng> · **Course:** Capstone-Fall2026 · **Started:** <2026-08-30> · **Last revised:** <2026-08-30>
+**Owner:** Liam Pheng · **Course:** Capstone-Fall2026 · **Started:** <2026-08-30> · **Last revised:** <2026-08-30>
 
 ## 1. Purpose
 
@@ -62,4 +62,4 @@ My goal for this Capstone project is to create and develop a project by followin
 I have counted the cost of this work as honestly as I can today, and I accept the
 schedule above.
 
-<Liam Pheng>, <2026-08-30>
+Liam Pheng, <2026-08-30>
