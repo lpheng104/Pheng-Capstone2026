@@ -2,11 +2,11 @@
 
 ### Three Candidate Ideas
 1. Military Focused Accountability Tracker
-| For |  |
-| Who |---|
-| the problem is |---|
-| which costs |---|
-| today they |---|
-| which falls short because |---|
+| For | Military Echelons/Units |
+| Who | |
+| the problem is | |
+| which costs | |
+| today they | |
+| which falls short because | |
 
 2. 
