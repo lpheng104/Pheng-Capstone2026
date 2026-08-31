@@ -1,7 +1,7 @@
 # Week 2 - Product Owner
 
 ### Three Candidate Ideas
-1. Military Focused Accountability Tracker
+Military Focused Accountability Tracker
    Summary: A military communication web app that will be used to push out important information, track upcoming events, and allow leaders and soldiers to communicate through a standardized military unit application. 
 | Category | Description |
 |---|---|
@@ -13,4 +13,3 @@
 | **Today They** | Military units typically designate one or more existing communication applications for distributing information while in garrison. **Specific example:** Alpha Company, 2nd Platoon, may decide to use GroupMe as its primary platform for distributing information to platoon members. |
 | **Which Falls Short Because** | Standardization can differ between units and organizational levels, causing information to exist across multiple applications and group chats. **Specific example:** 2LT Joe Snuffy may use GroupMe to communicate with his platoon, while his Company Commander uses Microsoft Teams to communicate with the company, and squad leaders use another platform for their squads. As a result, information, tasks, and accountability data can become distributed across multiple applications, increasing the possibility of missed, outdated, or conflicting information. |
 
-2. 
