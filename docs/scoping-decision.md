@@ -7,7 +7,7 @@
 
 Summary: A military communication web app that will be used to push out important information, track upcoming events, and allow leaders and soldiers to communicate through a standardized military unit application. 
 | Category | Description | Specific Example |
-|---|---|
+|---|---|---|
 | **Software Type** | Web Application | |
 | **For** | Leaders within military units, including Team Leaders, Squad Leaders, Platoon Leaders, Company Commanders, and Battalion Commanders. | 2LT Joe Snuffy, a new Infantry Platoon Leader, needs to push information to his subordinate leaders, such as squad and team leaders. |
 | **Who** | Information and orders are not always distributed through the same platform while soldiers are in garrison, and there is no single standardized communication application. | 2LT Joe Snuffy needs to distribute a Platoon OPORD, but his unit may use several communication channels, including Microsoft Teams, Signal, GroupMe, and text messaging. Joe Snuffy and his PSG, SFC John Smith, must determine which platform should be used to distribute the information. |
