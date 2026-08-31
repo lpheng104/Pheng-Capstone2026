@@ -1,13 +1,15 @@
 # Week 2 - Product Owner
 
 ### Three Candidate Ideas
-Military Focused Accountability Tracker
-| Header 1 | Header 2 |
+1. **Military Focused Accountability Tracker**
+   Summary: A military communication web app that will be used to push out important information, track upcoming events, and allow leaders and soldiers to communicate through a standardized military unit application. 
+| Software Type | Web Application |
 | --- | --- |
-| | |
-| | |
-| | |
-| | |
-| | |
+| For | Leaders within military Units, Team Leaders, Squad Leaders, Platoon Leaders, Company Commanders, Battalion Commanders (specific example: 2LT Joe Snuffy, a new Infantry Platoon Leader within the Army who is trying to push out information and orders to his subordinate leaders (i.e squad and team leaders)) |
+| Who | Information and Orders are not always pushed out in the same place while soldiers are in garrison and there is no standardized Army communication app. (specific example: 2LT Joe Snuffy needs to push out the PLT OPORD to his Platoon, but there are several communication channels and not a set standard to choose from; Microsoft Teams, Signal Chat, GroupMe, Text Messaging. 2LT Joe Snuffy and his PSG SFC John Smith are trying to figure out a standardized medium to push out their PLT OPORD |
+| The Problem Is | There is not a set Communication application for Leaders within the Military and Specifically the Army (specific example: 2LT Joe Snuffy would say that not having a set standardized application, specifically built with a focus on inter military communication. This issue causes confusion and missed messages across 2LT Snuffy's platoon, leading to soldiers missing events or not bringing the correct equipment. Also not having a singular method of communication leads to missed information in some apps and a non consolidated location of information and accountability tracking |
+| Which Costs | Repeated information across different Applications and verbal reminders take up un-needed time. (specific example: Joe Snuffy has to spend an additional hour per week rewriting and resending OPORDs, CONOPs, DRAWs, and FRAGOs. Having several different communication apps and not a singular standardized central communication app and information location causes misinformation or outdated orders to confuse soldiers within squads and platoons. This leads soldiers to show up at wrong times, wear wrong uniforms, or not have the right equipment. These all cause substantial costs in time |
+| Today They | Military Units have to designate a singular communication app for soldiers in garrison and the pushing of information. (specific example Alpha Company, 2nd Platoon, under the command of 2LT Joe Snuffy have decided that they will use Group Me to push out information |
+| Which Falls Short Because | Standardization is not the same for all units which leads to information being in multiple applications and group chats. (specific example: 2LT Joe Snuffy uses Group Me to push out information to his Platoon, but his Company Commander uses Microsoft Teams to push information out to the Company. Additionally, 2LT Joe Snuffy's squad leaders use Microsoft Teams to push out information to their squads. This means that 2LT Snuffy's orders, information, and accountability data will be spread out across three separate apps leading to confusion and potential misinformation |
 
 2. 
