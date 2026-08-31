@@ -17,6 +17,7 @@ Summary: A military communication web app that will be used to push out importan
 | **Which Falls Short Because** | Standardization can differ between units and organizational levels, causing information to exist across multiple applications and group chats. | 2LT Joe Snuffy may use GroupMe to communicate with his platoon, while his Company Commander uses Microsoft Teams to communicate with the company, and 2LT Snuffy's squad leaders use Signal Chat for their squads. As a result, information, tasks, and accountability data can become distributed across multiple applications, increasing the possibility of missed, outdated, or conflicting information. |
 
 
+
 **Second Candidate Idea**
 
 Summary: 
@@ -29,6 +30,7 @@ Summary:
 | **Which Costs** | | |
 | **Today They** | | |
 | **Which Falls Short Because** | | |
+
 
 
 **Third Candidate Idea**
