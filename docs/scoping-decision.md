@@ -1,7 +1,7 @@
 # Week 2 - Product Owner
 
 ### Three Candidate Ideas
-Military Focused Accountability Tracker
+Military Focused Accountability Tracker "\n"
    Summary: A military communication web app that will be used to push out important information, track upcoming events, and allow leaders and soldiers to communicate through a standardized military unit application. 
 | Category | Description |
 |---|---|
