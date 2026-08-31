@@ -2,7 +2,6 @@
 
 ### Three Candidate Ideas
 Military Focused Accountability Tracker
-| Constraint | My reality |
 |---|---|
 | Hours available per week | 15 - 20 Depending on Part-Time Internship hours (20 Hours/Week) and Army ROTC Related Activities (Varies between 15-20 Hours/Week)|
 | Total hours budgeted | 240 |
