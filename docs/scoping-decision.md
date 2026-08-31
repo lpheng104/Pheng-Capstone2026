@@ -1,7 +1,7 @@
 # Week 2 - Product Owner
 
 ### Three Candidate Ideas
-1. Military Focused Accountability Tracker
+Military Focused Accountability Tracker
 | For | Military Echelons/Units |
 | Who | |
 | the problem is | |
