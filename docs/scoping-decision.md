@@ -5,7 +5,7 @@
 
 **Military Focused Accountability Tracker**
 
-Summary: A military communication web app that will be used to push out important information, track upcoming events, and allow leaders and soldiers to communicate through a standardized military unit application. 
+Concept Summary: A military communication web app that will be used to push out important information, track upcoming events, and allow leaders and soldiers to communicate through a standardized military unit application. 
 | Category | Description | Specific Example |
 |---|---|---|
 | **Software Type** | Web Application | |
@@ -20,7 +20,7 @@ Summary: A military communication web app that will be used to push out importan
 
 **Price Comparison Software**
 
-Summary: A web application that finds the same exact product across multiple different online retailers to find the best price for the consumer
+Concept Summary: A web application that finds the same exact product across multiple different online retailers to find the best price for the consumer
 | Category | Description | Specific Example |
 |---|---|---|
 | **Software Type** | Web Application | |
