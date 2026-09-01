@@ -33,15 +33,15 @@ Concept Summary: A web application that finds the same exact product across mult
 
 
 
-**Third Candidate Idea**
+**Group Project Management System**
 
-Summary: 
+Summary: A Web Application that is used for school group projects to track contributions, commits, and progress of the group
 | Category | Description | Specific Example |
 |---|---|---|
-| **Software Type** | | |
-| **For** | | |
-| **Who** | | |
-| **The Problem Is** | | |
-| **Which Costs** | | |
-| **Today They** | | |
-| **Which Falls Short Because** | | |
+| **Software Type** | Webb Application | |
+| **For** | Groups of Students working on a collaborative project | Four Business students have been given a group project to work on |
+| **Who** | When individual group members don't contribute and the others have to pick up the slack | One of the four students decides they don't want to contribute to the group project and decides to not do their part |
+| **The Problem Is** | Individuals not contributing or not putting in work forces others to have to do the work for them | The other three students have to do more work to compensate and get the project completed |
+| **Which Costs** | Extra time and effort is required to make up for the slackers lack of contributions | The other three students have to put in an additional three hours of work to make up for their partner's slack |
+| **Today They** | Students have to put in extra work and have to inform professors and teachers about the slackers | The three good working students complete the project after putting in extra work and inform their teacher about the slacker |
+| **Which Falls Short Because** | There is no documentation of contributions and professors do not always grade slackers differently | The students are not able to get more credit than the slacker because there is no documentation of group contributions or work distribution |
