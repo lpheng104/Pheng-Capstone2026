@@ -10,7 +10,7 @@
 
 ## 2. Evidence a user exists
 
-Interviewed LC HS EH / BN Commander, BN S3, BN XO on <2026-09-04>, <N> 30, past-tense questions only.
+Interviewed LC HS EH / BN Commander, BN S3, BN XO on <2026-09-04>, <N> 30 minutes     past-tense questions only.
 Full write-up in `docs/interviews/<YYYY-MM-DD>-<initials>.md`.
 
 1. "<The non uniformity of communication in units is a prevalent issue I've seen throughout all units I've been a part of (c/LTC Lionel Carapia)>"
