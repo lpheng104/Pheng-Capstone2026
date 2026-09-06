@@ -1,7 +1,7 @@
 # Idea Canvas — Candidate <B>
 
 **Candidate name:** <Pricey>
-**Date started:** <2026-08-31>   **Well it came from:** <Online Shopping Experience>
+**Date started:** <2026-08-31>   **Well it came from:** Online Shopping Experience
 
 ---
 
