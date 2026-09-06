@@ -1,7 +1,17 @@
 # Project Status: Inception Phase
 **Owner:** Liam Pheng |
-**Project Name:** Accountabilibuddy | **Last Update** <2026-08-30>
+**Project Name:** Accountabilibuddy | **Last Update** <2026-09-06>
 
+## What's New 
+- Added scoping decision
+- Added Hours Report function in .github/workflows
+- Added three candidate Ideas in /docs/ideas
+- Added dependency-evidence in /docs/evidence
+
+## Fixes
+- None
+
+***
 # Table of Contents
 1. Introduction
 2. How to Navigate
@@ -29,13 +39,3 @@ This can be navigated to by clicking the "Projects" tab on the top of the reposi
 
 ### What is Missing
 This project is still within the Inception phase, so a lot of the folders only contain README.md files which are placeholders for later projects. 
-
-## What's New 
-- Added Project Charter
-- Added Hours-Log
-- Created Project Board
-- Added AI-usage log
-- Created and Updated README.md
-
-## Fixes
-- None
