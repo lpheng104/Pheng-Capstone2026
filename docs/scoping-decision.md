@@ -45,3 +45,7 @@ Summary: A Web Application that is used for school group projects to track contr
 | **Which Costs** | Extra time and effort is required to make up for the slackers lack of contributions | The other three students have to put in an additional three hours of work to make up for their partner's slack |
 | **Today They** | Students have to put in extra work and have to inform professors and teachers about the slackers | The three good working students complete the project after putting in extra work and inform their teacher about the slacker |
 | **Which Falls Short Because** | There is no documentation of contributions and professors do not always grade slackers differently | The students are not able to get more credit than the slacker because there is no documentation of group contributions or work distribution |
+
+
+
+### Interview With Military Leadership
