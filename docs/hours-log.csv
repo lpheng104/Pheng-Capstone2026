@@ -6,3 +6,4 @@ date,start,end,hours,phase,hat,task,estimate_hours,blocked_hours,notes
 2026-09-02,10:36,12:24,1.75,inception,product owner, idea portfolio & scoping, 3.00,0.00, interviewed one user case and documented in in word
 2026-09-04,15:23,18:07,2.75,inception,product owner, idea portfolio & scoping, 3.00,0.00, start working on the call and added /hours_report.py and .git workflows
 2026-09-05,10:03,13:38,3.50,inception,product owner, idea portfolio & scoping, 3.00,0.00, continue working on call
+2026-09-05,10:35,00:00,0.00,inception,product owner, idea portfolio & scoping, 3.00,0.00, n/a
