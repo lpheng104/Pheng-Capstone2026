@@ -1,9 +1,4 @@
-# Idea Canvas — Candidate <A>
-
-Copy this file once per candidate into your repository as `docs/ideas/candidate-a.md`
-(then `-b`, `-c`). Fill every field. A blank field is an answer: it means you do not
-know yet, and that is exactly what this page is for. Delete the bracketed guidance
-as you go.
+# Idea Canvas — Candidate A
 
 **Candidate name:** <Acountabilibuddy>
 **Date started:** <2026-08-31>   **Well it came from:** <Military Experience working under Army Reserves, USACC, and Army ROTC>
