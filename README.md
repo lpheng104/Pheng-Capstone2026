@@ -13,11 +13,11 @@
 
 ***
 # Table of Contents
-1. Introduction
-2. How to Navigate
-3. What is Missing
-4. What has been Added
-5. Fixes
+1. What has been Added
+2. Fixes
+3. Introduction
+4. How to Navigate
+5. What is Missing
 
 ### Introduction
 This repository was built by Liam Pheng, a Senior at Concordia University-Wisconsin, for his Senior Capstone Project. When completed, this will be the repository of a Military Focused Communication and accountability app, with text chat and calendar event features. 
