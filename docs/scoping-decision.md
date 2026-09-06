@@ -1,4 +1,4 @@
-# Scoping Decision — <Acountabilibuddy>
+# Scoping Decision — Acountabilibuddy
 
 **Author:** Liam Pheng  ·  **Date:** <2026-09-06>  ·  **Course week:** 2
 
@@ -84,8 +84,7 @@ Another big trade off that the users will have to endure is the role based permi
 | 15–16 | Presentation + delivery | 30 |
 | | **Total** | **240** |
 
-<One sentence: does your construction total fit inside the 60/75 line, and what did
-you cut to make it fit?>
+<My plan and set hours work, but I do have an additional 20 hours of features that I potentially want to add. I was very generous and allocated a lot of extra hours to developing the core features. I am hoping that I will complete those objectives a lot quicker than I anticipate leaving me time to add additional features.>
 
 ## 9. The one hard part
 
