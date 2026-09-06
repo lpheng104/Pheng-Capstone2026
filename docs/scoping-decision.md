@@ -1,4 +1,5 @@
 # Week 2 - Product Owner
+***
 
 ### Three Candidate Ideas
 
