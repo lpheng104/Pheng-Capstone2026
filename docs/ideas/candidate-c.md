@@ -34,14 +34,14 @@ Summary: A Web Application that is used for school group projects to track contr
 
 | # | Feature (one vertical slice each) | Hours |
 |---|---|---:|
-| 1 | API Connection to Online Retailers | 15 |
-| 2 | Product Scanner for same or similar products across different APIs | 15 |
-| 3 | Log in creation and profile management | 10 |
-| 4 | Price calculator algorithm | 2 |
-| 5 | Web Page scanner for product | 5 |
+| 1 | User Creation and profile management | 10 |
+| 2 | Create and join groups function | 15 |
+| 3 | Shared document upload and work progress tracker | 15 |
+| 4 | Task creation and assigning | 5 |
+| 5 | Progress Tracker | 5 |
 | | Walking skeleton + CI | 10 |
 | | Deployment + clean-machine test | 10 |
-| | **Construction total** | 67 |
+| | **Construction total** | 70 |
 
 Budget: plan on **60 hours**, hard ceiling **75**. Above 75 you are borrowing from
 testing and documentation, which are graded.
@@ -87,4 +87,4 @@ testing and documentation, which are graded.
 
 ## 8. If this candidate is rejected
 
-<The biggest reason why this project would be or is rejected is the difficulty of tracking user edits and contributions to different types of files from an outside web application. It will be very difficult to have >
+<The biggest reason why this project would be or is rejected is the difficulty of tracking user edits and contributions to different types of files from an outside web application. It will be very difficult to have the application track who is contributing when and where. I don't believe it would be very easy to carry those features over to a GitHub like application that can determine the work of each group member in different shared documents or powerpoints. >
