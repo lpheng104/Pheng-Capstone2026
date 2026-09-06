@@ -49,3 +49,7 @@ Summary: A Web Application that is used for school group projects to track contr
 
 
 ### Interview With Military Leadership
+## date <09/04/2026>
+## Interviewees: c\LTC Battalion Commander Lionel Carapia, c\MAJ Battalion S3 Hunter Szymborski, and c\MAJ Battalion Executive Officer Estella Hageman
+
+
