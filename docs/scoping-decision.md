@@ -59,14 +59,15 @@ leaves slack, and what happens if it does not.>
 
 ## 6. Accepted tradeoffs
 
-<Any place you deliberately chose a cheaper design that costs the user something.
-Name the cost. Name why you accepted it. Name what would make you revisit.>
+<One big tradeoff that I have chosen for this project is to utilize a web based application rather than a mobile app due to my unfimilarity with both Android and IOS app development. This will help reduce the development time but might hurt the user experience a little bit because I wasn't comfortable having to learn IOS and/or Android app development during the 240 hour project window. This tradeoff is acceptable however, because both chat features and calendar/event accountability can be performed through a web based application.     
+
+Another big trade off that the users will have to endure is the role based permission system I want to integrate. Not all users will have administrative permissions to create or add events to the unit calendar and some users will only have the privileges to read events and write in their own squad chats. The trade off of denying the majority of users these privileges and permissions stem from the need of a military based organizational command chain.>
 
 ## 7. Rejected candidates
 
 **Rejected: Pricey.** <It failed the Get gate because it isn't plausible to get access to all the online retailer APIs as it would cost me a small fortune. Although very useful and has a much wider audience than Acountabilibuddy, I don't believe that it would be possible to make>
 
-**Rejected: <name>.** <Same.>
+**Rejected: Group Project Management.** <It failed the build gate because of the amount of novelty technology I would have to learn in order to complete the project. I don't think I would be able to accurately manage both learning the new technology required as well as spending time putting together the group management software within the allocated 240 hours. While I think that the application has a much broader range of use as it can be applied in all levels of education, I just think that the project is too ambitious for 240 hours.>
 
 ## 8. Hour budget, reconciled
 
@@ -88,18 +89,19 @@ you cut to make it fit?>
 
 ## 9. The one hard part
 
-<Name exactly one. Two sentences on what makes it hard. This is what you will talk
-about for ten minutes in Week 16.>
+<The biggest challenge that I forsee in the developing of this project will undoubtedly be developing and managing the roles and permissions of different users. I want to ensure that only administrative/leadership positions are able to create and track accountability data for calendar events. I don't exactly know how I am going to implement non privileged users to access, view, and acknowledge the calendar events while not allowing them to read or write. It is definitely a system I am going to have to develop overtime and put an additional amount of hours into. I am anticipating putting at least 10 hours into developing the role/rank system to develop the chain of command features of the web application. >
 
 ## 10. Risks and the scope-cut trigger
 
-| Risk | Likelihood | What it costs me | Early warning sign |
-|---|---|---|---|
-| | | | |
-| | | | |
+| # | Risk | Likelihood (L/M/H) | Impact (L/M/H) | Early warning sign | What I will do |
+|---|---|---|---|---|---|
+| R1 | Procrastination | L | H | Putting Less than 15 hours a week and starting Milestones late | Dedicate more hours from the following weeks to make up and catch up to the 24o hour milestones. (i.e if I procrastinate on week 7 and only put in 9 hours, Week 8 will have 6 additional hours to make up for the lost time. I will find more time by cutting non-essential/mandatory extracurricular activities, (i.e going out with friends, playing video games, or going to the Gym |
+| R2 | Project Becomes too Big for 16 Weeks | L | M | Towards weeks 10 - 12 I have not developed the calendar based system for accountability tracking or I am not completed all the functions and features of the Interpersonal communication/text focus of inter-echelon communication | Put an emphasis on finishing and refining the communication/chain of command systems by cutting features listed in the Section 7 "When I fall behind" segment. (i.e I will cut the advanced calendar features first to give me more time to focus on the communication system) |
+| R3 | Computer Failure or Data Loss | L | L | Updated Project files are only on my computer and have not been uploaded to the GitHub Repository | Always upload my files to the repository after every project work session |
 
-**Scope-cut trigger.** If <a checkable condition> by <a real date>, I will cut
-<feature> first, then <feature>. Decided now, in advance, so I do not have to decide
+
+**Scope-cut trigger.** If I don't have the chat and rank/role features completed by October 30th, 2026, I will cut
+Profile Customization first, then The public document access feature, followed by FRAGO system, and Backbrief assignments and submissions. Decided now, in advance, so I do not have to decide
 it while panicking.
 
 ---
