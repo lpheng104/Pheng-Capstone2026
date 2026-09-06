@@ -52,7 +52,7 @@ testing and documentation, which are graded.
 
 ## 4. Out of scope — will NOT be built
 
-<1. Mobile App       
+1. Mobile App       
 2. Single Sign-on verification     
 3. Email or text notifications     
 4. User location tracking     
@@ -60,7 +60,7 @@ testing and documentation, which are graded.
 6. Social Media platform     
 7. Voice Calling   
 8. Video Calling    
-9. Integration with other apps (i.e Microsoft Teams, Signal, GroupMe, etc.    >
+9. Integration with other apps (i.e Microsoft Teams, Signal, GroupMe, etc.    
 
 ## 5. Feasibility screen
 
@@ -69,7 +69,16 @@ testing and documentation, which are graded.
 | **Build** — novelty load 2 | pass | <Python (known), HTML (known), MongoDB (unkown), Render (unknown) |
 | **Get** — every dependency exercised for real | pass | <MongoDB Capstone Cluster created, 2026-09-06> |
 | **Ship** — Render has been selected as my deployment method, terms read | pass | <Render + pricing page read on 2026-09-06> |
-| **Show** — a stranger sees it work in 10 minutes | pass | <1. Create User Account 2. Log in and view your unit chats 3. Click on calendar to open up future events 4. View events coming up 5. click on event manager to determine additional information about events 6. Open unit chat to communicate with echelon 7. respond to messages, orders, and information 8. log out> |
+| **Show** — a stranger sees it work in 10 minutes | pass | <1. Open the deployed Accountability Buddy web application.
+2. Create a user account.
+3. Log in and view the user's assigned unit.
+4. Open the unit chat.
+5. View the unit roster and member information.
+6. Send a message or piece of information to the unit.
+7. Open the calendar and view upcoming unit events.
+8. Open an event and view its additional information, such as location, uniform, or required equipment.
+9. Mark attendance/accountability for the event.
+10. Log out and demonstrate that the application returns to the login screen.> |
 
 **Technologies:** <Python> (known) · <MongoDB> (new) · <Render> (new)
 **Novelty load:** <2>
@@ -82,15 +91,13 @@ testing and documentation, which are graded.
 
 | Criterion | (w) | Score | Weighted |
 |---|---:|---:|---:|
-| Evidence a user exists | 3 | | |
-| Fits ~45 hours of features | 3 | | |
-| Novelty load | 2 | | |
-| Dependencies verified | 2 | | |
-| Demonstrable in ten minutes | 1 | | |
-| **Total (max 55)** | | | |
+| Evidence a user exists | 3 | 5 | 15 |
+| Fits ~45 hours of features | 3 | 4 | 12 |
+| Novelty load | 2 | 3 | 6 |
+| Dependencies verified | 2 | 5 | 10 |
+| Demonstrable in ten minutes | 1 | 5 | 5 |
+| **Total (max 55)** | | | 48 |
 
 ## 8. If this candidate is rejected
 
-<Write the rejection paragraph NOW, while you still like the idea. Name the gate it
-failed, the number that killed it, and the condition under which you would revisit
-it — or say plainly that it is closed, not deferred.>
+<The biggest reason why I would not or did not select this project idea is because of the 2 unknown technologies most likely put in place to use develop it. I am unfamiliar with both MongoDB and Render which after research are two of the best technologies to utilize when creating a web application. MongoDB is a great database for my proposed web application and Render is a great way to deploy the system. However, I am unfamiliar with both of these systems and I don't know if the time allocated to learning them will hinder the progress and stop progress on this project>
