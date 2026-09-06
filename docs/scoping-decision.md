@@ -18,9 +18,6 @@ Full write-up in `docs/interviews/<YYYY-MM-DD>-<initials>.md`.
   3. "<The biggest issue I'm seeing with it (Microsoft Teams) is that it wasn't built specifically for military use so it lacks some features and abilities that would make pushing out information and sending orders up and down the chain of command way more convenient (c/MAJ Estella Hageman)>"
 - **The workaround they already use:** <Unit communication app is designated (i.e Microsoft Teams)>
 
-<If your project has no user but you, say so here in one sentence and substitute a
-competitive scan of at least three existing tools. Do not invent a user.>
-
 ## 3. Chosen scope — Must features
 
 | # | Feature (one vertical slice each) | Hours |
@@ -34,8 +31,7 @@ competitive scan of at least three existing tools. Do not invent a user.>
 | | Deployment + clean-machine test | 10 |
 | | **Construction total** | 65 |
 
-Plan: 60 hours. Hard ceiling: 75. My number: <N>. <One sentence saying whether that
-leaves slack, and what happens if it does not.>
+Plan: 60 hours. Hard ceiling: 75. My number: 65 . <My project is a total of 65 hours which leaves around 10 before I hit the hard ceiling. This means that I have about 10 hours of wiggle room incase things take longer than expected or I want to add the additional features listed below. >
 
 ## 4. Should features — built only if there is room
 | # | Feature (one vertical slice each) | Hours |
