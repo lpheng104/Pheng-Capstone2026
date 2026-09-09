@@ -1,4 +1,4 @@
-# Software Requirements Specification — <Your Project Name>
+# Software Requirements Specification — Acountabilibuddy
 
 <!--
 COPY THIS FILE into your repository as docs/requirements.md and delete every
@@ -8,8 +8,8 @@ Requirement IDs are FR-<AREA>-<nn>. Assign an ID once and never reuse it.
 Retire an ID by marking it Withdrawn; do not renumber.
 -->
 
-**Author:** <name>  **Version:** 1.0  **Date:** <YYYY-MM-DD>
-**Status:** Draft | In review | Baselined
+**Author:** Liam Pheng  **Version:** 1.0  **Date:** <2026-09-09>
+**Status:** Draft <!--| In review | Baselined -->
 
 ---
 
