@@ -23,6 +23,9 @@ Retire an ID by marking it Withdrawn; do not renumber.
 
 | Persona | Who they are | What they need from the system | Evidence they exist |
 |---|---|---|---|
+| Liam Pheng, 21, Maintainer/develoepr> | Creator and developer of Acountabilibuddy | Accountabilibuddy to be a functional project to integrate for Military use | n/a |
+| <name, age, role> | <one sentence> | <one sentence> | <interview date / observation / artifact> |
+| <name, age, role> | <one sentence> | <one sentence> | <interview date / observation / artifact> |
 | <name, age, role> | <one sentence> | <one sentence> | <interview date / observation / artifact> |
 
 Include the maintainer who inherits this repository. They are a stakeholder.
