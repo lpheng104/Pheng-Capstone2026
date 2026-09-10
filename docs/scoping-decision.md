@@ -101,11 +101,25 @@ it while panicking.
 
 ## 11. Scope Sizer output
 
-**Result:** "You will not Finish this"       
+**Scope Sizer Result:**     
+"You will not Finish this"       
 Estimated Time: 166 - 362 Hours      
 Most Likely Time: 264 Hours      
 Weekly Load: 16.5 Hours
 
+| Variable | Time Estimated|
+|---|---|
+| Inception and Scoping | 13H |
+| Requirements and Research | 24H |
+| Architecture and Design | 29H |
+| Implementation | 111H |
+| Testing & QA | 37H |
+| Deployment & Operations | 18H |
+| Documentation, Demo, & handoff | 32H |
+
+**Two Cuts that Bring it Into Range**      
+1. Cut your 2 lowest-value features and defend what is left. Each end-to-end feature you drop comes off six phases at once — design, code, tests, docs, demo, support — not just off coding. −≈33 h
+2. Ship it single-tenant: one seeded account, no self-registration, no role matrix. Document multi-user auth as designed-but-not-built. A scoped omission you can explain beats a half-built login you cannot. −≈33 h
 
 ---
 
