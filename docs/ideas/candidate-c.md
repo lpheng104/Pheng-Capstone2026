@@ -62,13 +62,13 @@ testing and documentation, which are graded.
 
 | Gate | Verdict | Evidence (dated) |
 |---|---|---|
-| **Build** — novelty load 2 | pass | <Python (known), HTML (known), MongoDB (unkown), Render (unknown) |
+| **Build** — novelty load 3 | fail | <Python (known), HTML (known), MongoDB (unkown), Render (unknown), Microsoft365 API (unknown) |
 | **Get** — every dependency exercised for real | pass | <MongoDB Capstone Cluster created, 2026-09-06> |
 | **Ship** — Render has been selected as my deployment method, terms read | pass | <Render + pricing page read on 2026-09-06> |
 | **Show** — a stranger sees it work in 10 minutes | pass | <1. Create an account with user name and password 2. log in using new login credentials 3. access your group projects page 4. if empty click "create new group project" 5. share project with other users/classmates 6. assign tasks for others and yourself to do 7. click commits tab and track what work is being done and who has contributed 8. hit contributions tab and see the percentage of work each contributor has provided 9. look at the project to do list and start working on your tasks 9. check your commits page to see what you've been doing has been documented 10. log out for the day > |
 
-**Technologies:** <Python> (known) · <MongoDB> (new) · <Render> (new)
-**Novelty load:** <2>
+**Technologies:** <Python> (known) · <MongoDB> (new) · <Render> (new) · <Microsoft365 API> (new)
+**Novelty load:** <3>
 
 ## 6. The one hard part
 
