@@ -94,10 +94,18 @@ Another big trade off that the users will have to endure is the role based permi
 | R2 | Project Becomes too Big for 16 Weeks | L | M | Towards weeks 10 - 12 I have not developed the calendar based system for accountability tracking or I am not completed all the functions and features of the Interpersonal communication/text focus of inter-echelon communication | Put an emphasis on finishing and refining the communication/chain of command systems by cutting features listed in the Section 7 "When I fall behind" segment. (i.e I will cut the advanced calendar features first to give me more time to focus on the communication system) |
 | R3 | Computer Failure or Data Loss | L | L | Updated Project files are only on my computer and have not been uploaded to the GitHub Repository | Always upload my files to the repository after every project work session |
 
-
 **Scope-cut trigger.** If I don't have the chat and rank/role features completed by October 30th, 2026, I will cut
 Profile Customization first, then The public document access feature, followed by FRAGO system, and Backbrief assignments and submissions. Decided now, in advance, so I do not have to decide
 it while panicking.
+
+
+## 11. Scope Sizer output
+
+**Result:** "You will not Finish this"       
+Estimated Time: 166 - 362 Hours      
+Most Likely Time: 264 Hours      
+Weekly Load: 16.5 Hours
+
 
 ---
 
