@@ -24,6 +24,9 @@ Retire an ID by marking it Withdrawn; do not renumber.
 | Persona | Who they are | What they need from the system | Evidence they exist |
 |---|---|---|---|
 | Liam Pheng, 21, Maintainer/develoepr> | Creator and developer of Acountabilibuddy | Accountabilibuddy to be a functional project to integrate for Military use | n/a |
+| <Lionel Carapia, 21, Administrative/leadership user/Primary user> | c/Battalion Commander GEB 3BDE USACC | The ability to consolidate orders and information in one place | <09-04-2026 / "Definitely, right now the spreadsheets are all over the place and if we could put them in the same place and have the ability to check off as we go would be huge" / /docs/interviews/<09-04-2026>-<LC HS EH>.md> |
+| <Jack Malenock, 20, Administrative/leadership user/Primary user> | c/Squad Leader 1SQD 2PLT A CO GEB 3BDE USACC | Chain of Command restrictions on who users are allowed to contact based off of rank and status | <09-09-2026 / "I would like to see a feature where chain of command is enforced and joe's (regular soldiers/privates) are unable to skip myself in the chain of command and directly talk to the PL or PSG."  / /docs/interviews/<09-09-2026>-<JM>.md> |
+| <Moucheng (Thomas) Yang, 20, Non leadership user/ recipient of information/ end user > | GRN 1SQD 1PLT B CO GEB 3BDE USACC | The ability to communicate with squad leader and track upcoming squad events | <09-09-2026 / "Develop something with chat communication and event tracking" / /docs/interviews/<09-09-2026>-<TY>.md> |
 | <name, age, role> | <one sentence> | <one sentence> | <interview date / observation / artifact> |
 | <name, age, role> | <one sentence> | <one sentence> | <interview date / observation / artifact> |
 | <name, age, role> | <one sentence> | <one sentence> | <interview date / observation / artifact> |
