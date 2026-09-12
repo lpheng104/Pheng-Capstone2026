@@ -38,6 +38,7 @@ Define every term your requirements use in a project-specific sense. If a reader
 could interpret a word two ways, it belongs here.
 
 | **Term** | **Definition in this document** |
+|---|---
 | User | Someone who uses Acountabilibuddy and has created an account |
 | Unit | A military group of soldiers ranging from the smallest team (4 people) to a battalion Brigade (3,000-5,000 people) |
 | Echelon | another fancy word for unit |
