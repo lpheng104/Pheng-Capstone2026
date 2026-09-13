@@ -1,12 +1,12 @@
 # Project Status: Inception Phase
 **Owner:** Liam Pheng |
-**Project Name:** Accountabilibuddy | **Last Update** <2026-09-06>
+**Project Name:** Accountabilibuddy | **Last Update** <2026-09-13>
 
 ## What's New 
-- Added scoping decision
-- Added Hours Report function in .github/workflows
-- Added three candidate Ideas in /docs/ideas
-- Added dependency-evidence in /docs/evidence
+- Added functional requirements in /docs/requirements.md
+- Added persona interviews with Jack Malenock
+- Added persona interviews with Thomas Yang
+- Added functional requirements to project board
 
 ## Fixes
 - None
