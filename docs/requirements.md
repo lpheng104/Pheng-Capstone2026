@@ -63,8 +63,12 @@ could interpret a word two ways, it belongs here.
 
 ## 4. Assumptions and Dependencies
 
-- **Assumption:** <Accountabilibuddy can be completed as a web application> — *If false:* <consequence>
-- **Dependency:** <an external service, dataset, device, or person you rely on> — *If unavailable:* <fallback>
+- **Assumption:** Accountabilibuddy can be completed as a web application — *If false:* a lot of additionall time will be required to switch project over to mobile app development
+- **Assumption:** Users will have access and connection to the internet to access the Web app of Acountabilibuddy — *If false:* Users will not have the ability to load the database, messages, or any accountability information
+- **Assumption:** Each user will have unique login credentials — *If false:* Acountabilibuddy will have a hard time differentiating between users with the same credentials and cause database synchronization and privacy issues
+- **Dependency:** MongoDB — *If unavailable:* Use a local MongoDB instance or another compatible database solution
+- **Dependency:** Render — *If unavailable:* Deploy the application to another supported hosting service or run it locally for development and testing
+- **Dependency:** GitHub — *If unavailable:* Use another Git hosting service or maintain a local Git repository
 
 ## 5. Functional Requirements
 
@@ -93,11 +97,30 @@ with one line of reasoning. A short list here means you have not thought hard en
 
 | Not building | Why not | Revisit when |
 |---|---|---|
+| **Native Android application** | The capstone is limited to a web application to control development time | A future project has sufficient time for mobile development |
+| **Native iOS application** | Developing a second native platform would increase development and testing requirements | A future project has sufficient time and resources |
+| **Emergency communications** | Emergency communication requires reliability and availability beyond the scope of this capstone | A future system specifically designed and tested for emergency use |
+| **Microsoft Teams integration** | External integrations would increase development and dependency risk | If a future version requires integration and an accessible API is available |
+| **Signal integration** | The project does not require external messaging-platform integration | If a future version establishes a supported integration method |
+| **GroupMe integration** | External platform integration is outside the current project scope | If a future version requires it and an appropriate API is available |
+| **SMS/text notifications** | External messaging adds additional dependencies and costs | If user testing demonstrates that notifications are necessary |
+| **Voice calling** | Voice communication is not required to demonstrate the core problem or solution | If communication requirements expand in a future release |
+| **Video calling** | Video communication is not required for the core accountability workflow | If required by future users |
+| **GPS/location tracking** | Location tracking is unrelated to the core communication and accountability problem | Only if a future project establishes a legitimate requirement for it |
+| **Social networking features** | Social features do not contribute directly to the project's core communication and accountability goals | If a future release identifies a specific requirement for them |
+| **Single Sign-On** | Implementing SSO would add additional authentication and integration requirements | If the application is later integrated with an approved organizational identity provider |
+
 
 ## 8. Open Questions
 
 | # | Question | Who can answer it | Needed by |
 |---|---|---|---|
+| 1 | What specific leadership roles should be able to create and manage events? | Interviewed military leadership users | Week 4 |
+| 2 | What information should be required when creating a unit event? | Leadership users | Week 4 |
+| 3 | Should event accountability require a simple acknowledgement, or should users select a response such as attending/not attending? | Leadership and end users | Week 4 |
+| 4 | What file types should be supported as event attachments? | Leadership users | Week 4 |
+| 5 | What minimum information should appear on the leadership accountability dashboard? | Leadership users | Week 4 |
+
 
 ## 9. Document Change Log
 
