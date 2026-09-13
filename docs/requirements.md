@@ -503,4 +503,4 @@ with one line of reasoning. A short list here means you have not thought hard en
 
 | Date | Version | Change | Reason |
 |---|---|---|---|
-| <YYYY-MM-DD> | 1.0 | Initial specification | Milestone 3 |
+| <2026-09-13> | 1.0 | Initial specification | Milestone 3 |
