@@ -86,7 +86,7 @@ could interpret a word two ways, it belongs here.
 **Source:** <interview, observation, regulation, your own decision — name it>
 
 
-### FR-<ACCT>-<01> — <Account Username Creation>
+### FR-ACCT-01 — Account Username Creation
 
 **Priority:** Must 
 **Requirement:** All new users of Acountabilibuddy will be able to create a unique username in order to log into and utilize Acountabilibuddy.
@@ -98,7 +98,7 @@ could interpret a word two ways, it belongs here.
 **Source:** your own decision — I believe that creating an account and logging into the system will be the best and easiest way to assign privileges to users as well as assign rank and role.
 
 
-### FR-<ACCT>-<02> — <Account Password Creation>
+### FR-ACCT-02 — Account Password Creation
 
 **Priority:** Must 
 **Requirement:** All new users of Acountabilibuddy will be able to create a unique user account with a password in order to log into and utilize Acountabilibuddy.
@@ -110,7 +110,7 @@ could interpret a word two ways, it belongs here.
 **Source:** your own decision — I believe that creating an account and logging into the system will be the best and easiest way to assign privileges to users as well as assign rank and role.
 
 
-### FR-<ACCT>-<03> — <Account Password Change>
+### FR-ACCT-03 — Account Password Change
 
 **Priority:** Should
 **Requirement:** All users of Acountabilibuddy will be able to change their unique user account password.
@@ -121,7 +121,7 @@ could interpret a word two ways, it belongs here.
 
 **Source:** your own decision — I believe that the ability to change a password will be a quality of life feature that will greatly help the users feel secure in their ability to recover their accounts in the event of forgetting or losing password.
 
-### FR-<ACCT>-<04> — <User Login>
+### FR-ACCT-04 — User Login
 
 **Priority:** Must  
 **Requirement:** A registered user will be able to log in using their username and password and in order to access the features authorized for their assigned role/rank.
@@ -134,7 +134,7 @@ could interpret a word two ways, it belongs here.
 
 **Source:** your own decision — Requiring an account and login credentials is essential in maintaining security within Acountabilibuddy and protecting private information stored within user accounts, chat history, and privileges 
 
-### FR-<ACCT>-<05> — <User Logout>
+### FR-ACCT-05 — User Logout
 
 **Priority:** Must  
 **Requirement:** A registered user will be able to log out from the system which will end the authenticated session started at login
@@ -145,7 +145,7 @@ could interpret a word two ways, it belongs here.
   
 **Source:** your own decision — Allowing users to logout will reduce strain on the program servers and promote better security due to closing inactive user authenticated sessions. 
 
-### FR-<ACCT>-<06> — <Unique Username>
+### FR-ACCT-06 — Unique Username
 
 **Priority:** Must  
 **Requirement:**The system will prevent multiple accounts to be created with the same username
@@ -157,16 +157,309 @@ could interpret a word two ways, it belongs here.
 **Source:** your own decision — preventing the creation of multiple accounts using the same username will prevent technical errors and data loss issues 
 
 
-### FR-<UNIT>-<01> — <Unit Creation>
+### FR-UNIT-01 — Unit Creation
 
-**Priority:** Must | Should | Could | Won't (this release)
-**Requirement:** <Actor> shall be able to <action> <object> <under what condition>.
-**Rationale:** Why this exists, and which persona asked for it.
+**Priority:** Must
+**Requirement:** Administrative users shall be able to create large groups based on the unit utilizing the system
+**Rationale:** The creation of Unit groups within Acountabilibuddy will allow the transffering of information and data between large groups of users that require access to it (requested by Lionel Carapia, and Jack Malenock)
 **Acceptance criteria:**
-- Given <starting state>, when <the actor does this>, then <this observable thing is true>.
-- Given <edge or failure case>, when <trigger>, then <defined behavior>.
+- Given an administrative user needs to create a unit group to send out information, when the administrative user initiates a create group request, then the program will create an entity within the Database housing the unit and its data.
+- Given the unit creation request has been initiated and the unit entity has been created in the database, the administrative user will be asked to input the unit name, and the users that will be in the unit
+- Given the user does not have administrative privileges to create a unit, the program will reject the creation request and will not create the entity within the database. The system will tell the user "Invalid Permissions".
+- Given the Administrative user does not input a name for the unit, the program will cancel the creation request and delete the entity within the database. it will then tell the user "No unit name entered creation request cancelled" 
 
-**Source:** <interview, observation, regulation, your own decision — name it>
+**Source:** Interviews with Lionel Carapia 09-04-2026 and Jack Malenock 09-09-2026.
+
+
+### FR-UNIT-02 — Add User to Unit
+
+**Priority:** Must
+**Requirement:** Administrative users shall be able to add existing Acountabilibuddy users to already existing units.
+**Rationale:** If new soldiers are added to military unit, the ability to add the soldier's Acountabilibuddy account to the Acountabilibuddy unit group will be required for effective communication.
+**Acceptance criteria:**
+- Given a user is required to be in a unit group and is not, when an administrative/leadership user initiates an add user request. The system will ask what the username of the added user is, then the administrative user will input the soldiers password to continue the request.
+- Given the username input by the administrative user is a valid username found within the database, the user's account will be added to the unit group and they will have access to the unit calendar, chat, and information within the unit.
+- Given the username input by the administrative user is invalid and not found within the database, the add user request will be cancelled and the system will spit out "Invalid user, add user request cancelled"
+
+**Source:** your own decision — The ability to add users to already existing unit groups will be required because in the military new soldiers are always being transferred in and out of existing units.
+
+
+### FR-UNIT-03 — Remove User from Unit
+
+**Priority:** Must
+**Requirement:** Administrative users shall be able to remove existing Acountabilibuddy users from already existing units.
+**Rationale:** If soldiers are transferred out of a military unit, the ability to remove the soldier's Acountabilibuddy account from the Acountabilibuddy unit group will be required to prevent former members from continuing to access unit communication, calendar events, and information.
+**Acceptance criteria:**
+- Given a user is currently a member of a unit, when an administrative/leadership user initiates a remove user request. The system will ask what the username of the removed user is, then the administrative user will input the username to continue the request.
+- Given the username input by the administrative user is a valid username found within the database and is a member of the selected unit, the user's account will be removed from the unit group and they will no longer have access to the unit calendar, chat, and information.
+- Given the username input by the administrative user is a valid username found within the database but is not a member of the selected unit, the remove user request will be cancelled and the system will spit out "User is not a member of this unit, remove user request cancelled."
+- Given the username input by the administrative user is invalid and not found within the database, the remove user request will be cancelled and the system will spit out "Invalid user, remove user request cancelled."
+- Given a non-administrative user attempts to remove another user from a unit, the system will deny the request.
+
+**Source:** your own decision — The ability to remove users from existing unit groups will be required because military personnel are frequently transferred in and out of existing units, and former members should no longer have access to that unit's communication, calendar, or information.
+
+
+### FR-UNIT-04 — Make User Admin of Unit
+
+**Priority:** Could
+**Requirement:** Administrative users shall be able to make existing Acountabilibuddy users administrators of already existing units.
+**Rationale:** Military units may have multiple leaders who require administrative access to manage unit members, communication, calendar events, and accountability information.
+**Acceptance criteria:**
+- Given a user is currently a member of a unit, when an administrative/leadership user initiates a make admin request. The system will ask what the username of the user being made an administrator is, then the administrative user will input the username to continue the request.
+- Given the username input by the administrative user is a valid username found within the database and is a member of the selected unit, the user's account will be given administrator permissions for the unit.
+- Given the username input by the administrative user is a valid username found within the database but is not a member of the selected unit, the make admin request will be cancelled and the system will spit out "User is not a member of this unit, make admin request cancelled."
+- Given the username input by the administrative user is invalid and not found within the database, the make admin request will be cancelled and the system will spit out "Invalid user, make admin request cancelled."
+- Given a non-administrative user attempts to make another user an administrator, the system will deny the request.
+
+**Source:** your own decision — The ability to make users administrators of existing unit groups will be required because multiple leaders within a military unit may need administrative permissions to manage unit members, communication, calendar events, and accountability.
+
+
+### FR-UNIT-05 — Remove User Admin
+
+**Priority:** Could
+**Requirement:** Administrative users shall be able to remove administrator permissions from existing Acountabilibuddy users within already existing units.
+**Rationale:** Military units may have leaders transfer out of leadership positions or units, requiring their administrator permissions to be removed while allowing them to remain members of the unit.
+**Acceptance criteria:**
+- Given a user is currently an administrator of a unit, when an administrative/leadership user initiates a remove admin request. The system will ask what the username of the user having their administrator permissions removed is, then the administrative user will input the username to continue the request.
+- Given the username input by the administrative user is a valid username found within the database and is an administrator of the selected unit, the user's administrator permissions will be removed while they remain a member of the unit.
+- Given the username input by the administrative user is a valid username found within the database but is not an administrator of the selected unit, the remove admin request will be cancelled and the system will spit out "User is not an admin of this unit, remove admin request cancelled."
+- Given the username input by the administrative user is invalid and not found within the database, the remove admin request will be cancelled and the system will spit out "Invalid user, remove admin request cancelled."
+- Given a non-administrative user attempts to remove another user's administrator permissions, the system will deny the request.
+
+**Source:** your own decision — The ability to remove administrator permissions from existing unit members will be required because military personnel may transfer out of leadership positions or responsibilities while remaining members of the unit.
+
+
+### FR-CHAT-01 — Create Group Chat
+
+**Priority:** Must
+**Requirement:** Administrative users shall be able to create group chats for existing Acountabilibuddy units.
+**Rationale:** Military units may need separate communication channels for different groups of users, such as squads, platoons, or leadership groups, to allow information to be communicated to the appropriate personnel.
+**Acceptance criteria:**
+- Given an administrative/leadership user is viewing an existing unit, when they initiate a create group chat request. The system will ask for the name of the group chat and which users should be included.
+- Given the administrative user provides a valid group chat name and selects valid users within the unit, the system will create the group chat and add the selected users to the group chat.
+- Given the administrative user provides a group chat name that is already being used within the selected unit, the create group chat request will be cancelled and the system will spit out "Group chat name already exists, create group chat request cancelled."
+- Given the administrative user attempts to add a user who is not a member of the selected unit, the user will not be added to the group chat and the system will spit out "User is not a member of this unit."
+- Given a non-administrative user attempts to create a group chat, the system will deny the request.
+
+**Source:** your own decision — The ability to create group chats will be required because military units may need separate communication channels for different groups of personnel within the same unit.
+
+
+### FR-CHAT-02 — Add User to Group Chat
+
+**Priority:** Should
+**Requirement:** Administrative users shall be able to add existing Acountabilibuddy users who are members of the unit to already existing group chats.
+**Rationale:** Military units may need to add new personnel to existing group chats when soldiers are transferred into a unit or when additional personnel need access to a specific communication group.
+**Acceptance criteria:**
+- Given a group chat already exists, when an administrative/leadership user initiates an add user request. The system will ask what the username of the added user is, then the administrative user will input the username to continue the request.
+- Given the username input by the administrative user is a valid username found within the database and the user is a member of the selected unit, the user's account will be added to the group chat and they will have access to the group's messages.
+- Given the username input by the administrative user is a valid username found within the database but is not a member of the selected unit, the add user request will be cancelled and the system will spit out "User is not a member of this unit, add user request cancelled."
+- Given the username input by the administrative user is invalid and not found within the database, the add user request will be cancelled and the system will spit out "Invalid user, add user request cancelled."
+- Given the username input by the administrative user is already a member of the group chat, the add user request will be cancelled and the system will spit out "User is already a member of this group chat, add user request cancelled."
+- Given a non-administrative user attempts to add another user to a group chat, the system will deny the request.
+
+**Source:** your own decision — The ability to add users to existing group chats will be required because military personnel may be transferred into existing units and need to be added to established communication groups.
+
+
+### FR-CHAT-03 — Remove User from Group Chat
+
+**Priority:** Should
+**Requirement:** Administrative users shall be able to remove existing Acountabilibuddy users from already existing group chats.
+**Rationale:** Military personnel may be transferred out of a unit or no longer require access to a specific communication group, requiring their access to the group chat to be removed.
+**Acceptance criteria:**
+- Given a user is currently a member of a group chat, when an administrative/leadership user initiates a remove user request. The system will ask what the username of the removed user is, then the administrative user will input the username to continue the request.
+- Given the username input by the administrative user is a valid username found within the database and is a member of the selected group chat, the user's account will be removed from the group chat and they will no longer have access to the group's messages.
+- Given the username input by the administrative user is a valid username found within the database but is not a member of the selected group chat, the remove user request will be cancelled and the system will spit out "User is not a member of this group chat, remove user request cancelled."
+- Given the username input by the administrative user is invalid and not found within the database, the remove user request will be cancelled and the system will spit out "Invalid user, remove user request cancelled."
+- Given a non-administrative user attempts to remove another user from a group chat, the system will deny the request.
+
+**Source:** your own decision — The ability to remove users from existing group chats will be required because military personnel may be transferred out of units or no longer require access to specific communication groups.
+
+
+### FR-CHAT-04 — Send Message in Group Chat
+
+**Priority:** Must
+**Requirement:** Users shall be able to send messages in group chats that they are members of.
+**Rationale:** Group chat communication is a core feature of Acountabilibuddy and will allow authorized members of military units to communicate information within their assigned communication groups.
+**Acceptance criteria:**
+- Given a user is a member of a group chat, when they enter a message and submit it, the system will send the message to the group chat.
+- Given a message is successfully sent, the message will be displayed in the group chat and will be visible to all authorized members of the group chat.
+- Given a user attempts to send an empty message, the system will not send the message and will display "Message cannot be empty."
+- Given a user is not a member of the group chat, the system will deny the user from sending messages in the group chat.
+- Given a message is sent, the system will associate the message with the username of the user who sent it and the time the message was sent.
+
+**Source:** Interviews with Thomas Yang and Jack Malenock on 09-09-2026 — The ability to send messages in group chats will be required because communication between authorized members is a core purpose of Acountabilibuddy.
+
+
+### FR-CHAT-05 — Maintain Chat History
+
+**Priority:** Must
+**Requirement:** The system shall maintain a history of messages sent within group chats and allow authorized members to view previous messages.
+**Rationale:** Maintaining chat history will allow users to review previously communicated information and prevent important unit communication from being lost when users leave and return to the application.
+**Acceptance criteria:**
+- Given a user is a member of a group chat, when they open the group chat, the system will display previously sent messages that the user is authorized to view.
+- Given a message has been successfully sent, the system will store the message in the database as part of the group's chat history.
+- Given a user leaves or is removed from a group chat, the user will no longer have access to the group's chat history.
+- Given a user is added to an existing group chat, the user will be able to view the available chat history for that group.
+- Given a user attempts to access the chat history of a group chat they are not authorized to access, the system will deny access.
+
+**Source:** your own decision — The ability to maintain chat history will be required so authorized users can review previously communicated information and important unit communication is not lost.
+
+
+### FR-CHAT-06 — Create Backbrief Assignment
+
+**Priority:** Could
+**Requirement:** Administrative/leadership users shall be able to create and assign a backbrief task within a group chat to one or more members of the group chat.
+**Rationale:** Military leaders may need subordinate personnel to review information and provide a backbrief confirming their understanding of the information provided.
+**Acceptance criteria:**
+- Given a user has administrative/leadership permissions in a group chat, when the user creates a backbrief task, the system will allow the user to enter the backbrief instructions.
+- Given a user has administrative/leadership permissions in a group chat, when the user creates a backbrief task, the system will allow the user to select one or more members of the group chat as recipients.
+- Given a backbrief task is created, the system will display the backbrief task within the group chat.
+- Given a user is assigned a backbrief task, the user will be able to view the backbrief instructions and submission requirements.
+- Given a non-administrative user attempts to create a backbrief task, the system will deny the request.
+- Given a backbrief task is assigned, the system will associate the task with the group chat and assigned recipient(s).
+  
+**Source:** Interview with XO Estella Hageman 09-04-2026 — A backbrief feature was identified as a potential extension of the group communication functionality to allow leaders to verify that subordinate personnel understand information distributed through the group chat.
+
+
+### FR-CLNDR-01 — Add Calendar to Unit
+
+**Priority:** Must
+**Requirement:** Administrative users shall be able to add a calendar to an existing Acountabilibuddy unit.
+**Rationale:** Each military unit will require a centralized calendar to organize and communicate upcoming unit events, training, meetings, and other scheduled activities.
+**Acceptance criteria:**
+- Given an existing unit does not have a calendar, when an administrative/leadership user initiates an add calendar request, the system will create a calendar for the selected unit.
+- Given a calendar is successfully created, the calendar will be associated with the selected unit and accessible to authorized members of that unit.
+- Given the selected unit already has a calendar, the add calendar request will be cancelled and the system will spit out "This unit already has a calendar, add calendar request cancelled."
+- Given an administrative/leadership user attempts to create a calendar for a unit they are not authorized to manage, the system will deny the request.
+- Given a non-administrative user attempts to add a calendar to a unit, the system will deny the request.
+
+**Source:** Interview with XO Estella Hageman 09-04-2026 — The ability to add a calendar to an existing unit will be required because military units need a centralized location to organize and communicate upcoming events and activities.
+
+
+### FR-CLNDR-02 — Add Calendar Event
+
+**Priority:** Must
+**Requirement:** Administrative users shall be able to add events to an existing Acountabilibuddy unit calendar.
+**Rationale:** Military units need a centralized location to schedule and communicate upcoming training, meetings, and other unit activities to authorized members.
+**Acceptance criteria:**
+- Given an existing unit has a calendar, when an administrative/leadership user initiates an add calendar event request, the system will ask for the event name, date, time, and event information.
+- Given the administrative user provides valid event information, the system will create the event and add it to the selected unit's calendar.
+- Given an administrative user attempts to add an event to a unit calendar they are not authorized to manage, the system will deny the request.
+- Given the administrative user does not provide all required event information, the system will cancel the add calendar event request and display "Required event information missing, add calendar event request cancelled."
+- Given a non-administrative user attempts to add an event to a unit calendar, the system will deny the request.
+
+**Source:** Interview with S3 Hunter Szymborski 09-04-2026 — The ability to add calendar events will be required because military units need to schedule and communicate upcoming training, meetings, and other unit activities in a centralized location.
+
+
+### FR-CLNDR-03 — Delete Calendar Event
+
+**Priority:** Could
+**Requirement:** Administrative users shall be able to delete existing events from an Acountabilibuddy unit calendar.
+**Rationale:** Military units may need to remove cancelled, outdated, or incorrectly created events from the unit calendar to prevent users from relying on incorrect scheduling information.
+**Acceptance criteria:**
+- Given an existing event is on a unit calendar, when an administrative/leadership user initiates a delete calendar event request, the system will ask which event they want to delete.
+- Given the administrative user selects a valid event from the unit calendar, the system will delete the event from the selected unit's calendar.
+- Given the selected event does not exist on the unit calendar, the delete calendar event request will be cancelled and the system will spit out "Invalid event, delete calendar event request cancelled."
+- Given an administrative user attempts to delete an event from a unit calendar they are not authorized to manage, the system will deny the request.
+- Given a non-administrative user attempts to delete a calendar event, the system will deny the request.
+
+**Source:** your own decision — The ability to delete calendar events will be required because military units may need to remove cancelled, outdated, or incorrectly created events from their calendar.
+
+
+### FR-CLNDR-04 — Accountability Tracker Event
+
+**Priority:** Should
+**Requirement:** Administrative users shall be able to enable accountability tracking for an existing Acountabilibuddy calendar event.
+**Rationale:** Military units require the ability to track which personnel have acknowledged or confirmed their attendance for scheduled events.
+**Acceptance criteria:**
+- Given an existing calendar event, when an administrative/leadership user initiates an accountability tracker event request, the system will allow the administrative user to enable accountability tracking for the selected event.
+- Given accountability tracking is enabled for an event, the system will create an accountability list containing the authorized members of the selected unit.
+- Given a user is included in the accountability list, the user will be able to acknowledge the event through Acountabilibuddy.
+- Given a user acknowledges the event, the system will record the user's acknowledgement and the time the acknowledgement was submitted.
+- Given an administrative/leadership user views the accountability tracker for an event, the system will display which users have and have not acknowledged the event.
+- Given a non-administrative user attempts to enable accountability tracking for an event, the system will deny the request.
+
+**Source:** Interview with S3 Hunter Szymborski 09-04-2026 — The ability to enable an accountability tracker for calendar events will be required because military units need to track which personnel have acknowledged or confirmed their attendance for scheduled events.
+
+
+### FR-RANK-01 — Assign User Role
+
+**Priority:** Must
+**Requirement:** Administrative users shall be able to assign an existing Acountabilibuddy user a role within an already existing unit.
+**Rationale:** Assigning users specific roles will be required to establish the unit's chain of command and determine which features and information each user is authorized to access.
+**Acceptance criteria:**
+- Given a user is a member of a unit, when an administrative/leadership user initiates an assign user role request. The system will ask what the username of the user is, then the administrative user will input the username to continue the request.
+- Given the username input by the administrative user is a valid username found within the database and is a member of the selected unit, the system will display the available roles and allow the administrative user to assign a role to the selected user.
+- Given a valid role is selected, the system will assign the selected role to the user's account within the selected unit.
+- Given the username input by the administrative user is a valid username found within the database but is not a member of the selected unit, the assign user role request will be cancelled and the system will spit out "User is not a member of this unit, assign user role request cancelled."
+- Given the username input by the administrative user is invalid and not found within the database, the assign user role request will be cancelled and the system will spit out "Invalid user, assign user role request cancelled."
+- Given a non-administrative user attempts to assign a role to another user, the system will deny the request.
+
+**Source:** Interview with Lionel Carapia 09-04-2026 and Jack Malenock 09-09-2026 — The ability to assign users roles within existing unit groups will be required because user roles will determine the user's position within the chain of command and what features and information they are authorized to access.
+
+
+### FR-RANK-02 — Assign User Rank
+
+**Priority:** Must
+**Requirement:** Administrative users shall be able to assign an existing Acountabilibuddy user a military rank within an already existing unit.
+**Rationale:** Assigning users military ranks will be required to accurately represent the unit's chain of command and provide users with identifiable rank information within Acountabilibuddy.
+**Acceptance criteria:**
+- Given a user is a member of a unit, when an administrative/leadership user initiates an assign user rank request. The system will ask what the username of the user is, then the administrative user will input the username to continue the request.
+- Given the username input by the administrative user is a valid username found within the database and is a member of the selected unit, the system will display the available military ranks and allow the administrative user to assign a rank to the selected user.
+- Given a valid military rank is selected, the system will assign the selected rank to the user's account within the selected unit.
+- Given the username input by the administrative user is a valid username found within the database but is not a member of the selected unit, the assign user rank request will be cancelled and the system will spit out "User is not a member of this unit, assign user rank request cancelled."
+- Given the username input by the administrative user is invalid and not found within the database, the assign user rank request will be cancelled and the system will spit out "Invalid user, assign user rank request cancelled."
+- Given a non-administrative user attempts to assign a rank to another user, the system will deny the request.
+
+**Source:** Interview with Lionel Carapia 09-04-2026 and Jack Malenock 09-09-2026 — The ability to assign users military ranks within existing unit groups will be required because rank information is necessary to represent the unit's chain of command and identify users within the military organization.
+
+
+### FR-RANK-03 — Change User Rank
+
+**Priority:** Should
+**Requirement:** Administrative users shall be able to change the military rank of an existing Acountabilibuddy user within an already existing unit.
+**Rationale:** Military personnel may be promoted, demoted, or otherwise have their rank changed while remaining members of the same unit. The ability to update a user's rank will ensure that the unit's chain of command and user information remain accurate.
+**Acceptance criteria:**
+- Given a user is a member of a unit, when an administrative/leadership user initiates a change user rank request. The system will ask what the username of the user is, then the administrative user will input the username to continue the request.
+- Given the username input by the administrative user is a valid username found within the database and is a member of the selected unit, the system will display the user's current rank and the available military ranks.
+- Given a valid military rank is selected, the system will change the user's current rank to the newly selected rank within the selected unit.
+- Given the username input by the administrative user is a valid username found within the database but is not a member of the selected unit, the change user rank request will be cancelled and the system will spit out "User is not a member of this unit, change user rank request cancelled."
+- Given the username input by the administrative user is invalid and not found within the database, the change user rank request will be cancelled and the system will spit out "Invalid user, change user rank request cancelled."
+- Given a non-administrative user attempts to change another user's rank, the system will deny the request.
+
+**Source:** your own decision — The ability to change users' military ranks within existing unit groups will be required because military personnel may be promoted, demoted, or otherwise have their rank changed while remaining members of the unit.
+
+
+### FR-RANK-04 — Change User Role
+
+**Priority:** Should
+**Requirement:** Administrative users shall be able to change the role of an existing Acountabilibuddy user within an already existing unit.
+**Rationale:** Military personnel may change positions or responsibilities while remaining members of the same unit. The ability to update a user's role will ensure that the unit's chain of command and the user's authorized permissions remain accurate.
+**Acceptance criteria:**
+- Given a user is a member of a unit, when an administrative/leadership user initiates a change user role request. The system will ask what the username of the user is, then the administrative user will input the username to continue the request.
+- Given the username input by the administrative user is a valid username found within the database and is a member of the selected unit, the system will display the user's current role and the available roles.
+- Given a valid role is selected, the system will change the user's current role to the newly selected role within the selected unit.
+- Given the username input by the administrative user is a valid username found within the database but is not a member of the selected unit, the change user role request will be cancelled and the system will spit out "User is not a member of this unit, change user role request cancelled."
+- Given the username input by the administrative user is invalid and not found within the database, the change user role request will be cancelled and the system will spit out "Invalid user, change user role request cancelled."
+- Given a non-administrative user attempts to change another user's role, the system will deny the request.
+
+**Source:** your own decision — The ability to change users' roles within existing unit groups will be required because military personnel may change positions or responsibilities while remaining members of the unit.
+
+
+### FR-RANK-05 — Chain of Command Enforcement
+
+**Priority:** Must
+**Requirement:** The system shall enforce the established chain of command by restricting users' access to unit information, group chats, assignments, and administrative functions based on their assigned role and rank within the unit.
+**Rationale:** Military units operate through a defined chain of command. Enforcing the chain of command helps ensure that users only access information and perform actions appropriate to their position within the unit.
+**Acceptance criteria:**
+- Given a user has an assigned rank and role, when the user accesses the system, the system will determine their permissions based on their position within the chain of command.
+- Given a user attempts to access information outside of their authorized level of the chain of command, the system will deny access.
+- Given a user attempts to perform an administrative function outside of their authorized level of the chain of command, the system will deny the request.
+- Given a leader creates an assignment or accountability event, the system will restrict the assignment to users within the leader's authorized chain of command.
+- Given a user's rank or role changes, the system will update the user's permissions to reflect their new position within the chain of command.
+- Given a user attempts to bypass the established chain of command, the system will prevent the unauthorized action.
+
+**Source:**  Interview with Jack Malenock 09-09-2026 — Chain of command enforcement was identified as a core requirement for ensuring that Acountabilibuddy reflects military organizational structure and restricts access and responsibilities according to a user's assigned rank and role.
 
 
 ## 6. Non-Functional Requirements
