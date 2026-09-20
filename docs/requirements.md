@@ -464,8 +464,6 @@ could interpret a word two ways, it belongs here.
 
 ## 6. Non-functional requirements
 
-Each target is intentionally small enough to reproduce on a student laptop or the selected free/low-cost services. Raw results belong in [measurements.md](measurements.md); a requirement passes only when its stated method produces its threshold under its condition.
-
 ### 6.1 Performance
 
 | ID | Priority | Metric | Threshold | Condition | Method |
