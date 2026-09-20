@@ -462,10 +462,83 @@ could interpret a word two ways, it belongs here.
 **Source:**  Interview with Jack Malenock 09-09-2026 — Chain of command enforcement was identified as a core requirement for ensuring that Acountabilibuddy reflects military organizational structure and restricts access and responsibilities according to a user's assigned rank and role.
 
 
-## 6. Non-Functional Requirements
+## 6. Non-functional requirements
 
-Placeholder for Week 4. Do not write vague quality words here now; write nothing
-and fill it in when you can make each one measurable.
+Each target is intentionally small enough to reproduce on a student laptop or the selected free/low-cost services. Raw results belong in [measurements.md](measurements.md); a requirement passes only when its stated method produces its threshold under its condition.
+
+### 6.1 Performance
+
+| ID | Priority | Metric | Threshold | Condition | Method |
+|---|---|---|---|---|---|
+| NFR-PERF-01 | Must | p95 server response time | ≤ 1.5 s | 20 sequential authenticated GETs of a unit page containing 50 members, 100 messages, and 25 events from the deployed service after one warm-up | Seed the stated dataset; run `python code/measure_http.py --url URL --requests 20`; save its p95 output. |
+| NFR-PERF-02 | Should | HTML response size | ≤ 500 KiB | Same seeded unit-page request, excluding separately loaded CSS | Save the response with `curl`; record `Length`/byte count and confirm the threshold. |
+
+### 6.2 Reliability
+
+| ID | Priority | Metric | Threshold | Condition | Method |
+|---|---|---|---|---|---|
+| NFR-REL-01 | Must | Successful test runs | 10 of 10 consecutive runs | Clean test environment using pinned development requirements | Run the pytest command ten times; record each exit code, all of which must be zero. |
+| NFR-REL-02 | Must | Recovery result after database interruption | No data loss among acknowledged writes; `/health` returns 200 within 5 minutes | Restart an Atlas test cluster or disconnect/reconnect a local MongoDB after creating a uniquely named event | Record event ID, outage responses, recovery time, and confirm the same event after reconnection. |
+
+### 6.3 Security
+
+These are prohibitions: a single successful prohibited action fails the requirement.
+
+| ID | Priority | Metric | Threshold | Condition | Method |
+|---|---|---|---|---|---|
+| NFR-SEC-01 | Must | Unauthorized unit reads/writes | 0 successful requests | Anonymous, authenticated non-member, member, leader, and owner exercise every unit-scoped route | Run the role-permission pytest cases; every disallowed request must be 302, 403, or 404 and create no record. |
+| NFR-SEC-02 | Must | Accepted state-changing requests lacking a valid CSRF token | 0 | Every POST route is called once with no token and once with a modified token | Parameterized Flask-client test must return 400 for every request and show no database change. |
+| NFR-SEC-03 | Must | Committed secrets or plaintext passwords | 0 findings | Git-tracked files plus one newly registered test user | Run `git grep` for configured secret patterns and inspect the user document; run `pip-audit -r implementation/requirements.txt`; record zero secrets/plaintext credentials and resolve any known high/critical vulnerability before release. |
+| NFR-SEC-04 | Must | Executable markup from user-controlled message/name fields | 0 executions | Submit `<script>alert(1)</script>` in every displayed text field | Automated response assertions require escaped markup; manually open each affected view and confirm no alert or injected element. |
+
+### 6.4 Privacy
+
+| ID | Priority | Metric | Threshold | Condition | Method |
+|---|---|---|---|---|---|
+| NFR-PRIV-01 | Must | Data fields collected outside the inventory below | 0 | Registration and normal member/leader workflows | Compare MongoDB document keys from a seeded end-to-end run with the inventory; document and approve any difference before merge. |
+| NFR-PRIV-02 | Should | Time to complete a verified deletion request | ≤ 7 calendar days, with 0 matching application records afterward | Prototype user makes a written request and proves control of the username | Admin runs the documented deletion procedure, searches all collections by user ID/name, and records date, query results, and any provider-backup limitation. |
+
+#### Data inventory
+
+| Data element | Purpose | Location | Retention | User deletion |
+|---|---|---|---|---|
+| Username and display name | Authentication and attribution | Atlas `users`; duplicated display name in `messages` | While account exists; message attribution remains until messages are deleted | Written request to prototype administrator; delete/anonymize user, membership, session, response, and attributed message records within 7 days. |
+| Password hash | Authenticate without retaining the password | Atlas `users.password_hash` | While account exists | Deleted with account; plaintext must never be stored. |
+| Unit name, echelon, role, and rank label | Organize access and roster display | Atlas `units` and `memberships` | Until unit/account deletion | Owner requests unit deletion; user request removes membership/rank. |
+| Message author, body, and timestamp | Unit chat | Atlas `messages` | Prototype duration or until unit deletion; a production retention policy must be verified before real use | Administrator deletes the requested message or unit; no self-service UI yet. |
+| Event title, time, location, uniform, details | Scheduling | Atlas `events` | Prototype duration or until unit deletion | Unit owner requests event/unit deletion; no self-service UI yet. |
+| Attendance intention and linked user/event IDs | Accountability view | Atlas `responses` | Until event, unit, or account deletion | Removed with the associated account/event/unit. |
+| Random session token, user ID, expiration | Maintain login | Atlas `sessions`; signed session cookie carries the token | 8 hours, logout, or TTL cleanup | Logout revokes the database token; browser cookie expires/clears. |
+| Username, failed-login count, expiration | Rate-limit sign-in attempts | Atlas `login_attempts` | 15 minutes via TTL | Automatic expiry; successful login deletes it immediately. |
+| Atlas operational logs/backups | Hosting, recovery, and security | MongoDB Atlas/provider systems | **VERIFY before production:** depends on chosen Atlas tier/settings | **VERIFY:** follow the Atlas project deletion/support process and current Cloud Terms. Primary source: https://www.mongodb.com/legal/terms-and-conditions/cloud (checked 2026-09-20). |
+| Render request/platform logs | Operate hosted service | Render systems | **VERIFY before production:** selected plan and log settings | **VERIFY:** use Render account/service deletion and support process. Primary source: https://render.com/privacy (checked 2026-09-20). |
+
+### 6.5 Accessibility
+
+| ID | Priority | Metric | Threshold | Condition | Method |
+|---|---|---|---|---|---|
+| NFR-A11Y-01 | Must | Critical/serious automated accessibility findings | 0 | Register, login, dashboard, and populated unit pages at desktop and 390 px viewport | Run axe DevTools on each page; save dated results and resolve every critical/serious finding. |
+| NFR-A11Y-02 | Must | Core tasks completable using keyboard only | 5 of 5: register, sign in, post message, respond to event, sign out | Chrome at 100% zoom with mouse/touch unused | Start at address bar; use Tab/Shift+Tab/Enter/Space, record pass/fail, and confirm visible focus and logical order. |
+
+### 6.6 Usability
+
+| ID | Priority | Metric | Threshold | Condition | Method |
+|---|---|---|---|---|---|
+| NFR-USE-01 | Should | First-attempt task completion | ≥ 4 of 5 representative users complete ≥ 4 of 5 core tasks without coaching, each task in ≤ 2 minutes | Fresh accounts and a seeded unit on a phone or laptop | Give the five task prompts without procedural hints; time attempts and record completion/errors, not participant names. |
+| NFR-USE-02 | Must | Invalid-input responses that explain a corrective action | 100% of the 8 documented invalid-input cases | Weak password, duplicate username, bad administrator token, unknown member, missing field, overlong field, naive event time, invalid attendance value | Execute the checklist; response must reject the write and supply an actionable message or documented HTTP error. |
+
+### 6.7 Maintainability
+
+| ID | Priority | Metric | Threshold | Condition | Method |
+|---|---|---|---|---|---|
+| NFR-MAINT-01 | Must | Automated regression status and runtime | 100% pass in ≤ 60 s | Fresh virtual environment on the course-development laptop | Install pinned files and run `python -m pytest implementation/tests -q`; record count, time, and exit code. |
+| NFR-MAINT-02 | Should | Traceability validation findings | 0 | Every requirements change before merge | Run `python code/check-traceability.py`; it must exit 0 with no missing IDs, blanks, duplicates, or unknown requirement references. |
+
+### 6.8 Portability
+
+| ID | Priority | Metric | Threshold | Condition | Method |
+|---|---|---|---|---|---|
+| NFR-PORT-01 | Should | Successful supported-environment smoke tests | 2 of 2 environments | Windows 11 local Python 3.12 and Render Linux using the same dependency pins | In each environment register/login, create a unit/event, and record attendance |
 
 ## 7. Out of Scope (the Won't-Have List)
 
@@ -503,4 +576,54 @@ with one line of reasoning. A short list here means you have not thought hard en
 
 | Date | Version | Change | Reason |
 |---|---|---|---|
-| <2026-09-13> | 1.0 | Initial specification | Milestone 3 |
+| <2026-09-20> | 1.0 | NonFunctional Requirements, Constraits, and Definition of Done | Milestone 4 |
+
+
+## 10. Constraints
+
+| ID | Constraint | What it rules out |
+|---|---|---|
+| CON-01 | Course work must be submitted through this Git repository and remain reproducible by the reviewer. | Untracked-only configuration, manual server changes, and undocumented build steps. |
+| CON-02 | Development/deployment spending is limited to free payment plans or open use software | Paid software, APIs, monitoring, database, and notification products. |
+| CON-03 | Secrets and real passwords may not be committed; deployment configuration must use environment variables. | Hard-coded Atlas URIs, Flask keys, administrator tokens, or credentials in examples/tests. |
+| CON-04 | Acountabilibuddy can't store sensitive personal information like Social Security numbers, medical data, or deep personal information. | Official military use and demonstrations with sensitive real-world soldier data. |
+| CON-05 | The supported server stack is Python 3.12+, Flask, Gunicorn, and MongoDB for this milestone. | A rewrite to a native mobile application or incompatible relational-only architecture before design review. |
+
+## 11. Assumptions
+
+| ID | Assumption | Owner | Verify by | Consequence if false |
+|---|---|---|---|---|
+| ASM-01 | The instructor accepts fictional unit/member data for all demonstrations. | Liam Pheng | 2026-09-27 | Pause real-user testing and use a fully synthetic seed dataset; escalate OQ-01. |
+| ASM-02 | Render and Atlas free/low-cost tiers can keep the demo reachable through Week 16. | Liam Pheng | 2026-09-27 | Run locally for the live demo and create a Week-15 fallback recording; reconsider CON-02. |
+| ASM-03 | Target users have a current browser, cookies, JavaScript-independent HTML form support, and internet access. | Liam Pheng | 2026-10-04 | Narrow the supported environment explicitly or add an alternate client/offline design. |
+| ASM-04 | A unit in Acountabilibuddy has no more than 50 members, 100 displayed messages, and 25 upcoming events. | Liam Pheng / stakeholder | 2026-10-04 | Repeat performance/design analysis at the confirmed scale and add pagination before pilot use. |
+| ASM-05 | Attendance acountability is good enough for the course workflow and will not be treated as physical accountability. | Liam Pheng | 2026-09-27 | Rename/remove the feature or design verified check-in and audit controls before further use. |
+
+## 12. Dependencies
+
+| ID | Dependency and pinned plan/version | Failure mode | Fallback |
+|---|---|---|---|
+| DEP-01 | Python 3.12+ and Flask 3.1.3 | Runtime/package incompatibility or security advisory | Stay on the last tested Python 3.12 patch and upgrade the pin on a branch after the regression suite passes. |
+| DEP-02 | MongoDB Atlas compatible with PyMongo 4.18.1 | Cluster unreachable, quota exhausted, terms/tier changes, or data loss | Use local MongoDB for development/demo, export a sanitized backup, and show a recorded fallback demo. |
+| DEP-03 | Render Python service using Gunicorn 23.0.0 | Deploy/build failure, sleeping service, outage, or free-tier removal | Run Gunicorn locally, retain documented build commands, and use the fallback recording. |
+| DEP-04 | python-dotenv 1.2.3 | Local environment variables fail to load | Set environment variables directly in PowerShell/hosting dashboard; never commit `.env`. |
+| DEP-05 | pytest 9.1.1 and mongomock 4.3.0 for automated tests | Mock behavior diverges from Atlas or packages become incompatible | Run critical tests against a disposable real MongoDB database and pin the last compatible test versions. |
+
+## 13. Obligations
+
+### 13.1 Project license position
+
+The project is licensed under **MIT**. The complete license is present at  Main/LICENSE. 
+
+### 13.2 Third-party obligations verified 2026-09-20
+
+| Component/service | Current obligation or license | Primary source checked | Project action |
+|---|---|---|---|
+| Flask 3.1.3 | BSD-3-Clause | https://github.com/pallets/flask/blob/main/LICENSE.txt | Retain copyright/license notices in redistributed copies. |
+| PyMongo 4.18.1 | Apache-2.0 | https://github.com/mongodb/mongo-python-driver/blob/master/LICENSE | Retain license/notice terms if redistributed; do not imply MongoDB endorsement. |
+| python-dotenv 1.2.3 | BSD-3-Clause | https://github.com/theskumar/python-dotenv/blob/main/LICENSE | Retain the license notice in source/binary redistributions. |
+| Gunicorn 23.0.0 | MIT | https://github.com/benoitc/gunicorn/blob/master/LICENSE | Retain copyright and permission notice in redistributed copies. |
+| pytest 9.1.1 | MIT | https://github.com/pytest-dev/pytest/blob/main/LICENSE | Development-only; retain notice if redistributed. |
+| mongomock 4.3.0 | ISC | https://github.com/mongomock/mongomock/blob/develop/LICENSE | Development-only; retain notice if redistributed. |
+| MongoDB Atlas | Cloud Terms govern use and state that stored data need not be retained after termination. | https://www.mongodb.com/legal/terms-and-conditions/cloud | Accept only through an authorized account; keep sanitized backups; verify tier and deletion behavior before a pilot. |
+| Render | Terms and Acceptable Use Policy govern hosted content, credentials, usage, and suspension. | https://render.com/terms and https://render.com/acceptable-use | Keep credentials private, use lawful/non-sensitive test content, monitor terms, and maintain the local fallback. |
