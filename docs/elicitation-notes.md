@@ -7,10 +7,10 @@
 
 ### Observations
 
-- **F-01 — Fact:** Unit accountability information is currently stored across multiple spreadsheets and SharePoint files.
-- **W-01 — Want:** Leadership wants accountability trackers consolidated into one application.
-- **W-02 — Want:** Leadership wants calendar events visible to the entire unit.
-- **O-01 — Opportunity:** Combining calendars and accountability could reduce duplicated tracking work.
+- **F:** Unit accountability information is currently stored across multiple spreadsheets and SharePoint files.
+- **W:** Leadership wants accountability trackers consolidated into one application.
+- **W:** Leadership wants calendar events visible to the entire unit.
+- **O:** Combining calendars and accountability could reduce duplicated tracking work.
 
 ## 2026-09-09 — User Interviews
 
@@ -21,7 +21,7 @@
 
 ### Observations
 
-- **F-02 — Fact:** Information is normally passed through the military chain of command.
-- **W-03 — Want:** Leaders want communication permissions to follow the chain of command.
-- **W-04 — Want:** Standard users want chat communication and upcoming-event tracking.
-- **O-02 — Opportunity:** Roles and ranks could determine who may contact or manage other users.
+- **F:** Information is normally passed through the military chain of command.
+- **W:** Leaders want communication permissions to follow the chain of command.
+- **W:** Standard users want chat communication and upcoming-event tracking.
+- **O:** Roles and ranks could determine who may contact or manage other users.
