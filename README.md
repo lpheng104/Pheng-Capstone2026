@@ -1,15 +1,18 @@
 # Project Status: Inception Phase
 **Owner:** Liam Pheng |
-**Project Name:** Accountabilibuddy | **Last Update** <2026-09-13>
+**Project Name:** Accountabilibuddy | **Last Update** <2026-09-20>
 
 ## What's New 
-- Added functional requirements in /docs/requirements.md
-- Added persona interviews with Jack Malenock
-- Added persona interviews with Thomas Yang
-- Added functional requirements to project board
+- Added traceability.csv chart
+- Added 17 Non-Functional Requirements to docs/requirements.md
+- Added Constraints, assumptions, dependencies, and obligations to sections 10-13 of docs/requirements.md
+- Updated and put in 10 items into definition of done
+- added check-traceability.py to .github/workflows and tested that it can run in actions
 
 ## Fixes
-- None
+- Fixed the lack of requirements linter
+- Updated and fixed FR-UNIT-02, FR-UNIT-03, FR-ACCT-01, and FR-ACCT-02 requirements
+- Added additional information to docs/elicitation-notes.md pertaining to the interviews
 
 ***
 # Table of Contents
