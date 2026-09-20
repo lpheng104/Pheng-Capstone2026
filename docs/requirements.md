@@ -89,7 +89,7 @@ could interpret a word two ways, it belongs here.
 ### FR-ACCT-01 — Account Username Creation
 
 **Priority:** Must 
-**Requirement:** All new users of Acountabilibuddy will be able to create a unique username in order to log into and utilize Acountabilibuddy.
+**Requirement:** A new user shall be able to create a unique username when registering for an Acountabilibuddy account.
 **Rationale:** All users of Acountabilibuddy will require a unique account so that the program can designate rank, role, and permissions to set account
 **Acceptance criteria:**
 - Given a new user wants to create an account, the user will be prompted to input a unique unused username into the system, then given the username is not already taken, the username will create a new account within the MongoDB database.
@@ -101,7 +101,7 @@ could interpret a word two ways, it belongs here.
 ### FR-ACCT-02 — Account Password Creation
 
 **Priority:** Must 
-**Requirement:** All new users of Acountabilibuddy will be able to create a unique user account with a password in order to log into and utilize Acountabilibuddy.
+**Requirement:** A new user shall be able to create a password that meets the defined security criteria when registering for an Acountabilibuddy account.
 **Rationale:** All users of Acountabilibuddy will require a secure password so that the program can finish setting the account
 **Acceptance criteria:**
 - Given a new user wants to create an account, the user will be prompted to input a secure password (at least 8 characters, 1 lowercase, 1 uppercase, special character (!,@,#,$,%)) into the system, then given the password and already created username, the system will assign the password to the account created under the username in MongoDB.
@@ -148,7 +148,7 @@ could interpret a word two ways, it belongs here.
 ### FR-ACCT-06 — Unique Username
 
 **Priority:** Must  
-**Requirement:**The system will prevent multiple accounts to be created with the same username
+**Requirement:** The system shall prevent the creation of an account when the requested username is already assigned to another account.
 **Rationale:** Not allowing the creation of multiple accounts with the same username will prevent technical errors and the risk of data or personal information being accessible to unauthorized users
 **Acceptance criteria:**
 - Given a new user is attempting to create an account. They will input a unique username to the system to create an account within the database. If the system reads that there are no accounts in the database with that exact username, the account with the username will be created in the MongoDB database and the account creation will continue.  
@@ -177,7 +177,7 @@ could interpret a word two ways, it belongs here.
 **Requirement:** Administrative users shall be able to add existing Acountabilibuddy users to already existing units.
 **Rationale:** If new soldiers are added to military unit, the ability to add the soldier's Acountabilibuddy account to the Acountabilibuddy unit group will be required for effective communication.
 **Acceptance criteria:**
-- Given a user is required to be in a unit group and is not, when an administrative/leadership user initiates an add user request. The system will ask what the username of the added user is, then the administrative user will input the soldiers password to continue the request.
+- * Given a user is required to be in a unit group and is not currently a member, when an administrative/leadership user initiates an add-user request, then the system will ask for the username of the user being added, and the administrative user will input that username to continue the request.
 - Given the username input by the administrative user is a valid username found within the database, the user's account will be added to the unit group and they will have access to the unit calendar, chat, and information within the unit.
 - Given the username input by the administrative user is invalid and not found within the database, the add user request will be cancelled and the system will spit out "Invalid user, add user request cancelled"
 
