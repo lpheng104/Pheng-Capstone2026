@@ -21,4 +21,4 @@ date,start,end,hours,phase,hat,task,estimate_hours,blocked_hours,notes
 2026-09-17,17:39,20:41,3.00,inception,business analyst, software requirement specification, 3.00,0.00, began working on constraints
 2026-09-18,11:49,14:53,3.00,inception,business analyst, software requirement specification, 3.00,0.00, continue working on constraints
 2026-09-19,11:44,13:31,1.75,inception,business analyst, software requirement specification, 3.00,0.00, continue working on constraints
-2026-09-19,08:56,00:00,0.00,inception,business analyst, software requirement specification, 3.00,0.00, continue working on constraints
+2026-09-19,08:56,00:00,0.00,inception,business analyst, software requirement specification, 3.00,0.00, worked on definition of done
