@@ -496,27 +496,12 @@ These are prohibitions: a single successful prohibited action fails the requirem
 | NFR-PRIV-01 | Must | Data fields collected outside the inventory below | 0 | Registration and normal member/leader workflows | Compare MongoDB document keys from a seeded end-to-end run with the inventory; document and approve any difference before merge. |
 | NFR-PRIV-02 | Should | Time to complete a verified deletion request | ≤ 7 calendar days, with 0 matching application records afterward | Prototype user makes a written request and proves control of the username | Admin runs the documented deletion procedure, searches all collections by user ID/name, and records date, query results, and any provider-backup limitation. |
 
-#### Data inventory
-
-| Data element | Purpose | Location | Retention | User deletion |
-|---|---|---|---|---|
-| Username and display name | Authentication and attribution | Atlas `users`; duplicated display name in `messages` | While account exists; message attribution remains until messages are deleted | Written request to prototype administrator; delete/anonymize user, membership, session, response, and attributed message records within 7 days. |
-| Password hash | Authenticate without retaining the password | Atlas `users.password_hash` | While account exists | Deleted with account; plaintext must never be stored. |
-| Unit name, echelon, role, and rank label | Organize access and roster display | Atlas `units` and `memberships` | Until unit/account deletion | Owner requests unit deletion; user request removes membership/rank. |
-| Message author, body, and timestamp | Unit chat | Atlas `messages` | Prototype duration or until unit deletion; a production retention policy must be verified before real use | Administrator deletes the requested message or unit; no self-service UI yet. |
-| Event title, time, location, uniform, details | Scheduling | Atlas `events` | Prototype duration or until unit deletion | Unit owner requests event/unit deletion; no self-service UI yet. |
-| Attendance intention and linked user/event IDs | Accountability view | Atlas `responses` | Until event, unit, or account deletion | Removed with the associated account/event/unit. |
-| Random session token, user ID, expiration | Maintain login | Atlas `sessions`; signed session cookie carries the token | 8 hours, logout, or TTL cleanup | Logout revokes the database token; browser cookie expires/clears. |
-| Username, failed-login count, expiration | Rate-limit sign-in attempts | Atlas `login_attempts` | 15 minutes via TTL | Automatic expiry; successful login deletes it immediately. |
-| Atlas operational logs/backups | Hosting, recovery, and security | MongoDB Atlas/provider systems | **VERIFY before production:** depends on chosen Atlas tier/settings | **VERIFY:** follow the Atlas project deletion/support process and current Cloud Terms. Primary source: https://www.mongodb.com/legal/terms-and-conditions/cloud (checked 2026-09-20). |
-| Render request/platform logs | Operate hosted service | Render systems | **VERIFY before production:** selected plan and log settings | **VERIFY:** use Render account/service deletion and support process. Primary source: https://render.com/privacy (checked 2026-09-20). |
-
 ### 6.5 Accessibility
 
 | ID | Priority | Metric | Threshold | Condition | Method |
 |---|---|---|---|---|---|
-| NFR-A11Y-01 | Must | Critical/serious automated accessibility findings | 0 | Register, login, dashboard, and populated unit pages at desktop and 390 px viewport | Run axe DevTools on each page; save dated results and resolve every critical/serious finding. |
-| NFR-A11Y-02 | Must | Core tasks completable using keyboard only | 5 of 5: register, sign in, post message, respond to event, sign out | Chrome at 100% zoom with mouse/touch unused | Start at address bar; use Tab/Shift+Tab/Enter/Space, record pass/fail, and confirm visible focus and logical order. |
+| NFR-ACCSS-01 | Must | Critical/serious automated accessibility findings | 0 | Register, login, dashboard, and populated unit pages at desktop and 390 px viewport | Run axe DevTools on each page; save dated results and resolve every critical/serious finding. |
+| NFR-ACCSS-02 | Must | Core tasks completable using keyboard only | 5 of 5: register, sign in, post message, respond to event, sign out | Chrome at 100% zoom with mouse/touch unused | Start at address bar; use Tab/Shift+Tab/Enter/Space, record pass/fail, and confirm visible focus and logical order. |
 
 ### 6.6 Usability
 
