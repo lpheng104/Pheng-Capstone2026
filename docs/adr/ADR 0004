@@ -1,1 +1,51 @@
+# ADR 0004 — Project source licensing
 
+- **Status:** Proposed
+- **Date:** 2026-09-27
+- **Decider:** Liam Pheng
+- **Requirements affected:** CON-01, CON-04, NFR-MAINT-01
+- **Related ADRs:** 0001, 0002, 0003
+
+## Context
+
+The repository already contains an MIT license naming Accountabilibuddy contributors. The project should be reproducible and reviewable under CON-01. This record documents a deliberate proposal to retain that license; it does not change ownership of dependencies, user messages, or provider services.
+
+MIT and Apache-2.0 are genuine permissive-license alternatives. The current project has no stated patent-policy requirement. The student must confirm authority over contributed code. Reserve 0.5 hour for the source-license review; bundled third-party distribution additionally requires completing the release notice inventory.
+
+## Options considered
+
+| Option | Weighted score | The detail that decided it |
+|---|---:|---|
+| MIT | Not numerically scored | Existing license; short notice-preservation requirement fits source sharing. |
+| Apache-2.0 | Not numerically scored | Explicit patent provisions and additional notice terms; no current project requirement for a switch. |
+
+Scores and method: [technology evaluation](../tech-evaluation.md).
+
+## Decision
+
+I will retain the existing MIT license for project-owned source, subject to the owner's acceptance of this record. Keep third-party terms separate and preserve all applicable notices. Do not distribute a bundled virtual environment or MongoDB server until the applicable release-specific license inventory and notices are complete.
+
+## Consequences
+
+**Positive**
+
+- A reviewer can inspect and reuse project source under explicit terms, supporting CON-01.
+- Retaining the existing license avoids unnecessary license changes while documenting the reason.
+
+**Negative**
+
+- MIT does not require recipients to publish their modifications; accept that tradeoff for source reuse.
+- The project license does not replace dependency license obligations; budget 0.5 hour for direct source-license review and a further 1 hour for bundled-release notice collection.
+- Apache-2.0 provides explicit patent language that MIT lacks; revisit if a contributor or sponsor requires it.
+
+## Revisit trigger
+
+Revisit before accepting 1 externally owned contribution with incompatible terms, adding 1 dependency with unresolved redistribution terms, or shipping the first bundled binary/container release.
+
+## Verification
+
+| Claim in this ADR | Source | Checked on |
+|---|---|---|
+| MIT text | https://opensource.org/license/mit | 2026-09-27 |
+| Apache-2.0 alternative | https://www.apache.org/licenses/LICENSE-2.0 | 2026-09-27 |
+| MongoDB server terms are separate | https://www.mongodb.com/legal/licensing/server-side-public-license | 2026-09-27 |
