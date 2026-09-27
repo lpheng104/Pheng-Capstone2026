@@ -1,1 +1,54 @@
+# ADR 0001 — Session revocation
+
+- **Status:** Proposed
+- **Date:** 2026-09-27
+- **Decider:** lpheng104 (repository owner Git identity; preferred name pending)
+- **Requirements affected:** FR-AUTH-02, FR-ACCESS-01, NFR-SEC-01
+- **Related ADRs:** 0002, 0003
+
+## Context
+
+FR-AUTH-02 requires logout to revoke the server-side session. The existing app stores a random token in its signed cookie and resolves it through the session collection. A stolen pre-logout cookie must not restore access.
+
+The student has used Flask and MongoDB. This review retains those tools under CON-05 and compares two session designs. SP-01 is a bounded local experiment; its mock database cannot establish hosted consistency. Reserve 1 hour for security review and share the 2-hour hosted spike with the deployment decision.
+
+## Options considered
+
+| Option | Weighted score | The detail that decided it |
+|---|---:|---|
+| database-token | 4.55 | SP-01 rejects replay in 10/10 trials. |
+| signed-cookie-only | 2.25 | SP-01 control accepts replay in 10/10 trials; fails the revocation gate. |
+
+Scores and method: [technology evaluation](../tech-evaluation.md).
+
+## Decision
+
+I will retain database-backed token revocation and current per-request membership checks, subject to student acceptance of this proposed record. Use the existing pinned Flask/PyMongo implementation; exact hosted runtime compatibility remains a deployment check. Cookie-only authentication without revocation state is not acceptable for FR-AUTH-02.
+
+## Consequences
+
+**Positive**
+
+- Logout invalidates the server token, supporting FR-AUTH-02.
+- Current membership remains the authority for FR-ACCESS-01.
+
+**Negative**
+
+- Database unavailability blocks authenticated requests; budget 1 hour to review error paths and expiry behavior.
+- Session records need lifecycle cleanup. The current source checks expiration on reads but does not create a sessions TTL index; do not claim automatic physical deletion is verified.
+- Local mock success does not establish hosted security; spend the shared 2-hour SP-02 budget verifying that seam.
+
+## Revisit trigger
+
+Write a superseding ADR if any 1 replay accesses protected content after logout, or session lookup adds more than 150 ms to warm p95 in the NFR-PERF-01 dataset.
+
+## Verification
+
+| Claim in this ADR | Source | Checked on |
+|---|---|---|
+| Signed-cookie session behavior | https://flask.palletsprojects.com/en/stable/api/#sessions | 2026-09-27 |
+| Local replay: 10 denials versus 10 control successes | ../spikes/SP-01-session-replay.md | 2026-09-27 |
+
+Sources checked by the assistant; student source review remains required. Proposed status does not imply personal acceptance or successful hosting verification.
+
 
