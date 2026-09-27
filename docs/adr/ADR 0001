@@ -2,7 +2,7 @@
 
 - **Status:** Proposed
 - **Date:** 2026-09-27
-- **Decider:** lpheng104 (repository owner Git identity; preferred name pending)
+- **Decider:** Liam Pheng
 - **Requirements affected:** FR-AUTH-02, FR-ACCESS-01, NFR-SEC-01
 - **Related ADRs:** 0002, 0003
 
