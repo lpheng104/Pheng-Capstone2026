@@ -1,13 +1,13 @@
 # Project Status: Inception Phase
 **Owner:** Liam Pheng |
-**Project Name:** Accountabilibuddy | **Last Update** <2026-09-20>
+**Project Name:** Accountabilibuddy | **Last Update** <2026-09-27>
 
 ## What's New 
-- Added traceability.csv chart
-- Added 17 Non-Functional Requirements to docs/requirements.md
-- Added Constraints, assumptions, dependencies, and obligations to sections 10-13 of docs/requirements.md
-- Updated and put in 10 items into definition of done
-- added check-traceability.py to .github/workflows and tested that it can run in actions
+- Added docs/tech-evaluation.md with all seven topics
+- Added tech-evalutaion-matrix.csv
+- Added a working score-stack.py workflow that can be ran through actions
+- Added 4 distinct Architecture Decision Records in docs/adr
+- Added 2 spike-plans in docs/spikes
 
 ## Fixes
 - Fixed the lack of requirements linter
