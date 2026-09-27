@@ -1,7 +1,0 @@
-{
-  "utc": "2026-09-27T22:59:56.799909+00:00",
-  "elapsed_seconds": 7.765,
-  "database_token_replay_statuses": [302, 302, 302, 302, 302, 302, 302, 302, 302, 302],
-  "cookie_only_replay_statuses": [200, 200, 200, 200, 200, 200, 200, 200, 200, 200],
-  "environment": "Flask test client with mongomock; not Atlas or live HTTP"
-}
