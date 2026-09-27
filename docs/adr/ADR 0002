@@ -49,6 +49,3 @@ Revisit if any acknowledged record is lost, tested restore exceeds 15 minutes, d
 | Free tier and backup limitation | https://www.mongodb.com/docs/atlas/reference/free-shared-limitations/ | 2026-09-27 |
 | Driver connection interface | https://www.mongodb.com/docs/languages/python/pymongo-driver/current/connect/mongoclient/ | 2026-09-27 |
 
-Sources checked by the assistant; student source review remains required. Proposed status does not imply personal acceptance or successful hosting verification.
-
-
