@@ -1,1 +1,53 @@
+# ADR 0003 — Application hosting
+
+- **Status:** Proposed
+- **Date:** 2026-09-27
+- **Decider:** Liam Pheng
+- **Requirements affected:** NFR-PORT-01, NFR-PERF-01, FR-HEALTH-01, CON-02
+- **Related ADRs:** 0001, 0002
+
+## Context
+
+NFR-PORT-01 names a hosted Linux environment as well as Windows local development. The repository contains a Render configuration, but the application is under implementation/, so an otherwise correct build command can fail from the repository root.
+
+Render Free and a supervised local Linux demonstration are the two practical evaluated options. The local alternative can carry a demonstration but cannot satisfy unattended hosted access without a requirement change. Hosting experience is unconfirmed. Budget 2 hours for SP-02, shared with the database/session decisions, plus 0.5 hour for the runbook.
+
+## Options considered
+
+| Option | Weighted score | The detail that decided it |
+|---|---:|---|
+| render-free | 4.15 | Published Flask/Gunicorn deploy workflow and reviewer URL. |
+| local-linux-demo | 3.25 | No additional subscription assumed; reviewer depends on student availability. |
+
+Scores and method: [technology evaluation](../tech-evaluation.md).
+
+## Decision
+
+I will target a Render Free web service with the existing Gunicorn start command and implementation/ as its working root. Explicitly select the free plan and verify configuration in SP-02 before accepting this proposal. Use a supervised local Linux demonstration if deployment fails; record the unmet hosted portability condition rather than marking it passed.
+
+## Consequences
+
+**Positive**
+
+- A host-provided URL supports NFR-PORT-01 and repeatable reviewer access.
+- Versioned build/start commands support CON-01.
+
+**Negative**
+
+- Free instances sleep after 15 idle minutes; pre-warm before a scheduled demo and keep cold startup separate from warm NFR-PERF-01 timing.
+- Local filesystem changes are ephemeral; keep persistent application records in MongoDB.
+- Directory configuration, secret settings, and outbound networking remain untested; budget the shared 2-hour spike and 0.5-hour runbook update.
+- A local Linux fallback itself requires setup verification; Windows development-server success is not proof that Gunicorn runs there.
+
+## Revisit trigger
+
+Revisit if warm p95 exceeds 1.5 seconds on the required dataset, 2 scheduled demonstrations fail due to startup/availability, or total recurring service cost exceeds $10/month.
+
+## Verification
+
+| Claim in this ADR | Source | Checked on |
+|---|---|---|
+| Free-service sleep and ephemeral storage | https://render.com/docs/free | 2026-09-27 |
+| Flask/Gunicorn deploy commands and branch deployment | https://render.com/docs/deploy-flask | 2026-09-27 |
+
 
