@@ -49,6 +49,3 @@ Write a superseding ADR if any 1 replay accesses protected content after logout,
 | Signed-cookie session behavior | https://flask.palletsprojects.com/en/stable/api/#sessions | 2026-09-27 |
 | Local replay: 10 denials versus 10 control successes | ../spikes/SP-01-session-replay.md | 2026-09-27 |
 
-Sources checked by the assistant; student source review remains required. Proposed status does not imply personal acceptance or successful hosting verification.
-
-
