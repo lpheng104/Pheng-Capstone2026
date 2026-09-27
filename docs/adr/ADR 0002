@@ -1,1 +1,54 @@
+# ADR 0002 — Database operation
+
+- **Status:** Proposed
+- **Date:** 2026-09-27
+- **Decider:** lpheng104 (repository owner Git identity; preferred name pending)
+- **Requirements affected:** NFR-REL-02, NFR-PORT-01, FR-EVT-02, CON-02
+- **Related ADRs:** 0001, 0003
+
+## Context
+
+MongoDB is already the persistence interface required by CON-05. This decision concerns who operates it, not a retrospective claim that MongoDB won a new relational-database comparison. Attendance responses and sessions require durable state across application restarts.
+
+A hosted reviewer needs access without depending on the student's laptop. Atlas removes local process operation but its Free tier does not supply managed backups. The student reports MongoDB experience, while Atlas operations and recovery experience remain unconfirmed. Budget 1.5 hours for SP-03 plus the shared 2 hours for SP-02.
+
+## Options considered
+
+| Option | Weighted score | The detail that decided it |
+|---|---:|---|
+| atlas-free | 3.60 | Remote deployment fit outweighs weaker recovery control. |
+| local-mongodb | 3.20 | Direct process/disk control; hosted reachability requires more work. |
+
+Scores and method: [technology evaluation](../tech-evaluation.md).
+
+## Decision
+
+I will use Atlas Free as the proposed primary database and keep local MongoDB as the supervised demonstration fallback. Acceptance depends on SP-02 connectivity and SP-03 restore evidence. Keep the current PyMongo dependency pin until a tested update is justified; the actual service/server version and release-specific compatibility must be captured during deployment.
+
+## Consequences
+
+**Positive**
+
+- External persistence separates application restarts from database state for FR-EVT-02.
+- The reviewer can use a hosted app without the student operating a laptop database, supporting NFR-PORT-01.
+
+**Negative**
+
+- Atlas Free has no managed backup; budget 1.5 hours for SP-03 and plan 15 minutes per weekly synthetic backup check afterward.
+- Network rules and credentials are new operational work; include them in the shared 2-hour SP-02 time box.
+- Using a managed tier does not prove NFR-REL-02 or the 7-day deletion process; provider retention remains a separate unresolved question.
+
+## Revisit trigger
+
+Revisit if any acknowledged record is lost, tested restore exceeds 15 minutes, dashboard storage exceeds 80% of its quota, or combined services exceed $10/month.
+
+## Verification
+
+| Claim in this ADR | Source | Checked on |
+|---|---|---|
+| Free tier and backup limitation | https://www.mongodb.com/docs/atlas/reference/free-shared-limitations/ | 2026-09-27 |
+| Driver connection interface | https://www.mongodb.com/docs/languages/python/pymongo-driver/current/connect/mongoclient/ | 2026-09-27 |
+
+Sources checked by the assistant; student source review remains required. Proposed status does not imply personal acceptance or successful hosting verification.
+
 
