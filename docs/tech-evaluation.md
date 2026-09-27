@@ -112,9 +112,3 @@ All successful source checks below were performed by the assistant on 2026-09-27
 | V14 | Paid Render numeric quote | https://render.com/pricing | 2026-09-27; not verified from retrieved page; no price asserted |
 | V15 | Gunicorn installation/platform documentation | https://docs.gunicorn.org/en/stable/install.html | 2026-09-27; retrieval failed; no verified native-Windows support claim |
 
-Repository pins were observed in the requirements files and matched the local installed direct packages. They are not newly selected versions in these ADRs. Vendor release-specific validation remains pending before deployment. The existing broad `Python 3.12+` support assertion is not established by testing one local interpreter.
-
-## Submission readiness
-
-Matrix validation, the local session spike, and the installed Python dependency notice inventory are complete. Student reports 14 actual hours. Pending: student review of facts and alternatives, preferred attribution, personal Rep 12 verification, hosted/restore spikes, final Linux release inventory if bundling, and a configured Git remote for push. No remote was configured when inspected. Do not claim a pushed submission or full hosted acceptance from these documents.
-
