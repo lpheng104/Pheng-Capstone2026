@@ -1,0 +1,31 @@
+name: Technology Evaluation Check
+
+on:
+  push:
+    paths:
+      - "docs/tech-evaluation-matrix.csv"
+      - "tools/score-stack.py"
+      - ".github/workflows/tech-stack-score.yml"
+
+  pull_request:
+    paths:
+      - "docs/tech-evaluation-matrix.csv"
+      - "tools/score-stack.py"
+
+  workflow_dispatch:
+
+jobs:
+  score-technology-options:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Score technology evaluation matrix
+        run: python tools/score-stack.py docs/tech-evaluation-matrix.csv
