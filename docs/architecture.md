@@ -671,23 +671,41 @@ Vendor facts were checked by the assistant. Student verification/signature remai
 
 ## 10. Traceability
 
-Every Must requirement in version 0.4 maps to a component, an interface and a flow. NFR rows identify where acceptance tests apply; none of these mappings assert tests already passed. F1 covers member/leader interaction, F2 identity, F3 dependency failure; I13–I15 cover operator and verification contracts.
+Every functional and non-functional requirement in `docs/requirements.md` is
+assigned to the architecture component primarily responsible for implementing
+or verifying it. Interface mappings identify where the behavior is exposed.
+Some Should and Could requirements describe planned functionality that is not
+yet implemented; their inclusion here establishes architectural responsibility
+and does not claim that implementation or acceptance testing is complete.
 
 | Requirement | Priority | Component(s) | Interface(s) | Flow |
 |---|---|---|---|---|
-| FR-AUTH-01 | Must | C1, C2 | I1 | F2 |
-| FR-AUTH-02 | Must | C1, C2 | I2, I3, I4 | F2, F3 |
-| FR-AUTH-03 | Must | C2 | I1 | F2 |
-| FR-UNIT-01 | Must | C3 | I5 | F1 |
-| FR-UNIT-02 | Must | C3 | I7 | F1 |
-| FR-UNIT-03 | Must | C3 | I8 | F1 |
-| FR-MSG-01 | Must | C4 | I6 | F1 |
-| FR-MSG-02 | Must | C4 | I9 | F1 |
-| FR-EVT-01 | Must | C5 | I10 | F1 |
-| FR-EVT-02 | Must | C5 | I11 | F1 |
-| FR-EVT-03 | Must | C5 | I6 | F1 |
-| FR-ACCESS-01 | Must | C1, C3 | I4, I5, I6, I7, I8, I9, I10, I11 | F1 |
-| FR-HEALTH-01 | Should | C6 | I12 | F3 |
+| FR-ACCT-01 | Must | C1, C2 | I1 | F2 |
+| FR-ACCT-02 | Must | C1, C2 | I1 | F2 |
+| FR-ACCT-03 | Should | C1, C2 | Planned account settings interface | F2 |
+| FR-ACCT-04 | Must | C1, C2 | I2, I4 | F2, F3 |
+| FR-ACCT-05 | Must | C1, C2 | I3 | F2 |
+| FR-ACCT-06 | Must | C1, C2, C6 | I1 | F2 |
+| FR-UNIT-01 | Must | C1, C3, C6 | I5 | F1 |
+| FR-UNIT-02 | Must | C1, C3, C6 | I7 | F1 |
+| FR-UNIT-03 | Must | C1, C3, C6 | Planned member-removal interface | F1 |
+| FR-UNIT-04 | Could | C1, C3, C6 | I8 | F1 |
+| FR-UNIT-05 | Could | C1, C3, C6 | I8 | F1 |
+| FR-CHAT-01 | Must | C1, C3, C4, C6 | Planned group-chat creation interface | F1 |
+| FR-CHAT-02 | Should | C1, C3, C4, C6 | Planned group-chat membership interface | F1 |
+| FR-CHAT-03 | Should | C1, C3, C4, C6 | Planned group-chat membership interface | F1 |
+| FR-CHAT-04 | Must | C1, C3, C4, C6 | I9 | F1 |
+| FR-CHAT-05 | Must | C1, C3, C4, C6 | I6, I9 | F1 |
+| FR-CHAT-06 | Could | C1, C3, C4, C6 | Planned backbrief interface | F1 |
+| FR-CLNDR-01 | Must | C1, C3, C5, C6 | Planned calendar creation interface | F1 |
+| FR-CLNDR-02 | Must | C1, C3, C5, C6 | I10 | F1 |
+| FR-CLNDR-03 | Could | C1, C3, C5, C6 | Planned event-deletion interface | F1 |
+| FR-CLNDR-04 | Should | C1, C3, C5, C6 | I6, I11 | F1 |
+| FR-RANK-01 | Must | C1, C3, C6 | I8 | F1 |
+| FR-RANK-02 | Must | C1, C3, C6 | I8 | F1 |
+| FR-RANK-03 | Should | C1, C3, C6 | I8 | F1 |
+| FR-RANK-04 | Should | C1, C3, C6 | I8 | F1 |
+| FR-RANK-05 | Must | C1, C3 | I4, I5, I6, I7, I8, I9, I10, I11 | F1 |
 | NFR-PERF-01 | Must | C1, C5, C6 | I6, I15 | F1 |
 | NFR-PERF-02 | Should | C1 | I6, I15 | F1 |
 | NFR-REL-01 | Must | C6 | I15 | F1, F2, F3 |
@@ -698,8 +716,8 @@ Every Must requirement in version 0.4 maps to a component, an interface and a fl
 | NFR-SEC-04 | Must | C1 | I6, I9, I15 | F1 |
 | NFR-PRIV-01 | Must | C2, C3, C4, C5, C7 | I1, I6, I14, I15 | F1, F2 |
 | NFR-PRIV-02 | Should | C7 | I14 | F3 |
-| NFR-A11Y-01 | Must | C1 | I1, I2, I4, I6, I15 | F1, F2 |
-| NFR-A11Y-02 | Must | C1 | I1, I2, I3, I9, I11, I15 | F1, F2 |
+| NFR-ACCSS-01 | Must | C1 | I1, I2, I4, I6, I15 | F1, F2 |
+| NFR-ACCSS-02 | Must | C1 | I1, I2, I3, I9, I11, I15 | F1, F2 |
 | NFR-USE-01 | Should | C1 | I15 | F1, F2 |
 | NFR-USE-02 | Must | C1 | I1, I2, I7, I9, I10, I11, I15 | F1, F2 |
 | NFR-MAINT-01 | Must | C6 | I13, I15 | F3 |
