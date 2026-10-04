@@ -712,12 +712,12 @@ All core design choices above are concrete. These questions concern baseline own
 
 | # | Open question | What it blocks | Owner | Decide by |
 |---|---|---|---|---|
-| Q1 | Does the owner approve baseline 0.4 rather than the conflicting older CSV? | Final baseline signature and legacy traceability reconciliation; use 0.4 meanwhile | lpheng104 | 2026-10-06 |
-| Q2 | Can SP-02 complete against the actual Render/Atlas accounts, including transaction and migration permissions? | Hosted acceptance and NFR-PORT-01; design stays fixed | lpheng104 | 2026-10-08 |
-| Q3 | What provider retention/deletion settings apply, and does the instructor accept the administrative deletion path? | NFR-PRIV-02 acceptance and any real-user trial | lpheng104 / instructor | 2026-10-08 |
-| Q4 | Does SP-03 restore the stated records and indexes in 15 minutes? | Recovery acceptance; no backed-up-data promise before measurement | lpheng104 | 2026-10-09 |
-| Q5 | Are ASM-04 unit size and synthetic-only demonstration approved? | Baseline scale and user testing; maintain conservative fictional-data scope | lpheng104 / sponsor | 2026-10-06 |
-| Q6 | Has the owner read vendor facts, contracts and diagram relationships? | Changing Draft to Baselined and signing submission | lpheng104 | 2026-10-04 |
+| Q1 | Does the owner approve baseline 0.4 rather than the conflicting older CSV? | Final baseline signature and legacy traceability reconciliation; use 0.4 meanwhile | Liam Pheng | 2026-10-06 |
+| Q2 | Can SP-02 complete against the actual Render/Atlas accounts, including transaction and migration permissions? | Hosted acceptance and NFR-PORT-01; design stays fixed | Liam Pheng | 2026-10-08 |
+| Q3 | What provider retention/deletion settings apply, and does the instructor accept the administrative deletion path? | NFR-PRIV-02 acceptance and any real-user trial | Liam Pheng / Dr. Locklair | 2026-10-08 |
+| Q4 | Does SP-03 restore the stated records and indexes in 15 minutes? | Recovery acceptance; no backed-up-data promise before measurement | Liam Pheng | 2026-10-09 |
+| Q5 | Are ASM-04 unit size and synthetic-only demonstration approved? | Baseline scale and user testing; maintain conservative fictional-data scope | Liam Pheng | 2026-10-06 |
+| Q6 | Has the owner read vendor facts, contracts and diagram relationships? | Changing Draft to Baselined and signing submission | Liam Pheng | 2026-10-04 |
 
 ## 12. Change Log for This Document
 
