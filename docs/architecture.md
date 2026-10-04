@@ -1,6 +1,6 @@
 # Technical Specification — Accountabilibuddy
 
-Version: v0.1 · Date: 2026-10-04 · Author: lpheng104 (repository owner) · Status: Draft for owner review
+Version: v0.1 · Date: 2026-10-04 · Author: Liam Pheng · Status: Completed version0.1
 
 Requirements baseline this design satisfies: [requirements.md](requirements.md), version 0.4. This is the target design for the remaining implementation work, not a declaration that the current prototype meets every contract. The owner must read and approve it before changing its status to Baselined. The existing Flask/MongoDB constraint is retained; decisions refine [ADRs 0001–0004](adr/0001-session-revocation.md).
 
