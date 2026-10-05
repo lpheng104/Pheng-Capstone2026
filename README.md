@@ -1,18 +1,13 @@
 # Project Status: Inception Phase
 **Owner:** Liam Pheng |
-**Project Name:** Accountabilibuddy | **Last Update** <2026-09-27>
+**Project Name:** Accountabilibuddy | **Last Update** <2026-10-04>
 
 ## What's New 
-- Added docs/tech-evaluation.md with all seven topics
-- Added tech-evalutaion-matrix.csv
-- Added a working score-stack.py workflow that can be ran through actions
-- Added 4 distinct Architecture Decision Records in docs/adr
-- Added 2 spike-plans in docs/spikes
+- Architecture.md is now completely filled out
+- check-spec.yml is now a workflow that can be ran from Actions 
 
 ## Fixes
-- Fixed the lack of requirements linter
-- Updated and fixed FR-UNIT-02, FR-UNIT-03, FR-ACCT-01, and FR-ACCT-02 requirements
-- Added additional information to docs/elicitation-notes.md pertaining to the interviews
+- None
 
 ***
 # Table of Contents
