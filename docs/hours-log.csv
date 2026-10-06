@@ -34,4 +34,5 @@ date,start,end,hours,phase,hat,task,estimate_hours,blocked_hours,notes
 2026-10-01,18:54,22:34,3.66,inception,Architect, Technical Specification, 3.00,0.00, continued working on technical specification and system design document
 2026-10-02,08:13,11:43,3.50,inception,Architect, Technical Specification, 3.00,0.00, continued working on technical specification and system design document
 2026-10-04,18:18,19:03,0.75,inception,Architect, Technical Specification, 3.00,0.00, Finished up work on tehcnical specification and design document and copied everything from cloned repository on laptop 
-2026-10-05,07:56,00:00,0.00,inception,project manager, Work Breakdown + Schedule & Risk Register, 3.00,0.00, began working on the breakdown and risk register
+2026-10-05,07:56,11:57,4.00,inception,project manager, Work Breakdown + Schedule & Risk Register, 3.00,0.00, began working on the breakdown and risk register
+2026-10-05,07:57,00:00,0.00,inception,project manager, Work Breakdown + Schedule & Risk Register, 3.00,0.00, continue working on the breakdown and risk register
