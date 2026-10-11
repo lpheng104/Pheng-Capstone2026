@@ -117,8 +117,6 @@ The ideal line decreases evenly across nine weeks: R_M × (9 − n) / 9 after n 
 | End Week 15 | 9.42 | 4.15 | 14 | 15 | No |
 | End Week 16 | 0.00 | 0.00 | 0 | 0 | No |
 
-**First projected over-budget week: none in this provisional M-only schedule.** Every weekly allocation fits 14 task hours, and projected remaining effort fits future task capacity at every point. This result excludes unidentified defects and may change when Liam Pheng replaces draft suggestions with personal O/M/P estimates. A complete three-point baseline is not established by this calculation.
-
 Capacity columns cover weeks after the stated point and assume future buffer is still available. In weekly reviews, record completed task IDs, actual effort, named defects, changes to capacity and buffer use. Preserve this draft and the later personally estimated baseline as distinct versions. Spending hours without meeting a done-when does not automatically burn down work.
 
 ## Scope decision and Week 8 change control
