@@ -62,8 +62,6 @@ Calculated from this supplied version: **19 exact E values, 5 finite E ranges an
 
 ## Calibration from recorded history
 
-Use the recorded `hours` and `estimate_hours` values, not reconstructed elapsed times. Some start/end intervals differ from the recorded hours; those discrepancies require Liam Pheng's review rather than automatic correction. The October 11 entry has end 00:00 and hours 0.00 and is treated as open, not as a completed zero-hour task.
-
 Calibration uses completed historical work before Week 7 (through 2026-10-04): **35 sessions grouped into six finished tasks** by trimmed task name. Repeated estimates are treated as estimates for the corresponding work sessions and summed within each task. I confirmed on 2026-10-11 that each estimate is separate for its work session; the calibration denominator is therefore supported by that confirmation. The completed deliverables and final notes support grouping the first six task names as finished; the Week 7 planning task remains in progress and is excluded.
 
 | Completed task | Sessions | Estimated hours | Actual hours | Actual / estimate |
