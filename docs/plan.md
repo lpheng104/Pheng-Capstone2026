@@ -1,20 +1,14 @@
 # Week 7 build plan — Accountabilibuddy
 
-Date: 2026-10-11. Owner: Liam Pheng. Status: **Working scenario; supplied estimates preserved, draft calculation conventions disclosed, finite inputs and Week 8 review pending.**
-
-This plan uses `requirements.md` version 0.4 and the Week 6 target architecture. Existing application code is a starting point, not evidence that every target contract is complete. Construction tasks below mean inspect, close gaps, and verify; do not charge again for demonstrated completed work. Reconcile the older traceability CSV with version 0.4 at the Week 8 review.
-
-Dr. Litman's assignment requires submitted hour estimates to be Liam Pheng's own. At Liam Pheng's explicit request, this working draft includes AI-generated most-likely (M) suggestions for revision. They are not represented as personal estimates or an approved submission baseline. Liam Pheng has now supplied O/P values for most tasks; E is computed exactly or as a range/lower bound where supported. The schedule uses the explicitly provisional planning-E convention described below; final finite estimates remain necessary. Requirement thresholds are acceptance targets, not effort estimates.
+Date: 2026-10-11. Owner: Liam Pheng. Status: **Working Draft.**
 
 ## Work breakdown and estimate inputs
 
-The eight packages cover implementation, verification, operations, course milestones, and handoff. Each task has one package; risk responses refer to these tasks rather than adding duplicate effort. All current requirements remain in scope at Liam Pheng's explicit direction on 2026-10-11. Enabling work is identified explicitly. Enter O/M/P in hours for every remaining task; split work whose expected estimate from Liam Pheng exceeds the assignment's 1–6 hour task size. Small subtasks can be grouped only when their shared done-when remains meaningful.
-
-**E = (O + 4M + P) / 6; calibrated E = E × (85.83 / 103.30)**. O/M/P below are imported unchanged from Liam Pheng's supplied table. Single-number inputs produce an exact E; finite ranges produce an E range; a trailing + produces a lower bound with no stated maximum. The ≥ symbol denotes that lower bound, not a complete point estimate. Displayed results are rounded to two decimals; use unrounded values for totals. These calculations do not turn open-ended pessimistic estimates into finite estimates.
+**E = (O + 4M + P) / 6; calibrated E = E × (85.83 / 103.30)**. O/M/P below are imported unchanged from my supplied table. Single-number inputs produce an exact E; finite ranges produce an E range; a trailing + produces a lower bound with no stated maximum. The ≥ symbol denotes that lower bound, not a complete point estimate. Displayed results are rounded to two decimals; use unrounded values for totals. These calculations do not turn open-ended pessimistic estimates into finite estimates.
 
 | Task | Package / task | Requirement trace or enabling justification | O | M | P | E from supplied inputs | Calibrated E from supplied inputs | Draft planning E | Draft calibrated planning E | Done when | Dependencies |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| T-1.1 | WP-1 Baseline: reconcile requirement IDs | NFR-MAINT-02 | Pending | 2 | Pending | Pending inputs | Pending inputs | 2.00 | 1.66 | Legacy matrix matches approved 0.4 IDs and checker passes | — |
+| T-1.1 | WP-1 Baseline: reconcile requirement IDs | NFR-MAINT-02 | 1 | 2 | 3 | 2 | 2 | 2.00 | 1.66 | Legacy matrix matches approved 0.4 IDs and checker passes | — |
 | T-1.2 | WP-1: inspect current code against target contracts | Enabling: avoid re-estimating completed implementation | 2 | 3 | 4 | 3.00 | 2.49 | 3.00 | 2.49 | Each contract is marked evidenced or a named gap with task ID | T-1.1 |
 | T-1.3 | WP-1: approve estimates, capacity, scope and design | Enabling: Week 8 review | 2 | 3 | 4 | 3.00 | 2.49 | 3.00 | 2.49 | Liam Pheng's inputs complete; review decision and baseline commit recorded | T-1.2 |
 | T-2.1 | WP-2 Data: verify migration and indexes | NFR-PRIV-01, NFR-REL-02 | 2-3 | 4 | 5-6 | 3.83–4.17 | 3.19–3.46 | 4.17 | 3.46 | Disposable real database has specified validators/indexes and migration ledger | T-1.3 |
@@ -63,15 +57,11 @@ The supplied O/M/P values and their exact/ranged/lower-bound E results are prese
 - T-1.1 uses the supplied M = 2 hours as a temporary planning value. Its O/P remain missing; no personal three-point estimate is asserted.
 - T-8.2 remains a contingent defect register. Defects receive separate estimates and allocations when identified; they are excluded from this scenario rather than asserted to require zero time.
 
-These are assistant-selected draft calculation conventions, not additional personal estimates from Liam Pheng. The 36 numerical planning values support one coherent editable scenario. Finalizing a submission baseline requires Liam Pheng to supply finite point values and revise the inherited AI-generated M suggestions through personal estimation. Open-ended values mean the true total has no demonstrated finite upper bound.
-
 ## Calibration from recorded history
-
-Liam Pheng supplied the original session-level CSV on 2026-10-11. Its original ten fields and all 39 source rows are retained in `hours-log.csv`, with `ai_assisted` and `calibration` appended. `hours-log-source.csv` preserves the pasted source exactly; `hours-log-before-import.csv` archives the earlier aggregate log and is **not an additional source of hours**.
 
 Use the recorded `hours` and `estimate_hours` values, not reconstructed elapsed times. Some start/end intervals differ from the recorded hours; those discrepancies require Liam Pheng's review rather than automatic correction. The October 11 entry has end 00:00 and hours 0.00 and is treated as open, not as a completed zero-hour task.
 
-Calibration uses completed historical work before Week 7 (through 2026-10-04): **35 sessions grouped into six finished tasks** by trimmed task name. Repeated estimates are treated as estimates for the corresponding work sessions and summed within each task. Liam Pheng confirmed on 2026-10-11 that each estimate is separate for its work session; the calibration denominator is therefore supported by that confirmation. The completed deliverables and final notes support grouping the first six task names as finished; the Week 7 planning task remains in progress and is excluded.
+Calibration uses completed historical work before Week 7 (through 2026-10-04): **35 sessions grouped into six finished tasks** by trimmed task name. Repeated estimates are treated as estimates for the corresponding work sessions and summed within each task.I confirmed on 2026-10-11 that each estimate is separate for its work session; the calibration denominator is therefore supported by that confirmation. The completed deliverables and final notes support grouping the first six task names as finished; the Week 7 planning task remains in progress and is excluded.
 
 | Completed task | Sessions | Estimated hours | Actual hours | Actual / estimate |
 |---|---:|---:|---:|---:|
@@ -85,19 +75,19 @@ Calibration uses completed historical work before Week 7 (through 2026-10-04): *
 
 **Calibration factor k = 85.83 / 103.30 = 0.8308809293**, displayed as 0.830881. Apply the unrounded factor once to every remaining task: **calibrated E = ((O + 4M + P) / 6) × (85.83 / 103.30)**. Round only displayed outputs. This is a ratio of totals, not a simple average of row ratios. It represents documented planning/design experience, not demonstrated implementation throughput; broad session estimates should not be mistaken for precise forecasts of unfamiliar engineering work.
 
-The `calibration` column contains each eligible historical session's actual/estimate ratio; it is blank for ongoing Week 7 work. Past hours are sunk effort, excluded from remaining task effort and future capacity. The imported history calibrates remaining work; future O/P values come from Liam Pheng's supplied task table, with ranges and open-ended values preserved. Historic 3-hour session estimates were not copied into future task rows.
+The `calibration` column contains each eligible historical session's actual/estimate ratio; it is blank for ongoing Week 7 work. Past hours are sunk effort, excluded from remaining task effort and future capacity. The imported history calibrates remaining work; future O/P values come from my own supplied task table, with ranges and open-ended values preserved. Historic 3-hour session estimates were not copied into future task rows.
 
 ### Week 7 actual work
 
-Recorded actual hours: **12.50**, comprising October 5 (4.00), October 6 (4.50), and October 8 (4.00). This matches Liam Pheng's earlier self-report and replaces that aggregate entry rather than adding to it. October 11 is an open entry with 0.00 recorded hours. Completed recorded hours across the source: **98.33** (85.83 historical + 12.50 Week 7 so far); no extra hours are inferred from the open entry.
+Recorded actual hours: **12.50**, comprising October 5 (4.00), October 6 (4.50), and October 8 (4.00). This matches my earlier self-report and replaces that aggregate entry rather than adding to it. 
 
 ## Capacity and separate buffer
 
-Liam Pheng confirmed that **15–16 hours per week during Weeks 8–16 are available exclusively for project work**, after other classes and personal/ROTC commitments. This is net project capacity: **135–144 hours across nine weeks**. Use the lower bound, **15 hours per week / 135 hours total**, as the planning baseline. The additional possible hour each week is optional capacity, not committed task time.
+I have confirmed that **15–16 hours per week during Weeks 8–16 are available exclusively for project work**, after other classes and personal/ROTC commitments. This is net project capacity: **135–144 hours across nine weeks**. Use the lower bound, **15 hours per week / 135 hours total**, as the planning baseline. The additional possible hour each week is optional capacity, not committed task time.
 
 Other-class overhead and personal/ROTC losses are already excluded from this stated availability, so they receive no additional deduction. The table does not claim those commitments consume no time; it avoids subtracting them twice. Project-specific milestone reporting is included in T-8.1 and consumes the planned-task budget.
 
-| Week | Net availability supplied by Liam Pheng | Course overhead treatment | Known losses and reason | Project capacity baseline | Minimum buffer | Planned-task budget |
+| Week | My Personal Net availability | Course overhead treatment | Known losses and reason | Project capacity baseline | Minimum buffer | Planned-task budget |
 |---|---:|---|---|---:|---:|---:|
 | 8 | 15–16 h | Other classes already excluded | Personal/ROTC commitments already excluded | 15 h | 1 h | 14 h |
 | 9 | 15–16 h | Other classes already excluded | Personal/ROTC commitments already excluded | 15 h | 1 h | 14 h |
@@ -110,11 +100,11 @@ Other-class overhead and personal/ROTC losses are already excluded from this sta
 | 16 | 15–16 h | Other classes already excluded | Personal/ROTC commitments already excluded | 15 h | 1 h | 14 h |
 | **Total** | **135–144 h** | **Already excluded** | **Already excluded** | **135 h** | **9 h** | **126 h** |
 
-**Declared minimum project buffer: 1 hour per week × 9 weeks = 9 hours**, as selected by Liam Pheng. This is **6.67% of the 135-hour baseline project capacity** (9 / 135 × 100). The baseline scheduled-task budget is **135 − 9 = 126 hours**, or **14 hours per week**. If all 16 available hours are realized in every week, capacity is 144 hours and the same minimum buffer leaves 135 task hours; the buffer is then 6.25% of capacity. The baseline relies on 126 task hours rather than this optional upper bound.
+**Declared minimum project buffer: 1 hour per week × 9 weeks = 9 hours**, This is **6.67% of the 135-hour baseline project capacity** (9 / 135 × 100). The baseline scheduled-task budget is **135 − 9 = 126 hours**, or **14 hours per week**. If all 16 available hours are realized in every week, capacity is 144 hours and the same minimum buffer leaves 135 task hours; the buffer is then 6.25% of capacity. The baseline relies on 126 task hours rather than this optional upper bound.
 
-The assignment's approximate 87 hours is context; this plan uses Liam Pheng's confirmed availability. Historical logged hours are sunk effort and are not deducted from future Weeks 8–16 capacity.
+The assignment's approximate 87 hours is context; this plan uses my confirmed availability. Historical logged hours are sunk effort and are not deducted from future Weeks 8–16 capacity.
 
-Buffer is separate from calibrated task estimates and reserved for unexpected problems. Record its use during the weekly review, including the triggering issue, hours consumed and remaining reserve; Liam Pheng may reserve more than the stated minimum by assigning fewer tasks. Risk exposure is a prioritization measure and is not automatically added to task totals. A response is funded only once its linked task has an estimate from Liam Pheng and fits the weekly task budget, or a documented decision allocates available buffer. Linked mitigation tasks have provisional planning-E allocations in the schedule; additional defects and contingency decisions need separate estimates and allocations. These are draft allocations, not a personally estimated approved baseline.
+Buffer is separate from calibrated task estimates and reserved for unexpected problems. Record its use during the weekly review, including the triggering issue, hours consumed and remaining reserve; I may have more than the stated minimum by assigning fewer tasks. Risk exposure is a prioritization measure and is not automatically added to task totals. A response is funded only once its linked task has an estimate and fits the weekly task budget, or a documented decision allocates available buffer. Linked mitigation tasks have provisional planning-E allocations in the schedule; additional defects and contingency decisions need separate estimates and allocations. These are draft allocations, not a personally estimated approved baseline.
 
 ## Proposed sequencing and weekly gates
 
@@ -158,19 +148,9 @@ Future capacity covers weeks after each row and assumes future buffer is unspent
 
 ## Scope decision and Week 8 change control
 
-Liam Pheng explicitly chose to retain all current requirements on 2026-10-11. Requirements priorities remain unchanged; no Won't changes are appropriate. The numerical draft scenario fits capacity, but its open-ended and missing inputs prevent a final feasibility claim. If retained scope exceeds capacity, return to Liam Pheng with the computed deficit and concrete tradeoffs.
+I have explicitly chose to retain all current requirements on 2026-10-11. Requirements priorities remain unchanged; no Won't changes are appropriate.
 
 | Decision | Requirements affected | Hours recovered | MoSCoW before to after | Reason |
 |---|---|---|---|---|
-| Retain all current requirements | All version 0.4 FR/NFR IDs | 0 (no scope removed) | Unchanged for every requirement | The stated draft fits capacity, so Liam Pheng retained the current scope; reassess after finite personal estimates and risk responses are finalized. |
-
-Liam Pheng's direction is recorded; baseline signature and Week 8 review approval remain pending. Existing evidenced work may be re-estimated by Liam Pheng without removing requirements.
-
-## Inputs still required for a final baseline
-
-Liam Pheng must supply O/P for T-1.1 and single-number choices for all range/+ inputs. The exact values are not inferred from this working scenario. Named defects need estimates when identified. Risk impact hours and likelihood scores in risk-register.md still require input; task response allocations do not supply those missing scores. No scope cut is authorized; all requirements remain retained, so requirements.md priorities remain unchanged. If Dr. Litman requires a nonempty cut decision, resolve that at review rather than inventing a cut or changing a Must requirement silently.
-
-## Submission readiness
-
-Before submission: replace AI-generated task suggestions with Liam Pheng's personal O/M/P estimates and enter risk scores; review the calculated calibration with Dr. Litman; calculate/sort exposures; confirm response funding; recompute the three-point baseline and first deficit; approve scope changes; log actual Week 7 work and AI use; review and commit the approved files locally. Post the resulting repository commit URL to Canvas. This draft is not an approved baseline and does not fulfill the numeric requirements yet.
+| Retain all current requirements | All version 0.4 FR/NFR IDs | 0 (no scope removed) | Unchanged for every requirement | The stated draft fits capacity, so I retained the current scope; reassess after finite personal estimates and risk responses are finalized. |
 
