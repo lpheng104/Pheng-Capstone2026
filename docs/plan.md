@@ -153,4 +153,4 @@ I explicitly chose to retain all current requirements on 2026-10-11. Requirement
 
 | Decision | Requirements affected | Hours recovered | MoSCoW before to after | Reason |
 |---|---|---|---|---|
-| Retain all current requirements | All version 0.4 FR/NFR IDs | 0 (no scope removed) | Unchanged for every requirement | The stated draft fits capacity, so I retained the current scope; reassess after finite personal estimates and risk responses are finalized. |
+| Retain all current requirements | All version 0.4 FR/NFR IDs | 0 (no scope removed) | Unchanged for every requirement | The stated draft fits capacity, so I retained the current scope |
