@@ -4,7 +4,7 @@ Date: 2026-10-11. Owner: Liam Pheng. Status: **Draft**
 
 Likelihood scale: 1 rare, 2 unlikely, 3 possible, 4 likely, 5 almost certain. Impact I is Liam Pheng-estimated additional effort in hours; exposure X = L × I is an ordinal weighted-hour ranking, not a probability-based expected duration. Liam Pheng enters all hour figures. Sort descending by X after scoring; current order is by ID and **does not claim exposure ranking**. Keep original scores and dated changes after approval.
 
-| ID | Category | Cause → uncertain event → consequence | L | I (hours) | X | Observable trigger | Owner (role held by Liam Pheng) | Response and task funding link |
+| ID | Category | Cause → uncertain event → consequence | L | I (hours) | X | Observable trigger | Owner | Response and task funding link |
 |---|---|---|---|---|---|---|---|---|
 | R-01 | Dependency | Hosted workflow remains unverified → Render/Atlas configuration may block protected writes → platform acceptance and demo are delayed | | | | SP-02 cannot complete health and the protected workflow at Liam Pheng-approved spike limit | Deployment operator | Mitigate in T-2.3; inspect first failed seam; if still blocked, execute T-7.4 local synthetic fallback and seek Week 8 change control for NFR-PORT-01. Local success cannot close hosted acceptance. |
 | R-02 | Technical/data recovery | Restore is unmeasured → exported records or indexes may fail to restore correctly → acknowledged-write recovery requirement fails | | | | SP-03 reports any missing ID/hash/index or misses its specified acceptance threshold | Database operator | Mitigate in T-2.4; preserve source, restore into separate database, repair/retest procedure; rehearse T-7.4 fallback. Keep NFR-REL-02 unaccepted until measured. |
