@@ -1,6 +1,6 @@
 # Week 7 risk register — Accountabilibuddy
 
-Date: 2026-10-11. Owner: Liam Pheng. Status: **Draft; Liam Pheng's scores and funded response estimates pending.**
+Date: 2026-10-11. Owner: Liam Pheng. Status: **Draft**
 
 Likelihood scale: 1 rare, 2 unlikely, 3 possible, 4 likely, 5 almost certain. Impact I is Liam Pheng-estimated additional effort in hours; exposure X = L × I is an ordinal weighted-hour ranking, not a probability-based expected duration. Liam Pheng enters all hour figures. Sort descending by X after scoring; current order is by ID and **does not claim exposure ranking**. Keep original scores and dated changes after approval.
 
