@@ -72,20 +72,6 @@ could interpret a word two ways, it belongs here.
 
 ## 5. Functional Requirements
 
-<!-- Repeat this block for every requirement. Group by area. -->
-
-### FR-<AREA>-<nn> — <short imperative name>
-
-**Priority:** Must | Should | Could | Won't (this release)
-**Requirement:** <Actor> shall be able to <action> <object> <under what condition>.
-**Rationale:** Why this exists, and which persona asked for it.
-**Acceptance criteria:**
-- Given <starting state>, when <the actor does this>, then <this observable thing is true>.
-- Given <edge or failure case>, when <trigger>, then <defined behavior>.
-
-**Source:** <interview, observation, regulation, your own decision — name it>
-
-
 ### FR-ACCT-01 — Account Username Creation
 
 **Priority:** Must 
@@ -305,7 +291,7 @@ could interpret a word two ways, it belongs here.
 **Source:** your own decision — The ability to maintain chat history will be required so authorized users can review previously communicated information and important unit communication is not lost.
 
 
-### FR-CHAT-06 — Create Backbrief Assignment
+### FR-CHAT-06 — Create Backbrief Assignment (Flagged for change Pending week 8-review)
 
 **Priority:** Could
 **Requirement:** Administrative/leadership users shall be able to create and assign a backbrief task within a group chat to one or more members of the group chat.
@@ -366,7 +352,7 @@ could interpret a word two ways, it belongs here.
 **Source:** your own decision — The ability to delete calendar events will be required because military units may need to remove cancelled, outdated, or incorrectly created events from their calendar.
 
 
-### FR-CLNDR-04 — Accountability Tracker Event
+### FR-CLNDR-04 — Accountability Tracker Event (Deferred pending week 8 review)
 
 **Priority:** Should
 **Requirement:** Administrative users shall be able to enable accountability tracking for an existing Acountabilibuddy calendar event.
@@ -382,7 +368,7 @@ could interpret a word two ways, it belongs here.
 **Source:** Interview with S3 Hunter Szymborski 09-04-2026 — The ability to enable an accountability tracker for calendar events will be required because military units need to track which personnel have acknowledged or confirmed their attendance for scheduled events.
 
 
-### FR-RANK-01 — Assign User Role
+### FR-RANK-01 — Assign User Role (pending week 8 review)
 
 **Priority:** Must
 **Requirement:** Administrative users shall be able to assign an existing Acountabilibuddy user a role within an already existing unit.
@@ -398,7 +384,7 @@ could interpret a word two ways, it belongs here.
 **Source:** Interview with Lionel Carapia 09-04-2026 and Jack Malenock 09-09-2026 — The ability to assign users roles within existing unit groups will be required because user roles will determine the user's position within the chain of command and what features and information they are authorized to access.
 
 
-### FR-RANK-02 — Assign User Rank
+### FR-RANK-02 — Assign User Rank (pending week 8 review)
 
 **Priority:** Must
 **Requirement:** Administrative users shall be able to assign an existing Acountabilibuddy user a military rank within an already existing unit.
@@ -414,7 +400,7 @@ could interpret a word two ways, it belongs here.
 **Source:** Interview with Lionel Carapia 09-04-2026 and Jack Malenock 09-09-2026 — The ability to assign users military ranks within existing unit groups will be required because rank information is necessary to represent the unit's chain of command and identify users within the military organization.
 
 
-### FR-RANK-03 — Change User Rank
+### FR-RANK-03 — Change User Rank (pending week 8 review)
 
 **Priority:** Should
 **Requirement:** Administrative users shall be able to change the military rank of an existing Acountabilibuddy user within an already existing unit.
