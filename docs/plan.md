@@ -1,56 +1,77 @@
 # Week 7 build plan — Accountabilibuddy
 
-Date: 2026-10-11. Owner: Liam Pheng. Status: **Working draft**
+Date: 2026-10-11. Owner: Liam Pheng. Status: **Working scenario; supplied estimates preserved, draft calculation conventions disclosed, finite inputs and Week 8 review pending.**
+
+This plan uses `requirements.md` version 0.4 and the Week 6 target architecture. Existing application code is a starting point, not evidence that every target contract is complete. Construction tasks below mean inspect, close gaps, and verify; do not charge again for demonstrated completed work. Reconcile the older traceability CSV with version 0.4 at the Week 8 review.
+
+Dr. Litman's assignment requires submitted hour estimates to be Liam Pheng's own. At Liam Pheng's explicit request, this working draft includes AI-generated most-likely (M) suggestions for revision. They are not represented as personal estimates or an approved submission baseline. Liam Pheng has now supplied O/P values for most tasks; E is computed exactly or as a range/lower bound where supported. The schedule uses the explicitly provisional planning-E convention described below; final finite estimates remain necessary. Requirement thresholds are acceptance targets, not effort estimates.
 
 ## Work breakdown and estimate inputs
 
-For the final baseline: **E = (O + 4M + P) / 6; calibrated E = E × k**. For this M-only draft, the last numeric column is **calibrated M = M × k**. It is a provisional scheduling value, not a computed three-point expected value.
+The eight packages cover implementation, verification, operations, course milestones, and handoff. Each task has one package; risk responses refer to these tasks rather than adding duplicate effort. All current requirements remain in scope at Liam Pheng's explicit direction on 2026-10-11. Enabling work is identified explicitly. Enter O/M/P in hours for every remaining task; split work whose expected estimate from Liam Pheng exceeds the assignment's 1–6 hour task size. Small subtasks can be grouped only when their shared done-when remains meaningful.
 
-| Task | Package / task | Requirement trace or enabling justification | O | M | P | E | Calibrated E | Done when | Dependencies |
-|---|---|---|---|---|---|---|---|---|---|
-| T-1.1 | WP-1 Baseline: reconcile requirement IDs | NFR-MAINT-02 | Pending | 2 | Pending | Pending | Pending | Legacy matrix matches approved 0.4 IDs and checker passes | — |
-| T-1.2 | WP-1: inspect current code against target contracts | Enabling: avoid re-estimating completed implementation | 2 | 3 | 4 | 3.00 | 2.49 | Each contract is marked evidenced or a named gap with task ID | T-1.1 |
-| T-1.3 | WP-1: approve estimates, capacity, scope and design | Enabling: Week 8 review | 2 | 3 | 4 | 3.00 | 2.49 | Liam Pheng's inputs complete; review decision and baseline commit recorded | T-1.2 |
-| T-2.1 | WP-2 Data: verify migration and indexes | NFR-PRIV-01, NFR-REL-02 | 2–3 | 4 | 5–6 | 3.83–4.17 | 3.19–3.46 | Disposable real database has specified validators/indexes and migration ledger | T-1.3 |
-| T-2.2 | WP-2: verify atomic unit/owner creation | FR-UNIT-01, NFR-REL-02 | 3 | 4 | 5 | 4.00 | 3.32 | Injected owner-write failure leaves no orphan unit in real replica set | T-2.1 |
-| T-2.3 | WP-2: configure hosted workflow spike | NFR-PORT-01, FR-HEALTH-01 | 3 | 5 | 6–7 | 4.83–5.00 | 4.02–4.15 | SP-02 executed with build/runtime evidence and explicit pass/fail | T-2.1, T-3.2 |
-| T-2.4 | WP-2: exercise backup, restore and outage | NFR-REL-02 | 3–4 | 5 | 6+ | ≥ 4.83 | ≥ 4.02 | SP-03 comparisons saved and separate outage/recovery threshold measured | T-2.1, T-2.2 |
-| T-3.1 | WP-3 Identity: verify registration and admin token | FR-AUTH-01, FR-AUTH-03 | 1 | 2 | 2+ | ≥ 1.83 | ≥ 1.52 | Unique normalization, password bounds/hash and setup-token cases pass | T-1.3 |
-| T-3.2 | WP-3: verify sessions and logout replay | FR-AUTH-02 | 1 | 2 | 3 | 2.00 | 1.66 | Expired and revoked tokens cannot access protected views | T-3.1 |
-| T-3.3 | WP-3: complete CSRF and login throttle cases | NFR-SEC-02, FR-AUTH-02 | 2 | 3 | 4+ | ≥ 3.00 | ≥ 2.49 | Every POST rejects missing/tampered CSRF without mutation; throttle edge cases pass | T-3.2 |
-| T-3.4 | WP-3: audit role and cross-unit access | FR-ACCESS-01, NFR-SEC-01 | 2–3 | 4 | 5+ | ≥ 3.83 | ≥ 3.19 | Route-by-role matrix denies all forbidden reads/writes with zero mutations | T-3.3, T-4.2, T-5.3 |
-| T-4.1 | WP-4 Membership: verify add-member workflow | FR-UNIT-02 | 1 | 2 | 3 | 2.00 | 1.66 | Registered user gains access; duplicate add cannot downgrade owner | T-2.2, T-3.2 |
-| T-4.2 | WP-4: verify roles and rank labels | FR-UNIT-03 | 1 | 2 | 3+ | ≥ 2.00 | ≥ 1.66 | Only owner can edit non-owner role/rank; owner invariant preserved | T-4.1 |
-| T-4.3 | WP-4: verify latest-message list | FR-MSG-01 | 1 | 2 | 3+ | ≥ 2.00 | ≥ 1.66 | Seeded list returns latest 100 with stable chronological display | T-4.1 |
-| T-4.4 | WP-4: verify message input and escaping | FR-MSG-02, NFR-SEC-04 | 1 | 2 | 3+ | ≥ 2.00 | ≥ 1.66 | Length boundaries and authorization pass; all displayed text fields escape markup | T-4.3 |
-| T-5.1 | WP-5 Events: verify creation/time validation | FR-EVT-01 | 2 | 3 | 4 | 3.00 | 2.49 | Role and offset-aware timestamp tests pass without invalid writes | T-4.2 |
-| T-5.2 | WP-5: verify attendance upsert | FR-EVT-02 | 2 | 3 | 4 | 3.00 | 2.49 | Repeated/concurrent responses leave one latest record; cross-unit event rejected | T-5.1 |
-| T-5.3 | WP-5: verify accountability roster | FR-EVT-03 | 1 | 2 | 3 | 2.00 | 1.66 | Leaders see responses and pending current members, including later additions | T-5.2 |
-| T-6.1 | WP-6 Quality: check corrective validation messages | NFR-USE-02 | 1 | 2 | 3+ | ≥ 2.00 | ≥ 1.66 | All eight specified invalid-input cases give corrective information | T-4.4, T-5.3 |
-| T-6.2 | WP-6: audit desktop/mobile accessibility | NFR-A11Y-01, NFR-A11Y-02 | 3–4 | 5 | 6+ | ≥ 4.83 | ≥ 4.02 | Dated axe results meet threshold and all five keyboard workflows pass | T-6.1 |
-| T-6.3 | WP-6: measure hosted latency and response size | NFR-PERF-01, NFR-PERF-02 | 1–2 | 3 | 4+ | ≥ 2.83 | ≥ 2.35 | Specified seeded dataset and raw deployed measurements meet thresholds | T-2.3, T-5.3 |
-| T-6.4 | WP-6: run representative-user exercise | NFR-USE-01 | 3–4 | 5 | 6 | 4.83–5.00 | 4.02–4.15 | Consent/fictional-data conditions cleared; five anonymized task-result records meet target | T-6.2 |
-| T-6.5 | WP-6: repeat clean regression and platform smoke | NFR-REL-01, NFR-MAINT-01, NFR-PORT-01 | 3 | 4 | 5+ | ≥ 4.00 | ≥ 3.32 | Ten clean suite runs plus Windows/Render smoke results saved against stated thresholds | T-3.4, T-6.3 |
-| T-7.1 | WP-7 Operations: complete health/failure handling | FR-HEALTH-01, NFR-REL-02 | 1–2 | 3 | 4 | 2.83–3.00 | 2.35–2.49 | Health and request deadline failures return specified responses without secret leakage | T-2.3 |
-| T-7.2 | WP-7: scan secrets, hashes and dependencies | NFR-SEC-03 | 2 | 3 | 4 | 3.00 | 2.49 | Tracked-file and user-record checks clean; high/critical dependency findings resolved | T-6.5 |
-| T-7.3 | WP-7: validate inventory and deletion procedure | NFR-PRIV-01, NFR-PRIV-02 | 3–4 | 5 | 6+ | ≥ 4.83 | ≥ 4.02 | Document keys match inventory; verified deletion exercise and provider limitations recorded | T-2.4, T-5.3 |
-| T-7.4 | WP-7: rehearse isolated local fallback | Enabling: R-01/R-02 response | 1–2 | 3 | 4–5 | 2.83–3.17 | 2.35–2.63 | Synthetic local replica-set workflow and fallback recording reproducible without Atlas | T-2.4, T-5.3 |
-| T-8.1-W9 | WP-8: Week 9 progress report | Enabling: required milestone reporting | 1 | 1 | 2 | 1.17 | 0.97 | Week 9 report links completed tasks, actual hours and risk updates | T-1.3 |
-| T-8.1-W10 | WP-8: Week 10 progress report | Enabling: required milestone reporting | 1 | 1 | 2 | 1.17 | 0.97 | Week 10 report links completed tasks, actual hours and risk updates | T-1.3 |
-| T-8.1-W11 | WP-8: Week 11 progress report | Enabling: required milestone reporting | 1 | 1 | 2 | 1.17 | 0.97 | Week 11 report links completed tasks, actual hours and risk updates | T-1.3 |
-| T-8.1-W12 | WP-8: Week 12 progress report | Enabling: required milestone reporting | 1 | 1 | 2 | 1.17 | 0.97 | Week 12 report links completed tasks, actual hours and risk updates | T-1.3 |
-| T-8.1-W13 | WP-8: Week 13 progress report | Enabling: required milestone reporting | 1 | 1 | 2 | 1.17 | 0.97 | Week 13 report links completed tasks, actual hours and risk updates | T-1.3 |
-| T-8.1-W14 | WP-8: Week 14 progress report | Enabling: required milestone reporting | 1 | 1 | 2 | 1.17 | 0.97 | Week 14 report links completed tasks, actual hours and risk updates | T-1.3 |
-| T-8.1-W15 | WP-8: Week 15 progress report | Enabling: required milestone reporting | 1 | 1 | 2 | 1.17 | 0.97 | Week 15 report links completed tasks, actual hours and risk updates | T-1.3 |
-| T-8.2 | WP-8: named defects when identified (contingent; not an estimated task) | Enabling: bounded defect closure against retained requirements | Not yet known | Not yet known | Not yet known | Not yet known | Not yet known | Named failed checks rerun successfully; no duplicate implementation charging | T-6.2, T-6.5, T-7.3 |
-| T-8.3 | WP-8: reproduce release and demo | NFR-MAINT-01, NFR-MAINT-02 | 3 | 4 | 5 | 4.00 | 3.32 | Clean checkout builds; traceability and acceptance evidence complete; demo rehearsed | T-7.2, T-7.4, T-8.2 |
-| T-8.4 | WP-8: retrospective and submission | Enabling: Week 16 final package | 4 | 5 | 6 | 5.00 | 4.15 | Estimate/actual analysis compares signed baseline with history; final artifact and commit link ready | T-8.1-W9, T-8.1-W10, T-8.1-W11, T-8.1-W12, T-8.1-W13, T-8.1-W14, T-8.1-W15, T-8.3 |
+**E = (O + 4M + P) / 6; calibrated E = E × (85.83 / 103.30)**. O/M/P below are imported unchanged from Liam Pheng's supplied table. Single-number inputs produce an exact E; finite ranges produce an E range; a trailing + produces a lower bound with no stated maximum. The ≥ symbol denotes that lower bound, not a complete point estimate. Displayed results are rounded to two decimals; use unrounded values for totals. These calculations do not turn open-ended pessimistic estimates into finite estimates.
 
-E = (O + 4M + P) / 6. Calibrated E = E × (85.83 / 103.30).
-All values are hours, rounded to two decimals. Ranges remain ranges.
-The ≥ symbol indicates a lower bound where an input uses +; it is not a final point estimate.
+| Task | Package / task | Requirement trace or enabling justification | O | M | P | E from supplied inputs | Calibrated E from supplied inputs | Draft planning E | Draft calibrated planning E | Done when | Dependencies |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| T-1.1 | WP-1 Baseline: reconcile requirement IDs | NFR-MAINT-02 | Pending | 2 | Pending | Pending inputs | Pending inputs | 2.00 | 1.66 | Legacy matrix matches approved 0.4 IDs and checker passes | — |
+| T-1.2 | WP-1: inspect current code against target contracts | Enabling: avoid re-estimating completed implementation | 2 | 3 | 4 | 3.00 | 2.49 | 3.00 | 2.49 | Each contract is marked evidenced or a named gap with task ID | T-1.1 |
+| T-1.3 | WP-1: approve estimates, capacity, scope and design | Enabling: Week 8 review | 2 | 3 | 4 | 3.00 | 2.49 | 3.00 | 2.49 | Liam Pheng's inputs complete; review decision and baseline commit recorded | T-1.2 |
+| T-2.1 | WP-2 Data: verify migration and indexes | NFR-PRIV-01, NFR-REL-02 | 2-3 | 4 | 5-6 | 3.83–4.17 | 3.19–3.46 | 4.17 | 3.46 | Disposable real database has specified validators/indexes and migration ledger | T-1.3 |
+| T-2.2 | WP-2: verify atomic unit/owner creation | FR-UNIT-01, NFR-REL-02 | 3 | 4 | 5 | 4.00 | 3.32 | 4.00 | 3.32 | Injected owner-write failure leaves no orphan unit in real replica set | T-2.1 |
+| T-2.3 | WP-2: configure hosted workflow spike | NFR-PORT-01, FR-HEALTH-01 | 3 | 5 | 6-7 | 4.83–5.00 | 4.02–4.15 | 5.00 | 4.15 | SP-02 executed with build/runtime evidence and explicit pass/fail | T-2.1, T-3.2 |
+| T-2.4 | WP-2: exercise backup, restore and outage | NFR-REL-02 | 3-4 | 5 | 6+ | ≥ 4.83 | ≥ 4.02 | 5.00 | 4.15 | SP-03 comparisons saved and separate outage/recovery threshold measured | T-2.1, T-2.2 |
+| T-3.1 | WP-3 Identity: verify registration and admin token | FR-AUTH-01, FR-AUTH-03 | 1 | 2 | 2+ | ≥ 1.83 | ≥ 1.52 | 1.83 | 1.52 | Unique normalization, password bounds/hash and setup-token cases pass | T-1.3 |
+| T-3.2 | WP-3: verify sessions and logout replay | FR-AUTH-02 | 1 | 2 | 3 | 2.00 | 1.66 | 2.00 | 1.66 | Expired and revoked tokens cannot access protected views | T-3.1 |
+| T-3.3 | WP-3: complete CSRF and login throttle cases | NFR-SEC-02, FR-AUTH-02 | 2 | 3 | 4+ | ≥ 3.00 | ≥ 2.49 | 3.00 | 2.49 | Every POST rejects missing/tampered CSRF without mutation; throttle edge cases pass | T-3.2 |
+| T-3.4 | WP-3: audit role and cross-unit access | FR-ACCESS-01, NFR-SEC-01 | 2-3 | 4 | 5+ | ≥ 3.83 | ≥ 3.19 | 4.00 | 3.32 | Route-by-role matrix denies all forbidden reads/writes with zero mutations | T-3.3, T-4.2, T-5.3 |
+| T-4.1 | WP-4 Membership: verify add-member workflow | FR-UNIT-02 | 1 | 2 | 3 | 2.00 | 1.66 | 2.00 | 1.66 | Registered user gains access; duplicate add cannot downgrade owner | T-2.2, T-3.2 |
+| T-4.2 | WP-4: verify roles and rank labels | FR-UNIT-03 | 1 | 2 | 3+ | ≥ 2.00 | ≥ 1.66 | 2.00 | 1.66 | Only owner can edit non-owner role/rank; owner invariant preserved | T-4.1 |
+| T-4.3 | WP-4: verify latest-message list | FR-MSG-01 | 1 | 2 | 3+ | ≥ 2.00 | ≥ 1.66 | 2.00 | 1.66 | Seeded list returns latest 100 with stable chronological display | T-4.1 |
+| T-4.4 | WP-4: verify message input and escaping | FR-MSG-02, NFR-SEC-04 | 1 | 2 | 3+ | ≥ 2.00 | ≥ 1.66 | 2.00 | 1.66 | Length boundaries and authorization pass; all displayed text fields escape markup | T-4.3 |
+| T-5.1 | WP-5 Events: verify creation/time validation | FR-EVT-01 | 2 | 3 | 4 | 3.00 | 2.49 | 3.00 | 2.49 | Role and offset-aware timestamp tests pass without invalid writes | T-4.2 |
+| T-5.2 | WP-5: verify attendance upsert | FR-EVT-02 | 2 | 3 | 4 | 3.00 | 2.49 | 3.00 | 2.49 | Repeated/concurrent responses leave one latest record; cross-unit event rejected | T-5.1 |
+| T-5.3 | WP-5: verify accountability roster | FR-EVT-03 | 1 | 2 | 3 | 2.00 | 1.66 | 2.00 | 1.66 | Leaders see responses and pending current members, including later additions | T-5.2 |
+| T-6.1 | WP-6 Quality: check corrective validation messages | NFR-USE-02 | 1 | 2 | 3+ | ≥ 2.00 | ≥ 1.66 | 2.00 | 1.66 | All eight specified invalid-input cases give corrective information | T-4.4, T-5.3 |
+| T-6.2 | WP-6: audit desktop/mobile accessibility | NFR-A11Y-01, NFR-A11Y-02 | 3-4 | 5 | 6+ | ≥ 4.83 | ≥ 4.02 | 5.00 | 4.15 | Dated axe results meet threshold and all five keyboard workflows pass | T-6.1 |
+| T-6.3 | WP-6: measure hosted latency and response size | NFR-PERF-01, NFR-PERF-02 | 1-2 | 3 | 4+ | ≥ 2.83 | ≥ 2.35 | 3.00 | 2.49 | Specified seeded dataset and raw deployed measurements meet thresholds | T-2.3, T-5.3 |
+| T-6.4 | WP-6: run representative-user exercise | NFR-USE-01 | 3-4 | 5 | 6 | 4.83–5.00 | 4.02–4.15 | 5.00 | 4.15 | Consent/fictional-data conditions cleared; five anonymized task-result records meet target | T-6.2 |
+| T-6.5 | WP-6: repeat clean regression and platform smoke | NFR-REL-01, NFR-MAINT-01, NFR-PORT-01 | 3 | 4 | 5+ | ≥ 4.00 | ≥ 3.32 | 4.00 | 3.32 | Ten clean suite runs plus Windows/Render smoke results saved against stated thresholds | T-3.4, T-6.3 |
+| T-7.1 | WP-7 Operations: complete health/failure handling | FR-HEALTH-01, NFR-REL-02 | 1-2 | 3 | 4 | 2.83–3.00 | 2.35–2.49 | 3.00 | 2.49 | Health and request deadline failures return specified responses without secret leakage | T-2.3 |
+| T-7.2 | WP-7: scan secrets, hashes and dependencies | NFR-SEC-03 | 2 | 3 | 4 | 3.00 | 2.49 | 3.00 | 2.49 | Tracked-file and user-record checks clean; high/critical dependency findings resolved | T-6.5 |
+| T-7.3 | WP-7: validate inventory and deletion procedure | NFR-PRIV-01, NFR-PRIV-02 | 3-4 | 5 | 6+ | ≥ 4.83 | ≥ 4.02 | 5.00 | 4.15 | Document keys match inventory; verified deletion exercise and provider limitations recorded | T-2.4, T-5.3 |
+| T-7.4 | WP-7: rehearse isolated local fallback | Enabling: R-01/R-02 response | 1-2 | 3 | 4-5 | 2.83–3.17 | 2.35–2.63 | 3.17 | 2.63 | Synthetic local replica-set workflow and fallback recording reproducible without Atlas | T-2.4, T-5.3 |
+| T-8.1-W9 | WP-8: Week 9 progress report | Enabling: required milestone reporting | 1 | 1 | 2 | 1.17 | 0.97 | 1.17 | 0.97 | Week 9 report links completed tasks, actual hours and risk updates | T-1.3 |
+| T-8.1-W10 | WP-8: Week 10 progress report | Enabling: required milestone reporting | 1 | 1 | 2 | 1.17 | 0.97 | 1.17 | 0.97 | Week 10 report links completed tasks, actual hours and risk updates | T-1.3 |
+| T-8.1-W11 | WP-8: Week 11 progress report | Enabling: required milestone reporting | 1 | 1 | 2 | 1.17 | 0.97 | 1.17 | 0.97 | Week 11 report links completed tasks, actual hours and risk updates | T-1.3 |
+| T-8.1-W12 | WP-8: Week 12 progress report | Enabling: required milestone reporting | 1 | 1 | 2 | 1.17 | 0.97 | 1.17 | 0.97 | Week 12 report links completed tasks, actual hours and risk updates | T-1.3 |
+| T-8.1-W13 | WP-8: Week 13 progress report | Enabling: required milestone reporting | 1 | 1 | 2 | 1.17 | 0.97 | 1.17 | 0.97 | Week 13 report links completed tasks, actual hours and risk updates | T-1.3 |
+| T-8.1-W14 | WP-8: Week 14 progress report | Enabling: required milestone reporting | 1 | 1 | 2 | 1.17 | 0.97 | 1.17 | 0.97 | Week 14 report links completed tasks, actual hours and risk updates | T-1.3 |
+| T-8.1-W15 | WP-8: Week 15 progress report | Enabling: required milestone reporting | 1 | 1 | 2 | 1.17 | 0.97 | 1.17 | 0.97 | Week 15 report links completed tasks, actual hours and risk updates | T-1.3 |
+| T-8.2 | WP-8: named defects when identified (contingent; not an estimated task) | Enabling: bounded defect closure against retained requirements | Not yet known | Not yet known | Not yet known | Not yet known | Not yet known | Contingent; excluded | Contingent; excluded | Named failed checks rerun successfully; no duplicate implementation charging | T-6.2, T-6.5, T-7.3 |
+| T-8.3 | WP-8: reproduce release and demo | NFR-MAINT-01, NFR-MAINT-02 | 3 | 4 | 5 | 4.00 | 3.32 | 4.00 | 3.32 | Clean checkout builds; traceability and acceptance evidence complete; demo rehearsed | T-7.2, T-7.4, T-8.2 |
+| T-8.4 | WP-8: retrospective and submission | Enabling: Week 16 final package | 4 | 5 | 6 | 5.00 | 4.15 | 5.00 | 4.15 | Estimate/actual analysis compares signed baseline with history; final artifact and commit link ready | T-8.1-W9, T-8.1-W10, T-8.1-W11, T-8.1-W12, T-8.1-W13, T-8.1-W14, T-8.1-W15, T-8.3 |
+
+T-8.1 is split into seven individually scheduled weekly reports, each with the suggested M = 1 hour. T-8.2 is a contingent defect register, not an invented duration or a zero-hour task. Identify and estimate specific defects when checks fail; use available task slack or an explicitly allocated buffer response and record the change. There are 36 estimated task rows plus the contingent defect placeholder.
+
+### Draft calculation convention and remaining inputs
+
+The supplied O/M/P values and their exact/ranged/lower-bound E results are preserved. To make the schedule and burn-down numerical, the separate **Draft planning E** column uses these explicit calculation conventions:
+
+- Finite ranges use their upper endpoint, such as O = 3 for 2–3 and P = 7 for 6–7.
+- A value ending in + uses its stated threshold only, such as P = 6 for 6+. This is a provisional floor scenario, not an estimate of the worst case and not a bound on overruns.
+- T-1.1 uses the supplied M = 2 hours as a temporary planning value. Its O/P remain missing; no personal three-point estimate is asserted.
+- T-8.2 remains a contingent defect register. Defects receive separate estimates and allocations when identified; they are excluded from this scenario rather than asserted to require zero time.
+
+These are assistant-selected draft calculation conventions, not additional personal estimates from Liam Pheng. The 36 numerical planning values support one coherent editable scenario. Finalizing a submission baseline requires Liam Pheng to supply finite point values and revise the inherited AI-generated M suggestions through personal estimation. Open-ended values mean the true total has no demonstrated finite upper bound.
 
 ## Calibration from recorded history
+
+Liam Pheng supplied the original session-level CSV on 2026-10-11. Its original ten fields and all 39 source rows are retained in `hours-log.csv`, with `ai_assisted` and `calibration` appended. `hours-log-source.csv` preserves the pasted source exactly; `hours-log-before-import.csv` archives the earlier aggregate log and is **not an additional source of hours**.
+
+Use the recorded `hours` and `estimate_hours` values, not reconstructed elapsed times. Some start/end intervals differ from the recorded hours; those discrepancies require Liam Pheng's review rather than automatic correction. The October 11 entry has end 00:00 and hours 0.00 and is treated as open, not as a completed zero-hour task.
+
+Calibration uses completed historical work before Week 7 (through 2026-10-04): **35 sessions grouped into six finished tasks** by trimmed task name. Repeated estimates are treated as estimates for the corresponding work sessions and summed within each task. Liam Pheng confirmed on 2026-10-11 that each estimate is separate for its work session; the calibration denominator is therefore supported by that confirmation. The completed deliverables and final notes support grouping the first six task names as finished; the Week 7 planning task remains in progress and is excluded.
 
 | Completed task | Sessions | Estimated hours | Actual hours | Actual / estimate |
 |---|---:|---:|---:|---:|
@@ -64,7 +85,15 @@ The ≥ symbol indicates a lower bound where an input uses +; it is not a final 
 
 **Calibration factor k = 85.83 / 103.30 = 0.8308809293**, displayed as 0.830881. Apply the unrounded factor once to every remaining task: **calibrated E = ((O + 4M + P) / 6) × (85.83 / 103.30)**. Round only displayed outputs. This is a ratio of totals, not a simple average of row ratios. It represents documented planning/design experience, not demonstrated implementation throughput; broad session estimates should not be mistaken for precise forecasts of unfamiliar engineering work.
 
+The `calibration` column contains each eligible historical session's actual/estimate ratio; it is blank for ongoing Week 7 work. Past hours are sunk effort, excluded from remaining task effort and future capacity. The imported history calibrates remaining work; future O/P values come from Liam Pheng's supplied task table, with ranges and open-ended values preserved. Historic 3-hour session estimates were not copied into future task rows.
+
+### Week 7 actual work
+
+Recorded actual hours: **12.50**, comprising October 5 (4.00), October 6 (4.50), and October 8 (4.00). This matches Liam Pheng's earlier self-report and replaces that aggregate entry rather than adding to it. October 11 is an open entry with 0.00 recorded hours. Completed recorded hours across the source: **98.33** (85.83 historical + 12.50 Week 7 so far); no extra hours are inferred from the open entry.
+
 ## Capacity and separate buffer
+
+Liam Pheng confirmed that **15–16 hours per week during Weeks 8–16 are available exclusively for project work**, after other classes and personal/ROTC commitments. This is net project capacity: **135–144 hours across nine weeks**. Use the lower bound, **15 hours per week / 135 hours total**, as the planning baseline. The additional possible hour each week is optional capacity, not committed task time.
 
 Other-class overhead and personal/ROTC losses are already excluded from this stated availability, so they receive no additional deduction. The table does not claim those commitments consume no time; it avoids subtracting them twice. Project-specific milestone reporting is included in T-8.1 and consumes the planned-task budget.
 
@@ -81,48 +110,67 @@ Other-class overhead and personal/ROTC losses are already excluded from this sta
 | 16 | 15–16 h | Other classes already excluded | Personal/ROTC commitments already excluded | 15 h | 1 h | 14 h |
 | **Total** | **135–144 h** | **Already excluded** | **Already excluded** | **135 h** | **9 h** | **126 h** |
 
-**Declared minimum project buffer: 1 hour per week × 9 weeks = 9 hours**,. This is **6.67% of the 135-hour baseline project capacity** (9 / 135 × 100). The baseline scheduled-task budget is **135 − 9 = 126 hours**, or **14 hours per week**. If all 16 available hours are realized in every week, capacity is 144 hours and the same minimum buffer leaves 135 task hours; the buffer is then 6.25% of capacity. The baseline relies on 126 task hours rather than this optional upper bound.
+**Declared minimum project buffer: 1 hour per week × 9 weeks = 9 hours**, as selected by Liam Pheng. This is **6.67% of the 135-hour baseline project capacity** (9 / 135 × 100). The baseline scheduled-task budget is **135 − 9 = 126 hours**, or **14 hours per week**. If all 16 available hours are realized in every week, capacity is 144 hours and the same minimum buffer leaves 135 task hours; the buffer is then 6.25% of capacity. The baseline relies on 126 task hours rather than this optional upper bound.
+
+The assignment's approximate 87 hours is context; this plan uses Liam Pheng's confirmed availability. Historical logged hours are sunk effort and are not deducted from future Weeks 8–16 capacity.
+
+Buffer is separate from calibrated task estimates and reserved for unexpected problems. Record its use during the weekly review, including the triggering issue, hours consumed and remaining reserve; Liam Pheng may reserve more than the stated minimum by assigning fewer tasks. Risk exposure is a prioritization measure and is not automatically added to task totals. A response is funded only once its linked task has an estimate from Liam Pheng and fits the weekly task budget, or a documented decision allocates available buffer. Linked mitigation tasks have provisional planning-E allocations in the schedule; additional defects and contingency decisions need separate estimates and allocations. These are draft allocations, not a personally estimated approved baseline.
 
 ## Proposed sequencing and weekly gates
 
-| Week | Tasks in dependency order | Draft calibrated task hours | Unassigned task capacity | Gate |
+Tasks are allocated using the draft planning-E convention above and calibrated once. Tasks in each row run in dependency order; reports close the week's work. The numerical schedule excludes unidentified defects. Reforecast before dependent work proceeds if an acceptance gate fails. This is a working scenario, not evidence that a gate has passed.
+
+| Week | Tasks in dependency order | Draft calibrated planning E (h) | Unassigned task capacity (h) | Gate |
 |---|---|---:|---:|---|
-| 8 | T-1.1, T-1.2, T-1.3, T-3.1, T-3.2, T-2.1 | 13.29 | 0.71 | Requirement reconciliation and review recorded; identity and real-database migration checks pass |
-| 9 | T-2.2, T-2.3, T-2.4, T-8.1-W9 | 12.46 | 1.54 | Atomic unit creation, hosted workflow and restore/outage evidence pass or have recorded decisions |
-| 10 | T-3.3, T-4.1, T-4.2, T-4.3, T-4.4, T-7.1, T-8.1-W10 | 12.46 | 1.54 | Membership, roles, messages, CSRF/throttling and health/failure checks pass |
-| 11 | T-5.1, T-5.2, T-5.3, T-3.4, T-8.1-W11 | 10.80 | 3.20 | Events, attendance, roster and complete authorization matrix pass |
-| 12 | T-6.1, T-6.2, T-6.3, T-7.3, T-8.1-W12 | 13.29 | 0.71 | Input guidance, accessibility, performance and privacy/deletion checks pass; trial conditions cleared |
-| 13 | T-6.4, T-6.5, T-8.1-W13 | 8.31 | 5.69 | Usability exercise and repeated regression/platform checks pass |
-| 14 | T-7.2, T-7.4, T-8.1-W14 | 5.82 | 8.18 | Security audit and independent local fallback pass; triggered defects individually estimated |
-| 15 | T-8.3, T-8.1-W15 | 4.15 | 9.85 | Clean-checkout release and demo pass; all named mandatory defects closed |
-| 16 | T-8.4 | 4.15 | 9.85 | Retrospective and final package complete; Liam Pheng posts submission commit URL |
-| **Total** | **36 estimated tasks; contingent defects excluded** | **84.75** | **41.25** | Personal estimates and review still required |
+| 8 | T-1.1, T-1.2, T-1.3, T-3.1, T-3.2, T-2.1 | 13.29 | 0.71 | Reconciliation and review decision recorded; identity and migration checks pass |
+| 9 | T-2.2, T-2.3, T-2.4, T-8.1-W9 | 12.60 | 1.40 | Atomic unit creation, hosted workflow and restore checks pass; blockers have explicit decisions |
+| 10 | T-3.3, T-4.1, T-4.2, T-4.3, T-4.4, T-7.1, T-8.1-W10 | 12.60 | 1.40 | Membership, roles, messages, CSRF/throttling and failure handling pass |
+| 11 | T-5.1, T-5.2, T-5.3, T-3.4, T-8.1-W11 | 10.94 | 3.06 | Event, attendance, roster and authorization matrix pass |
+| 12 | T-6.1, T-6.2, T-6.3, T-7.3, T-8.1-W12 | 13.43 | 0.57 | Accessibility, performance and deletion evidence pass; trial conditions cleared |
+| 13 | T-6.4, T-6.5, T-8.1-W13 | 8.45 | 5.55 | Usability and repeated regression/platform checks pass |
+| 14 | T-7.2, T-7.4, T-8.1-W14 | 6.09 | 7.91 | Security audit and local fallback pass; triggered defects individually estimated |
+| 15 | T-8.3, T-8.1-W15 | 4.29 | 9.71 | Release and demo pass; all named mandatory defects closed |
+| 16 | T-8.4 | 4.15 | 9.85 | Retrospective and package complete; Liam Pheng posts commit URL |
+| **Total** | **36 planning tasks; contingent defects excluded** | **85.86** | **40.14** | Personal finite estimates and Week 8 review remain required |
 
 ## Burn-down baseline
 
-**Provisional M-only baseline:** raw suggested M effort = **102.00 hours**; calibrated remaining effort R_M = 102.00 × (85.83 / 103.30) = **84.75 hours**. The 135-hour capacity includes nine buffer hours, leaving 126 task hours. This draft leaves **41.25 task hours unassigned**, separately from the nine-hour buffer. Unassigned capacity is not a task estimate, a scope cut, or evidence that defects take no time.
+**Draft planning-E scenario:** raw planning effort = **103.33 hours**; calibrated remaining effort R = **85.86 hours**, calculated with k = 85.83 / 103.30. These totals use the explicitly stated range/plus/missing-input conventions, not a complete set of personal point estimates. Project capacity is 135 hours, the separate buffer is nine hours, and scheduled-task capacity is 126 hours. The draft leaves **40.14 task hours unassigned**, separate from buffer. Unknown defects and the unstated tails of + estimates are not included.
 
-The ideal line decreases evenly across nine weeks: R_M × (9 − n) / 9 after n weeks. The projected line subtracts the calibrated M effort of tasks scheduled to meet their done-whens each week. Use unrounded calculations; displayed values are rounded to two decimals. Actual remaining effort is not recorded until task completion is demonstrated.
+Ideal remaining after n weeks = R × (9 − n) / 9. Projected remaining subtracts the unrounded calibrated planning effort of tasks scheduled to meet their done-whens by each week end. The same task values drive both the schedule and this table. Actual progress is tracked separately after completion evidence exists.
 
 | Point | Ideal remaining (h) | Projected remaining (h) | Future task capacity (h) | Future capacity including buffer (h) | Over task capacity? |
 |---|---:|---:|---:|---:|---|
-| Start Week 8 | 84.75 | 84.75 | 126 | 135 | No |
-| End Week 8 | 75.33 | 71.46 | 112 | 120 | No |
-| End Week 9 | 65.92 | 58.99 | 98 | 105 | No |
-| End Week 10 | 56.50 | 46.53 | 84 | 90 | No |
-| End Week 11 | 47.08 | 35.73 | 70 | 75 | No |
-| End Week 12 | 37.67 | 22.43 | 56 | 60 | No |
-| End Week 13 | 28.25 | 14.12 | 42 | 45 | No |
-| End Week 14 | 18.83 | 8.31 | 28 | 30 | No |
-| End Week 15 | 9.42 | 4.15 | 14 | 15 | No |
+| Start Week 8 | 85.86 | 85.86 | 126 | 135 | No |
+| End Week 8 | 76.32 | 72.56 | 112 | 120 | No |
+| End Week 9 | 66.78 | 59.96 | 98 | 105 | No |
+| End Week 10 | 57.24 | 47.36 | 84 | 90 | No |
+| End Week 11 | 47.70 | 36.42 | 70 | 75 | No |
+| End Week 12 | 38.16 | 22.99 | 56 | 60 | No |
+| End Week 13 | 28.62 | 14.54 | 42 | 45 | No |
+| End Week 14 | 19.08 | 8.45 | 28 | 30 | No |
+| End Week 15 | 9.54 | 4.15 | 14 | 15 | No |
 | End Week 16 | 0.00 | 0.00 | 0 | 0 | No |
 
-Capacity columns cover weeks after the stated point and assume future buffer is still available. In weekly reviews, record completed task IDs, actual effort, named defects, changes to capacity and buffer use. Preserve this draft and the later personally estimated baseline as distinct versions. Spending hours without meeting a done-when does not automatically burn down work.
+**First projected over-budget week: none under this stated draft scenario.** Every weekly allocation is below 14 task hours and projected remaining fits future task capacity. **No unconditional no-deficit claim is made:** missing finite estimates, open-ended + values and unidentified defects prevent a final bounded forecast. Complete the inputs and rerun before approving the baseline.
+
+Future capacity covers weeks after each row and assumes future buffer is unspent. At weekly gates, log actual time and completed task IDs, remaining reserve, named defects and approved scope/estimate changes. Preserve this version for comparison. Spending time without meeting a done-when does not burn down the task's estimated effort.
 
 ## Scope decision and Week 8 change control
 
-I explicitly chose to retain all current requirements on 2026-10-11. Requirements priorities remain unchanged; no Won't changes are appropriate.
+Liam Pheng explicitly chose to retain all current requirements on 2026-10-11. Requirements priorities remain unchanged; no Won't changes are appropriate. The numerical draft scenario fits capacity, but its open-ended and missing inputs prevent a final feasibility claim. If retained scope exceeds capacity, return to Liam Pheng with the computed deficit and concrete tradeoffs.
 
 | Decision | Requirements affected | Hours recovered | MoSCoW before to after | Reason |
 |---|---|---|---|---|
-| Retain all current requirements | All version 0.4 FR/NFR IDs | 0 (no scope removed) | Unchanged for every requirement | I think that the current requirements are good |
+| Retain all current requirements | All version 0.4 FR/NFR IDs | 0 (no scope removed) | Unchanged for every requirement | The stated draft fits capacity, so Liam Pheng retained the current scope; reassess after finite personal estimates and risk responses are finalized. |
+
+Liam Pheng's direction is recorded; baseline signature and Week 8 review approval remain pending. Existing evidenced work may be re-estimated by Liam Pheng without removing requirements.
+
+## Inputs still required for a final baseline
+
+Liam Pheng must supply O/P for T-1.1 and single-number choices for all range/+ inputs. The exact values are not inferred from this working scenario. Named defects need estimates when identified. Risk impact hours and likelihood scores in risk-register.md still require input; task response allocations do not supply those missing scores. No scope cut is authorized; all requirements remain retained, so requirements.md priorities remain unchanged. If Dr. Litman requires a nonempty cut decision, resolve that at review rather than inventing a cut or changing a Must requirement silently.
+
+## Submission readiness
+
+Before submission: replace AI-generated task suggestions with Liam Pheng's personal O/M/P estimates and enter risk scores; review the calculated calibration with Dr. Litman; calculate/sort exposures; confirm response funding; recompute the three-point baseline and first deficit; approve scope changes; log actual Week 7 work and AI use; review and commit the approved files locally. Post the resulting repository commit URL to Canvas. This draft is not an approved baseline and does not fulfill the numeric requirements yet.
+
