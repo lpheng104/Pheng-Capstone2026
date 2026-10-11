@@ -8,7 +8,7 @@ Date: 2026-10-11. Owner: Liam Pheng. Status: **Working Draft.**
 
 | Task | Package / task | Requirement trace or enabling justification | O | M | P | E from supplied inputs | Calibrated E from supplied inputs | Draft planning E | Draft calibrated planning E | Done when | Dependencies |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| T-1.1 | WP-1 Baseline: reconcile requirement IDs | NFR-MAINT-02 | 1 | 2 | 3 | 2 | 2 | 2.00 | 1.66 | Legacy matrix matches approved 0.4 IDs and checker passes | — |
+| T-1.1 | WP-1 Baseline: reconcile requirement IDs | NFR-MAINT-02 | 1 | 2 | 3 | 2.00 | 1.66 | 2.00 | 1.66 | Legacy matrix matches approved 0.4 IDs and checker passes | — |
 | T-1.2 | WP-1: inspect current code against target contracts | Enabling: avoid re-estimating completed implementation | 2 | 3 | 4 | 3.00 | 2.49 | 3.00 | 2.49 | Each contract is marked evidenced or a named gap with task ID | T-1.1 |
 | T-1.3 | WP-1: approve estimates, capacity, scope and design | Enabling: Week 8 review | 2 | 3 | 4 | 3.00 | 2.49 | 3.00 | 2.49 | Liam Pheng's inputs complete; review decision and baseline commit recorded | T-1.2 |
 | T-2.1 | WP-2 Data: verify migration and indexes | NFR-PRIV-01, NFR-REL-02 | 2-3 | 4 | 5-6 | 3.83–4.17 | 3.19–3.46 | 4.17 | 3.46 | Disposable real database has specified validators/indexes and migration ledger | T-1.3 |
@@ -54,14 +54,17 @@ The supplied O/M/P values and their exact/ranged/lower-bound E results are prese
 
 - Finite ranges use their upper endpoint, such as O = 3 for 2–3 and P = 7 for 6–7.
 - A value ending in + uses its stated threshold only, such as P = 6 for 6+. This is a provisional floor scenario, not an estimate of the worst case and not a bound on overruns.
-- T-1.1 uses the supplied M = 2 hours as a temporary planning value. Its O/P remain missing; no personal three-point estimate is asserted.
+- T-1.1 now uses the supplied O = 1, M = 2 and P = 3, giving E = 2.00 hours and calibrated E = 1.66 hours. No missing-input substitution is needed.
 - T-8.2 remains a contingent defect register. Defects receive separate estimates and allocations when identified; they are excluded from this scenario rather than asserted to require zero time.
+
+
+Calculated from this supplied version: **19 exact E values, 5 finite E ranges and 12 E lower bounds** across 36 planning tasks. All O/M/P fields for those tasks are now populated; T-8.2 remains contingent. Schedule and burn-down use the separate numerical planning scenario and unrounded calculations. A complete bounded expected-effort forecast still needs single-number choices for range/+ inputs.
 
 ## Calibration from recorded history
 
 Use the recorded `hours` and `estimate_hours` values, not reconstructed elapsed times. Some start/end intervals differ from the recorded hours; those discrepancies require Liam Pheng's review rather than automatic correction. The October 11 entry has end 00:00 and hours 0.00 and is treated as open, not as a completed zero-hour task.
 
-Calibration uses completed historical work before Week 7 (through 2026-10-04): **35 sessions grouped into six finished tasks** by trimmed task name. Repeated estimates are treated as estimates for the corresponding work sessions and summed within each task.I confirmed on 2026-10-11 that each estimate is separate for its work session; the calibration denominator is therefore supported by that confirmation. The completed deliverables and final notes support grouping the first six task names as finished; the Week 7 planning task remains in progress and is excluded.
+Calibration uses completed historical work before Week 7 (through 2026-10-04): **35 sessions grouped into six finished tasks** by trimmed task name. Repeated estimates are treated as estimates for the corresponding work sessions and summed within each task. I confirmed on 2026-10-11 that each estimate is separate for its work session; the calibration denominator is therefore supported by that confirmation. The completed deliverables and final notes support grouping the first six task names as finished; the Week 7 planning task remains in progress and is excluded.
 
 | Completed task | Sessions | Estimated hours | Actual hours | Actual / estimate |
 |---|---:|---:|---:|---:|
@@ -121,11 +124,11 @@ Tasks are allocated using the draft planning-E convention above and calibrated o
 | 14 | T-7.2, T-7.4, T-8.1-W14 | 6.09 | 7.91 | Security audit and local fallback pass; triggered defects individually estimated |
 | 15 | T-8.3, T-8.1-W15 | 4.29 | 9.71 | Release and demo pass; all named mandatory defects closed |
 | 16 | T-8.4 | 4.15 | 9.85 | Retrospective and package complete; Liam Pheng posts commit URL |
-| **Total** | **36 planning tasks; contingent defects excluded** | **85.86** | **40.14** | Personal finite estimates and Week 8 review remain required |
+| **Total** | **36 planning tasks; contingent defects excluded** | **85.86** | **40.14** | Range/+ inputs still require finite choices before final approval |
 
 ## Burn-down baseline
 
-**Draft planning-E scenario:** raw planning effort = **103.33 hours**; calibrated remaining effort R = **85.86 hours**, calculated with k = 85.83 / 103.30. These totals use the explicitly stated range/plus/missing-input conventions, not a complete set of personal point estimates. Project capacity is 135 hours, the separate buffer is nine hours, and scheduled-task capacity is 126 hours. The draft leaves **40.14 task hours unassigned**, separate from buffer. Unknown defects and the unstated tails of + estimates are not included.
+**Draft planning-E scenario:** raw planning effort = **103.33 hours**; calibrated remaining effort R = **85.86 hours**, calculated with k = 85.83 / 103.30. These totals use the explicitly stated range/plus conventions, not a complete set of personal point estimates. Project capacity is 135 hours, the separate buffer is nine hours, and scheduled-task capacity is 126 hours. The draft leaves **40.14 task hours unassigned**, separate from buffer. Unknown defects and the unstated tails of + estimates are not included.
 
 Ideal remaining after n weeks = R × (9 − n) / 9. Projected remaining subtracts the unrounded calibrated planning effort of tasks scheduled to meet their done-whens by each week end. The same task values drive both the schedule and this table. Actual progress is tracked separately after completion evidence exists.
 
@@ -142,15 +145,14 @@ Ideal remaining after n weeks = R × (9 − n) / 9. Projected remaining subtract
 | End Week 15 | 9.54 | 4.15 | 14 | 15 | No |
 | End Week 16 | 0.00 | 0.00 | 0 | 0 | No |
 
-**First projected over-budget week: none under this stated draft scenario.** Every weekly allocation is below 14 task hours and projected remaining fits future task capacity. **No unconditional no-deficit claim is made:** missing finite estimates, open-ended + values and unidentified defects prevent a final bounded forecast. Complete the inputs and rerun before approving the baseline.
+**First projected over-budget week: none under this stated draft scenario.** Every weekly allocation is below 14 task hours and projected remaining fits future task capacity. **No unconditional no-deficit claim is made:** range inputs, open-ended + values and unidentified defects prevent a final bounded forecast. Complete the inputs and rerun before approving the baseline.
 
 Future capacity covers weeks after each row and assumes future buffer is unspent. At weekly gates, log actual time and completed task IDs, remaining reserve, named defects and approved scope/estimate changes. Preserve this version for comparison. Spending time without meeting a done-when does not burn down the task's estimated effort.
 
 ## Scope decision and Week 8 change control
 
-I have explicitly chose to retain all current requirements on 2026-10-11. Requirements priorities remain unchanged; no Won't changes are appropriate.
+I explicitly chose to retain all current requirements on 2026-10-11. Requirements priorities remain unchanged; no Won't changes are appropriate.
 
 | Decision | Requirements affected | Hours recovered | MoSCoW before to after | Reason |
 |---|---|---|---|---|
 | Retain all current requirements | All version 0.4 FR/NFR IDs | 0 (no scope removed) | Unchanged for every requirement | The stated draft fits capacity, so I retained the current scope; reassess after finite personal estimates and risk responses are finalized. |
-
