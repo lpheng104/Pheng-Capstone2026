@@ -1,6 +1,6 @@
 # Milestone 9 — Walking skeleton trace
 
-Owner: Liam Pheng. Instructor: Dr. Litman. Date: 2026-10-25. Status: local integration verified; remote acceptance is recorded below as it occurs.
+Owner: Liam Pheng. Instructor: Dr. Litman. Date: 2026-10-25. Status: local integration and GitHub CI verified; release links and evidence below.
 
 ## Source and baseline reconciliation
 
@@ -59,13 +59,13 @@ Python is pinned to 3.12.14 and MongoDB to 8.0.17. requirements.lock pins all tr
 
 ## GitHub CI, issues and submission
 
-The workflow runs install → lint → test → build → live smoke on every push and PR into main. The smoke stage also stops the isolated MongoDB and requires a nonzero smoke result. A deliberately failing test will prove the actual CI red path; its removal will be the explicit fix commit. Run URLs and the exact observed failure line will be added after execution. No successful run is asserted in advance.
+The workflow runs install → lint → test → build → live smoke on every push and PR into main. The smoke stage also stops the isolated MongoDB and requires a nonzero smoke result. A deliberately failing test will prove the actual CI red path; its removal will be the explicit fix commit. Run URLs and the exact observed failure line will be added after execution. Both push and pull-request runs subsequently passed, and CI on main was observed green; exact links follow.
 
 Eight issue definitions using remote requirement IDs are in week9-issues.md. The existing project board is https://github.com/users/lpheng104/projects/1 (2026CapstoneProjectBoard). Published issue links/board membership are recorded after verification. All final submission links go in week9-submission.md.
 
 ## Hours and provenance
 
-The remote detailed hours-log.csv is preserved; earlier aggregate reports of 14 Week 8 hours and 15.4 Week 9 hours are not appended again. Some sessions and aggregate reports differ and require Liam Pheng's reconciliation; no session hours, timestamps or task estimates are silently changed. AI-assisted skeleton rows are flagged and the historic calibration column is computed only for eligible pre-Week-7 sessions. Substantive AI use and the separate-history integration are documented in ai-usage.md.
+Original detailed session values are preserved. Week 9 rows already total the reported 15.40 hours. Week 8 session rows total 12.55 hours; a clearly labeled unitemized week-ending remainder of 1.45 reconciles them to Liam Pheng's reported 14 hours without fabricating session times or adding the full total again. Overlapping October 19 intervals remain flagged for personal review; their source values were not silently changed. AI-assisted skeleton rows are flagged and the historic calibration column is computed only for eligible pre-Week-7 sessions. Substantive AI use and the separate-history integration are documented in ai-usage.md.
 
 ## Secret audit output
 
@@ -82,7 +82,7 @@ no leaks found
 SECRET AUDIT PASS: complete Git history and tracked/unignored source; no findings.
 ```
 
-Eight requirement-linked issues #37–#44 have been published and verified on the existing board with status This Week. Remote CI run links remain pending execution.
+Eight requirement-linked issues #37–#44 have been published and verified on the existing board; their milestone-scoped criteria passed and they were moved to Done. Remote CI run links and results follow.
 
 ## Observed deliberate red CI evidence
 
@@ -96,4 +96,31 @@ FAILED tests/test_ci_failure_proof.py::test_pipeline_rejects_deliberate_regressi
 1 failed, 5 passed, 191 warnings in 1.20s
 ```
 
-The next separate fix commit removes only the intentionally failing test and records this evidence. A green result is not presumed until the subsequent remote run completes.
+The next separate fix commit removes only the intentionally failing test and records this evidence. The subsequent push, pull-request and main runs completed successfully; exact evidence follows.
+
+
+## Final observed GitHub acceptance
+
+| Item | Verified evidence |
+|---|---|
+| Deliberately red CI | [https://github.com/lpheng104/Pheng-Capstone2026/actions/runs/40232422421](https://github.com/lpheng104/Pheng-Capstone2026/actions/runs/40232422421); Test failed at the intended assertion after install/lint/audit passed |
+| Failure line | `AssertionError: DELIBERATE FAILURE: Week 9 pipeline regression proof` |
+| Fix commit | [cbf0213](https://github.com/lpheng104/Pheng-Capstone2026/commit/cbf0213595e247f57803f840548e50e218199c59); removes only the temporary deliberately failing test |
+| Green fixed push | [Run 40232910695](https://github.com/lpheng104/Pheng-Capstone2026/actions/runs/40232910695) |
+| Green pull-request CI | [Run 40232914751](https://github.com/lpheng104/Pheng-Capstone2026/actions/runs/40232914751) |
+| PR merge | [PR #45](https://github.com/lpheng104/Pheng-Capstone2026/pull/45), merged as f05ed4e4691ddadfe45f662555448f3650c5fe11 |
+| Green main CI | [Run 40233100468](https://github.com/lpheng104/Pheng-Capstone2026/actions/runs/40233100468); all required stages, mutation smoke and negative outage smoke passed |
+| Eight board issues | [#37](https://github.com/lpheng104/Pheng-Capstone2026/issues/37)–[#44](https://github.com/lpheng104/Pheng-Capstone2026/issues/44), verified on [2026CapstoneProjectBoard](https://github.com/users/lpheng104/projects/1) |
+| Release | [v0.1.0-skeleton](https://github.com/lpheng104/Pheng-Capstone2026/tree/v0.1.0-skeleton); remote publication verified separately after this evidence commit |
+
+Observed successful Linux CI excerpts:
+
+```text
+SECRET AUDIT PASS: complete Git history and tracked/unignored source; no findings.
+5 passed, 191 warnings in 1.17s
+SMOKE PASS: direct MongoDB update appeared in rendered HTML; original row restored.
+SMOKE PASS: HTTP -> identity -> unit access -> messaging/scheduling -> real MongoDB -> HTML.
+NEGATIVE SMOKE PASS: unavailable MongoDB correctly returned nonzero
+```
+
+The warnings originate from mongomock's deprecated datetime helper in unit fixtures; live smoke uses real MongoDB. The later release-evidence commit changes documentation/hours only and also triggers CI automatically. Render deployment, complete product acceptance, manual authenticated-browser inspection and Canvas submission are not claimed by these results.

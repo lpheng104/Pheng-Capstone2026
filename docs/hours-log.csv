@@ -41,6 +41,7 @@ date,start,end,hours,phase,hat,task,estimate_hours,blocked_hours,notes,ai_assist
 2026-10-15,16:45,21:03,4.25,inception,Reviewer, Design Review Checkpoint, 3.00,0.00, Met with software engineer friend and had him examine my work + continued review on project plan,,
 2026-10-16,08:45,13:14,4.50,inception,Reviewer, Design Review Checkpoint, 3.00,0.00, continued review on project plan,,
 2026-10-17,11:38,16:24,3.80,inception,Reviewer, Design Review Checkpoint, 3.00,0.00, continued review on project plan,,
+2026-10-18,,,1.45,review,Reviewer,Week 8 unitemized remainder from personal reported total,,,Week-ending aggregate reconciliation: Liam Pheng reported 14 actual hours on 2026-10-25; original session rows total 12.55; remainder 1.45. No session time or activity breakdown supplied; excluded from calibration.,,
 2026-10-19,08:12,10:24,2.20,inception,Reviewer, Design Review Checkpoint, 3.00,0.00, continued review on project plan,,
 2026-10-19,08:12,10:24,2.20,inception,Developer, Walking Skeleton & Continuous Integration, 3.00,0.00, Began Working on skeleton,true,
 2026-10-19,13:56,15:43,1.75,inception,Developer, Walking Skeleton & Continuous Integration, 3.00,0.00, continued working on skeleton,true,

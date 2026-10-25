@@ -56,7 +56,7 @@ Owner: Liam Pheng. Instructor: Dr. Litman. Requirement IDs below are from the ex
 
 ## Verified publication
 
-All eight issues are on [2026CapstoneProjectBoard](https://github.com/users/lpheng104/projects/1), status This Week.
+All eight issues are on [2026CapstoneProjectBoard](https://github.com/users/lpheng104/projects/1), status Done.
 
 | Requirement | Issue |
 |---|---|
@@ -68,3 +68,5 @@ All eight issues are on [2026CapstoneProjectBoard](https://github.com/users/lphe
 | NFR-MAINT-01 | [#42](https://github.com/lpheng104/Pheng-Capstone2026/issues/42) |
 | NFR-PORT-01 | [#43](https://github.com/lpheng104/Pheng-Capstone2026/issues/43) |
 | NFR-SEC-03 | [#44](https://github.com/lpheng104/Pheng-Capstone2026/issues/44) |
+
+All eight milestone-scoped issue criteria were checked against the actual green main CI and local evidence before closing; these closures do not mark full parent product requirements accepted.
