@@ -83,3 +83,17 @@ SECRET AUDIT PASS: complete Git history and tracked/unignored source; no finding
 ```
 
 Eight requirement-linked issues #37–#44 have been published and verified on the existing board with status This Week. Remote CI run links remain pending execution.
+
+## Observed deliberate red CI evidence
+
+Run: https://github.com/lpheng104/Pheng-Capstone2026/actions/runs/40232422421
+Commit: c18c91cf682bfcfacf0fd4d3ec2475135df23b43
+Observed conclusion: failure at Test after successful install, lint and full-history/source secret audit.
+
+```text
+AssertionError: DELIBERATE FAILURE: Week 9 pipeline regression proof
+FAILED tests/test_ci_failure_proof.py::test_pipeline_rejects_deliberate_regression
+1 failed, 5 passed, 191 warnings in 1.20s
+```
+
+The next separate fix commit removes only the intentionally failing test and records this evidence. A green result is not presumed until the subsequent remote run completes.
