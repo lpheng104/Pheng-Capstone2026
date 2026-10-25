@@ -1,0 +1,66 @@
+[
+  {
+    "number": 37,
+    "title": "FR-ACCT-04 — Week 9: Verify real HTTP sign-in for the walking skeleton",
+    "url": "https://github.com/lpheng104/Pheng-Capstone2026/issues/37",
+    "requirement": "FR-ACCT-04",
+    "boardItemId": "PVTI_lAHOCYLaQs4Bh75xzhDbagQ",
+    "boardUrl": "https://github.com/users/lpheng104/projects/1"
+  },
+  {
+    "number": 38,
+    "title": "FR-ACCT-05 — Week 9: Prove server-side logout revocation",
+    "url": "https://github.com/lpheng104/Pheng-Capstone2026/issues/38",
+    "requirement": "FR-ACCT-05",
+    "boardItemId": "PVTI_lAHOCYLaQs4Bh75xzhDbakU",
+    "boardUrl": "https://github.com/users/lpheng104/projects/1"
+  },
+  {
+    "number": 39,
+    "title": "FR-CHAT-05 — Week 9: Render persisted history through real component services",
+    "url": "https://github.com/lpheng104/Pheng-Capstone2026/issues/39",
+    "requirement": "FR-CHAT-05",
+    "boardItemId": "PVTI_lAHOCYLaQs4Bh75xzhDban8",
+    "boardUrl": "https://github.com/users/lpheng104/projects/1"
+  },
+  {
+    "number": 40,
+    "title": "FR-CLNDR-02 — Week 9: Exercise event storage in the skeleton workflow",
+    "url": "https://github.com/lpheng104/Pheng-Capstone2026/issues/40",
+    "requirement": "FR-CLNDR-02",
+    "boardItemId": "PVTI_lAHOCYLaQs4Bh75xzhDbaqU",
+    "boardUrl": "https://github.com/users/lpheng104/projects/1"
+  },
+  {
+    "number": 41,
+    "title": "NFR-SEC-01 — Week 9: Enforce unit membership on the skeleton read path",
+    "url": "https://github.com/lpheng104/Pheng-Capstone2026/issues/41",
+    "requirement": "NFR-SEC-01",
+    "boardItemId": "PVTI_lAHOCYLaQs4Bh75xzhDbaug",
+    "boardUrl": "https://github.com/users/lpheng104/projects/1"
+  },
+  {
+    "number": 42,
+    "title": "NFR-MAINT-01 — Week 9: Automate install lint test build and live smoke",
+    "url": "https://github.com/lpheng104/Pheng-Capstone2026/issues/42",
+    "requirement": "NFR-MAINT-01",
+    "boardItemId": "PVTI_lAHOCYLaQs4Bh75xzhDbay0",
+    "boardUrl": "https://github.com/users/lpheng104/projects/1"
+  },
+  {
+    "number": 43,
+    "title": "NFR-PORT-01 — Week 9: Bootstrap the skeleton from a clean checkout",
+    "url": "https://github.com/lpheng104/Pheng-Capstone2026/issues/43",
+    "requirement": "NFR-PORT-01",
+    "boardItemId": "PVTI_lAHOCYLaQs4Bh75xzhDba30",
+    "boardUrl": "https://github.com/users/lpheng104/projects/1"
+  },
+  {
+    "number": 44,
+    "title": "NFR-SEC-03 — Week 9: Audit credentials and keep configuration outside source",
+    "url": "https://github.com/lpheng104/Pheng-Capstone2026/issues/44",
+    "requirement": "NFR-SEC-03",
+    "boardItemId": "PVTI_lAHOCYLaQs4Bh75xzhDba7Q",
+    "boardUrl": "https://github.com/users/lpheng104/projects/1"
+  }
+]

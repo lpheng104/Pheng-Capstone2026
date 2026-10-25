@@ -1,0 +1,79 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      prove_failure:
+        description: Intentionally fail the smoke gate to prove CI detects errors
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  skeleton:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    services:
+      mongodb:
+        image: mongo:8.0.17
+        ports:
+          - 127.0.0.1:27017:27017
+        options: >-
+          --health-cmd "mongosh --quiet --eval 'quit(db.adminCommand({ping:1}).ok ? 0 : 1)'"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+          cache: pip
+          cache-dependency-path: requirements.lock
+      - name: Install from hash lock, migrate and seed
+        run: python script/setup
+      - name: Lint
+        run: .venv/bin/python script/lint
+      - name: Audit secrets in full history and source
+        run: .venv/bin/python script/audit.py --install
+      - name: Test
+        run: .venv/bin/python script/test
+      - name: Build
+        run: .venv/bin/python script/build
+      - name: Start application
+        run: |
+          .venv/bin/python script/start > .runtime-app.log 2>&1 &
+          echo "$!" > .runtime-app.pid
+          .venv/bin/python script/wait_http.py
+      - name: Smoke with live MongoDB and mutation proof
+        run: .venv/bin/python script/smoke --mutation-proof
+      - name: Prove smoke fails when MongoDB is unavailable
+        run: |
+          docker stop "${{ job.services.mongodb.id }}"
+          if .venv/bin/python script/smoke; then
+            echo "ERROR: smoke incorrectly passed without MongoDB"
+            exit 1
+          fi
+          echo "NEGATIVE SMOKE PASS: unavailable MongoDB correctly returned nonzero"
+      - name: Deliberate red-run gate
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.prove_failure }}
+        run: |
+          echo "DELIBERATE FAILURE: pipeline proof requested; rerun with prove_failure=false for green"
+          exit 1
+      - name: Upload build
+        uses: actions/upload-artifact@v4
+        with:
+          name: skeleton-build
+          path: dist/accountabilibuddy-skeleton.zip
+      - name: Cleanup application
+        if: always()
+        run: |
+          if test -f .runtime-app.pid; then kill "$(cat .runtime-app.pid)" 2>/dev/null || true; fi

@@ -57,3 +57,9 @@ memos, or the reflections is generated text.
   The good entry takes ninety seconds and is evidence of judgment.
   The bad one is evidence of nothing.
 -->
+
+## 2026-10-25 — Week 9 CI integration
+
+Tool/prompt: Codex; scaffold and publish the walking skeleton and CI assignment.
+Kept: component services, root src/tests layout, hash lock/runtime pin, setup/start/lint/test/build/smoke/audit scripts, workflow, README instructions, trace/evidence documents, eight requirement-linked board issues and exact red-run/fix records.
+Rejected: mocked hops as live evidence, invented run URLs, unverified acceptance claims, and overwriting the independent remote coursework history. Local and remote tests remain separately labeled; generated code requires Liam Pheng review.
