@@ -57,10 +57,3 @@ memos, or the reflections is generated text.
   The good entry takes ninety seconds and is evidence of judgment.
   The bad one is evidence of nothing.
 -->
-
-
-## 2026-10-25 — Walking skeleton integration and CI publication
-
-Liam Pheng asked Codex to complete Milestone 9 and authorized GitHub sign-in for repository publication. Codex reused the locally verified prototype and thin component read slice, added script/setup/start/lint/test/build/smoke/audit, pinned Python and all transitive dependency hashes, and prepared the CI workflow, eight issue bodies, rotation plan and skeleton acceptance evidence. The initial local checkout had independent history and a different requirements baseline. Integration therefore started from the actual GitHub main branch in a managed worktree, preserving remote coursework, existing workflows, original requirement IDs and detailed hours records rather than force-pushing unrelated history.
-
-The locally verified code is now placed in root src/ and tests/ to match the remote repository structure. Traceability is mapped explicitly to the actual FR-ACCT, FR-CHAT, FR-CLNDR and NFR identifiers; no old ID is silently redefined. Remote session records are retained without adding the previously reported aggregate hours a second time. The original local acceptance result was 21 tests plus eight subtests including separate course-tool tests; the integrated root application suite has five tests, with existing course-tool checks kept as separate workflows. AI assistance and pending personal review are not relabeled as unaided work.
