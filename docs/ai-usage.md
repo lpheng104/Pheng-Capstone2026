@@ -15,7 +15,7 @@ without the tool in front of me, it does not go in.
 
 | Tool / product | Model or version, as best I can name it | What I will use it for | What I will never use it for |
 |---|---|---|---|
-| ChatGPT | 5.6-Luna | Debugging Code and Proofreading documentation | Writing my code or writing my documentation |
+| ChatGPT | 5.6-Luna | Debugging Code and Proofreading documentation | Completely Writing my code or completely writing my documentation |
 | GitHub CoPilot | 1.388.x Visual Studio Extension | Assist in Code generation | Completely write my code or documentation |
 
 ### Zones
