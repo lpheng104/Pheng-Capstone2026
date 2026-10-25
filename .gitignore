@@ -1,1 +1,18 @@
 
+
+# Walking-skeleton generated artifacts
+.venv/
+node_modules/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+.env
+coverage.xml
+.coverage
+.env.*
+!.env.example
+.runtime/
+dist/
+*.egg-info/
+.runtime-app.log
+.runtime-app.pid

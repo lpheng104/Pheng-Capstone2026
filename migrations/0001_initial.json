@@ -1,0 +1,447 @@
+{
+  "version": "0001",
+  "collections": [
+    {
+      "name": "users",
+      "owner": "C2",
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": [
+            "_id",
+            "username",
+            "name",
+            "password_hash"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "_id": {
+              "bsonType": "objectId"
+            },
+            "username": {
+              "bsonType": "string",
+              "minLength": 3,
+              "maxLength": 32,
+              "pattern": "^[a-z0-9_]{3,32}$"
+            },
+            "name": {
+              "bsonType": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "password_hash": {
+              "bsonType": "string",
+              "minLength": 1,
+              "maxLength": 512
+            }
+          }
+        }
+      },
+      "indexes": [
+        {
+          "keys": [
+            [
+              "username",
+              1
+            ]
+          ],
+          "unique": true
+        }
+      ]
+    },
+    {
+      "name": "units",
+      "owner": "C3",
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": [
+            "_id",
+            "name",
+            "echelon",
+            "created_by"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "_id": {
+              "bsonType": "objectId"
+            },
+            "name": {
+              "bsonType": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "echelon": {
+              "bsonType": "string",
+              "minLength": 1,
+              "maxLength": 30
+            },
+            "created_by": {
+              "bsonType": "objectId"
+            }
+          }
+        }
+      },
+      "indexes": []
+    },
+    {
+      "name": "memberships",
+      "owner": "C3",
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": [
+            "_id",
+            "unit_id",
+            "user_id",
+            "role",
+            "rank"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "_id": {
+              "bsonType": "objectId"
+            },
+            "unit_id": {
+              "bsonType": "objectId"
+            },
+            "user_id": {
+              "bsonType": "objectId"
+            },
+            "role": {
+              "bsonType": "string",
+              "minLength": 1,
+              "maxLength": 10,
+              "enum": [
+                "owner",
+                "leader",
+                "member"
+              ]
+            },
+            "rank": {
+              "bsonType": "string",
+              "minLength": 0,
+              "maxLength": 30
+            }
+          }
+        }
+      },
+      "indexes": [
+        {
+          "keys": [
+            [
+              "unit_id",
+              1
+            ],
+            [
+              "user_id",
+              1
+            ]
+          ],
+          "unique": true
+        },
+        {
+          "keys": [
+            [
+              "user_id",
+              1
+            ]
+          ]
+        },
+        {
+          "keys": [
+            [
+              "unit_id",
+              1
+            ]
+          ],
+          "unique": true,
+          "partialFilterExpression": {
+            "role": "owner"
+          },
+          "name": "one_owner_per_unit"
+        }
+      ]
+    },
+    {
+      "name": "messages",
+      "owner": "C4",
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": [
+            "_id",
+            "unit_id",
+            "author_id",
+            "author",
+            "body",
+            "created_at"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "_id": {
+              "bsonType": "objectId"
+            },
+            "unit_id": {
+              "bsonType": "objectId"
+            },
+            "author_id": {
+              "bsonType": "objectId"
+            },
+            "author": {
+              "bsonType": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "body": {
+              "bsonType": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "created_at": {
+              "bsonType": "date"
+            }
+          }
+        }
+      },
+      "indexes": [
+        {
+          "keys": [
+            [
+              "unit_id",
+              1
+            ],
+            [
+              "created_at",
+              -1
+            ],
+            [
+              "_id",
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "events",
+      "owner": "C5",
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": [
+            "_id",
+            "unit_id",
+            "title",
+            "starts_at",
+            "location",
+            "uniform",
+            "details",
+            "created_by"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "_id": {
+              "bsonType": "objectId"
+            },
+            "unit_id": {
+              "bsonType": "objectId"
+            },
+            "title": {
+              "bsonType": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "starts_at": {
+              "bsonType": "date"
+            },
+            "location": {
+              "bsonType": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "uniform": {
+              "bsonType": "string",
+              "minLength": 0,
+              "maxLength": 100
+            },
+            "details": {
+              "bsonType": "string",
+              "minLength": 0,
+              "maxLength": 2000
+            },
+            "created_by": {
+              "bsonType": "objectId"
+            }
+          }
+        }
+      },
+      "indexes": [
+        {
+          "keys": [
+            [
+              "unit_id",
+              1
+            ],
+            [
+              "starts_at",
+              1
+            ],
+            [
+              "_id",
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "responses",
+      "owner": "C5",
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": [
+            "_id",
+            "event_id",
+            "user_id",
+            "status"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "_id": {
+              "bsonType": "objectId"
+            },
+            "event_id": {
+              "bsonType": "objectId"
+            },
+            "user_id": {
+              "bsonType": "objectId"
+            },
+            "status": {
+              "bsonType": "string",
+              "minLength": 1,
+              "maxLength": 20,
+              "enum": [
+                "attending",
+                "not attending"
+              ]
+            }
+          }
+        }
+      },
+      "indexes": [
+        {
+          "keys": [
+            [
+              "event_id",
+              1
+            ],
+            [
+              "user_id",
+              1
+            ]
+          ],
+          "unique": true
+        }
+      ]
+    },
+    {
+      "name": "sessions",
+      "owner": "C2",
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": [
+            "_id",
+            "token",
+            "user_id",
+            "expires_at"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "_id": {
+              "bsonType": "objectId"
+            },
+            "token": {
+              "bsonType": "string",
+              "minLength": 43,
+              "maxLength": 43,
+              "pattern": "^[A-Za-z0-9_-]{43}$"
+            },
+            "user_id": {
+              "bsonType": "objectId"
+            },
+            "expires_at": {
+              "bsonType": "date"
+            }
+          }
+        }
+      },
+      "indexes": [
+        {
+          "keys": [
+            [
+              "token",
+              1
+            ]
+          ],
+          "unique": true
+        },
+        {
+          "keys": [
+            [
+              "expires_at",
+              1
+            ]
+          ],
+          "expireAfterSeconds": 0
+        }
+      ]
+    },
+    {
+      "name": "login_attempts",
+      "owner": "C2",
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": [
+            "_id",
+            "count",
+            "expires_at"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "_id": {
+              "bsonType": "string",
+              "minLength": 3,
+              "maxLength": 32,
+              "pattern": "^[a-z0-9_]{3,32}$"
+            },
+            "count": {
+              "bsonType": [
+                "int",
+                "long"
+              ],
+              "minimum": 1
+            },
+            "expires_at": {
+              "bsonType": "date"
+            }
+          }
+        }
+      },
+      "indexes": [
+        {
+          "keys": [
+            [
+              "expires_at",
+              1
+            ]
+          ],
+          "expireAfterSeconds": 0
+        }
+      ]
+    }
+  ]
+}
