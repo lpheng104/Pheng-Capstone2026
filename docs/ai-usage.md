@@ -57,11 +57,3 @@ memos, or the reflections is generated text.
   The good entry takes ninety seconds and is evidence of judgment.
   The bad one is evidence of nothing.
 -->
-
-## 2026-10-25 — Week 9 CI integration
-
-Tool/prompt: Codex; scaffold and publish the walking skeleton and CI assignment.
-Kept: component services, root src/tests layout, hash lock/runtime pin, setup/start/lint/test/build/smoke/audit scripts, workflow, README instructions, trace/evidence documents, eight requirement-linked board issues and exact red-run/fix records.
-Rejected: mocked hops as live evidence, invented run URLs, unverified acceptance claims, and overwriting the independent remote coursework history. Local and remote tests remain separately labeled; generated code requires Liam Pheng review.
-
-Observed publication results: issues #37–#44 on the existing board; PR #45 merged; deliberate red run 40232422421; fix cbf0213595e247f57803f840548e50e218199c59; green push 40232910695, PR 40232914751 and main 40233100468. Final calculations only reconcile Week 8's reported 14 hours with 12.55 detailed hours using an explicit 1.45 unitemized remainder; Week 9's source sessions already total 15.40. Source timestamps remain unchanged. The unpublished independent local prototype tag will be archived locally and the required annotated tag issued on the integrated main release. No source credential, acceptance measurement, manual review or Canvas submission is fabricated.
