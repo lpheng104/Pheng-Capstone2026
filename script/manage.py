@@ -84,6 +84,7 @@ def build():
     target.parent.mkdir(exist_ok=True)
     files = list((ROOT/'src').rglob('*'))
     files += list((ROOT/'migrations').glob('*.py')) + list((ROOT/'migrations').glob('*.json'))
+    files += list((ROOT/'seed').glob('*.json')) + list((ROOT/'script').glob('*'))
     files += [ROOT/'requirements.lock', ROOT/'.python-version']
     with zipfile.ZipFile(target, 'w', zipfile.ZIP_DEFLATED) as archive:
         for source in sorted(files):

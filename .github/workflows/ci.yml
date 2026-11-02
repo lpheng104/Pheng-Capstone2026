@@ -55,6 +55,8 @@ jobs:
           .venv/bin/python script/wait_http.py
       - name: Smoke with live MongoDB and mutation proof
         run: .venv/bin/python script/smoke --mutation-proof
+      - name: Iteration-one acceptance through real HTTP and MongoDB
+        run: .venv/bin/python script/iteration1_http.py
       - name: Prove smoke fails when MongoDB is unavailable
         run: |
           docker stop "${{ job.services.mongodb.id }}"
