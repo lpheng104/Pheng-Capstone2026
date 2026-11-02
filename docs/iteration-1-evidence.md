@@ -72,7 +72,7 @@ Evidence: [tests/test_iteration1.py](../tests/test_iteration1.py#L142); live HTT
 - Ruff: all checks passed. Build: passed, with source, migrations, seed and executable scripts included.
 - Real HTTP + MongoDB: script/iteration1_http.py passed for all three slices; uses real sockets and persisted records, not Flask test_client or mongomock.
 - Original skeleton live smoke and database-outage failure remain required CI gates.
-- Browser capture: docs/demo/iteration-1-script.md and script/record_iteration1.cjs. Actual recording result/link will be added after capture verification.
+- Browser capture: docs/demo/iteration-1-script.md and script/record_iteration1.cjs. Actual captioned automated recording: [download demo](https://github.com/lpheng104/Pheng-Capstone2026/releases/download/iteration-1/iteration-1-demo.webm); duration/hash in docs/demo/iteration-1-recording.json.
 - Accessibility, exact CI URLs and release link are recorded below once verified.
 
 ## Known limits and remaining product work
@@ -95,6 +95,12 @@ All new increment commits are honestly dated November 1. This supplies coherent 
 
 Axe-core 4.10.3 checked the password form, unit chat and delete confirmation in Chromium against the real local app. The first run found footer contrast 4.41:1 and timestamp contrast 4.49:1, both below 4.5:1. Darkened muted text and repeated the check: three pages, zero violations, zero critical/serious findings. Tab focus produced an explicit solid outline. Raw result: [iteration-1-a11y.json](iteration-1-a11y.json). This does not certify a full-product WCAG audit or a human usability observation.
 
-A regenerated local .env against an existing demo database exposed a seed credential mismatch. Updated the guarded synthetic skeleton account on seed and added the repeated-seed credential regression; the full suite now has 23 passing tests. The browser recording was scripted while the earlier 22-test suite was current; the added twenty-third test covers this setup follow-up.
+A regenerated local .env against an existing demo database exposed a seed credential mismatch. Updated the guarded synthetic skeleton account on seed and added the repeated-seed credential regression; the full suite now has 23 passing tests. The final browser recording captions report the observed 23-test suite; the added twenty-third test covers this setup follow-up.
 
-Initial hosted PR checks passed at 3fc5cbf: CI push run [41368264188](https://github.com/lpheng104/Pheng-Capstone2026/actions/runs/41368264188) and PR run [41368269500](https://github.com/lpheng104/Pheng-Capstone2026/actions/runs/41368269500). Final default-branch result is recorded after the follow-up checks complete.
+Initial hosted PR checks passed at 3fc5cbf: CI push run [41368264188](https://github.com/lpheng104/Pheng-Capstone2026/actions/runs/41368264188) and PR run [41368269500](https://github.com/lpheng104/Pheng-Capstone2026/actions/runs/41368269500). Merged default-branch CI at f81d36d passed: [41368856412](https://github.com/lpheng104/Pheng-Capstone2026/actions/runs/41368856412). The final recording/submission metadata commit has a subsequent exact-head CI run, supplied in the submission handoff.
+
+## Verified recording
+
+The captioned automated browser recording is 300.00 seconds, 1440 × 1000 VP8/WebM, with actual password rejection, password rotation, persisted message, cancelled/confirmed deletion and HTTP 403 denial. [Recording](https://github.com/lpheng104/Pheng-Capstone2026/releases/download/iteration-1/iteration-1-demo.webm). [Manifest](demo/iteration-1-recording.json). Frames at the failure, message, confirmation, remaining-event and denied-role points were visually inspected. The final file is a stream-copy five-minute trim of the capture, not a constructed slideshow.
+
+All three selected issues are linked on [the project board](https://github.com/users/lpheng104/projects/1): [#46](https://github.com/lpheng104/Pheng-Capstone2026/issues/46), [#47](https://github.com/lpheng104/Pheng-Capstone2026/issues/47), [#48](https://github.com/lpheng104/Pheng-Capstone2026/issues/48). Personal review remains open. [DEF-I1-01 / #49](https://github.com/lpheng104/Pheng-Capstone2026/issues/49) is in Backlog for Week 11.

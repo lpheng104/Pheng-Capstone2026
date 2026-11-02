@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-01",
+  "owner": "Liam Pheng",
+  "instructor": "Dr. Litman",
+  "recording_url": "https://github.com/lpheng104/Pheng-Capstone2026/releases/download/iteration-1/iteration-1-demo.webm",
+  "duration_seconds": 300.0,
+  "bytes": 17708615,
+  "sha256": "118fb2838b5bd87aaeb6312cfac750f56b740603cb2f2749ea3389298fb706be",
+  "method": "Playwright recording of actual local Chromium browser, Flask HTTP server and real MongoDB; no mocked hops. Captioned automated demo, no human narration.",
+  "editing": "Stream-copy trim to five minutes; no simulated screens or fabricated outcomes.",
+  "requirements": [
+    "FR-ACCT-03",
+    "FR-CHAT-04",
+    "FR-CLNDR-03"
+  ],
+  "capture_driver": "script/record_iteration1.cjs",
+  "application_revision": "22df87f3eaf4b9cbb92d3ee0ae1f8c24bacb22f5",
+  "personal_self_review": "pending Liam Pheng; not claimed as performed",
+  "source_capture_result": {
+    "status": "passed",
+    "durationSeconds": 311.182,
+    "automated": true,
+    "realHttp": true,
+    "realMongoDB": true,
+    "requirements": [
+      "FR-ACCT-03",
+      "FR-CHAT-04",
+      "FR-CLNDR-03"
+    ]
+  }
+}
