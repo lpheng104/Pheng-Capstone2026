@@ -64,7 +64,7 @@ const sleep = ms => new Promise(resolve => setTimeout(resolve,ms));
     await login('iteration_leader',replacement);
     await caption('Signed in successfully with the new password.\nTests separately verify that the old password fails and a second prior session can no longer open protected pages.');
     await until(95);
-    await page.getByRole('link',{name:'Iteration One Squad',exact:true}).click();
+    await page.getByRole('link',{name:/Iteration One Squad/}).click();
     await page.getByLabel('Message',{exact:true}).fill('Meet at Demo Field at 0600.');
     await caption('FR-CHAT-04: a unit member writes a message for this unit.\nOnly authenticated members may send. Empty messages and messages above 2000 characters are rejected server-side.');
     await until(110);
