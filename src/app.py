@@ -185,6 +185,31 @@ def create_app(config=None, database=None):
             flash('Invalid username or password.')
         return render_template('auth.html', registering=False)
 
+    # AI-assisted 2026-11-01; see docs/ai-usage.md. FR-ACCT-03.
+    @app.route('/account/password', methods=['GET', 'POST'])
+    @login_required
+    def change_password():
+        if request.method == 'POST':
+            current = request.form.get('current_password', '')
+            replacement = request.form.get('new_password', '')
+            if len(current) > 128 or not check_password_hash(g.user['password_hash'], current):
+                flash('Current password is incorrect.')
+            elif not password_valid(replacement):
+                flash('Password does not meet the secure requirements')
+            else:
+                # Compare-and-set prevents a concurrent stale request overwriting a newer change.
+                result = db.users.update_one(
+                    {'_id': g.user['_id'], 'password_hash': g.user['password_hash']},
+                    {'$set': {'password_hash': generate_password_hash(replacement)}})
+                if not result.modified_count:
+                    flash('Password changed in another session. Sign in and try again.')
+                    return redirect(url_for('login'))
+                db.sessions.delete_many({'user_id': g.user['_id']})
+                session.clear()
+                flash('Password changed. Please sign in again.')
+                return redirect(url_for('login'))
+        return render_template('password.html')
+
     @app.post('/logout')
     @login_required
     def logout():
@@ -246,8 +271,17 @@ def create_app(config=None, database=None):
     @login_required
     def send_message(unit_id):
         unit, _ = membership(unit_id)
+        # AI-assisted 2026-11-01; FR-CHAT-04, exact failure text and durable attribution.
+        body = request.form.get('body', '').strip()
+        if not body:
+            flash('Message cannot be empty.')
+            return redirect(url_for('unit_page', unit_id=unit_id))
+        if len(body) > 2000:
+            flash('Message must be at most 2000 characters.')
+            return redirect(url_for('unit_page', unit_id=unit_id))
         db.messages.insert_one({'unit_id': unit['_id'], 'author_id': g.user['_id'],
-                                'author': g.user['name'], 'body': field('body', 2000), 'created_at': datetime.now(timezone.utc)})
+                                'author': g.user['username'], 'body': body,
+                                'created_at': datetime.now(timezone.utc)})
         return redirect(url_for('unit_page', unit_id=unit_id))
 
     @app.post('/units/<unit_id>/events')
@@ -265,6 +299,27 @@ def create_app(config=None, database=None):
                               'location': field('location', 200), 'uniform': field('uniform', 100, False),
                               'details': field('details', 2000, False), 'created_by': g.user['_id']})
         return redirect(url_for('unit_page', unit_id=unit_id))
+
+    # AI-assisted 2026-11-01; see docs/ai-usage.md. FR-CLNDR-03.
+    @app.route('/units/<unit_id>/events/<event_id>/delete', methods=['GET', 'POST'])
+    @login_required
+    def delete_event(unit_id, event_id):
+        unit, _ = membership(unit_id, leader=True)
+        event = None
+        if ObjectId.is_valid(event_id):
+            event = db.events.find_one({'_id': ObjectId(event_id), 'unit_id': unit['_id']})
+        if not event:
+            flash('Invalid event, delete calendar event request cancelled.')
+            return redirect(url_for('unit_page', unit_id=unit_id))
+        if request.method == 'POST':
+            result = db.events.delete_one({'_id': event['_id'], 'unit_id': unit['_id']})
+            if result.deleted_count:
+                db.responses.delete_many({'event_id': event['_id']})
+                flash('Calendar event deleted.')
+            else:
+                flash('Invalid event, delete calendar event request cancelled.')
+            return redirect(url_for('unit_page', unit_id=unit_id))
+        return render_template('delete_event.html', unit=unit, event=event)
 
     @app.post('/units/<unit_id>/events/<event_id>/respond')
     @login_required
