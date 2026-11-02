@@ -84,6 +84,7 @@ def build():
     target.parent.mkdir(exist_ok=True)
     files = list((ROOT/'src').rglob('*'))
     files += list((ROOT/'migrations').glob('*.py')) + list((ROOT/'migrations').glob('*.json'))
+    files += list((ROOT/'seed').glob('*.json')) + list((ROOT/'script').glob('*'))
     files += [ROOT/'requirements.lock', ROOT/'.python-version']
     with zipfile.ZipFile(target, 'w', zipfile.ZIP_DEFLATED) as archive:
         for source in sorted(files):
@@ -112,7 +113,7 @@ def main():
         create_app().run(host='127.0.0.1', port=args.port, debug=False, use_reloader=False)
     elif args.verb == 'lint':
         subprocess.run([sys.executable,'-m','ruff','check','src','script',
-                        'tests/test_skeleton.py'],check=True)
+                        'tests/test_skeleton.py','tests/test_iteration1.py'],check=True)
     elif args.verb == 'test':
         subprocess.run([sys.executable,'-m','pytest','-q'],check=True)
     else:

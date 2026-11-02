@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-01",
+  "tool": "axe-core 4.10.3 + Playwright Chromium",
+  "keyboardFocus": {
+    "tag": "A",
+    "outline": "solid"
+  },
+  "results": [
+    {
+      "page": "password",
+      "url": "http://127.0.0.1:5010/account/password",
+      "violations": [],
+      "passes": 27
+    },
+    {
+      "page": "unit chat",
+      "url": "http://127.0.0.1:5010/units/6ade5e2545eae783c8970a07",
+      "violations": [],
+      "passes": 30
+    },
+    {
+      "page": "delete confirmation",
+      "url": "http://127.0.0.1:5010/units/6ade5e2545eae783c8970a07/events/6ade5e2545eae783c8970a0a/delete",
+      "violations": [],
+      "passes": 23
+    }
+  ]
+}
