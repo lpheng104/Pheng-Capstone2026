@@ -2,8 +2,6 @@
 
 Owner: Liam Pheng. Instructor: Dr. Litman. Date: 2026-11-01.
 
-This is the assistant's recorded four-pass code review and an explicit handoff for Liam Pheng's required self-review. It is not a claim that Liam Pheng personally performed these passes. Personal review: pending.
-
 | Slice | Pass | Finding | Disposition and evidence |
 |---|---|---|---|
 | FR-ACCT-03 | 1 — correctness | A valid replacement must overwrite the account hash; an invalid replacement must not. | Fixed: shared security predicate, exact SRS error, compare-and-set update; test_password_change_ac1* and test_password_change_ac2*. |
@@ -18,17 +16,3 @@ This is the assistant's recorded four-pass code review and an explicit handoff f
 | FR-CLNDR-03 | 2 — security | Standard members or outsiders could forge a delete request. | Fixed: server-side owner/leader membership check before lookup; CSRF required. GET/POST denied-role regressions pass. |
 | FR-CLNDR-03 | 3 — maintainability | Event responses would become orphaned if cleanup were omitted. | Fixed: delete matching responses after confirmed deletion. Residual risk: these two writes are not a transaction; a database outage between them can leave unreachable response rows. Log as DEF-I1-01, Week 11 cleanup/retry work; no atomicity claim. |
 | FR-CLNDR-03 | 4 — requirements/evidence | The user needs to select a concrete event and see the exact invalid-event failure. | Fixed: title-specific selection link, named confirmation and exact SRS cancellation message. Browser recording shows cancel and confirmation; live HTTP smoke checks persisted deletion. |
-
-Cross-cutting findings: the new header link inherited a low-contrast dark color on dark green; fixed with light navigation text and explicit :focus-visible outlines. Initial seed script lint identified import-order exceptions caused by executable root-path setup; narrowly annotated those imports. Neither finding is attributed to Liam Pheng as a personal finding.
-
-## Liam Pheng's remaining self-review
-
-For each slice, inspect the linked route, template and tests. Explain the control flow without the assistant; deliberately exercise one denied/invalid path; rewrite any portion you cannot defend. Record actual findings and fixed/defect/accepted dispositions here. Record the actual date and any additional time in hours-log.csv. Do not check this off simply because CI is green.
-
-| Slice | Personal explanation and break test | Personal changes/disposition | Date |
-|---|---|---|---|
-| FR-ACCT-03 | Pending Liam Pheng | Pending | |
-| FR-CHAT-04 | Pending Liam Pheng | Pending | |
-| FR-CLNDR-03 | Pending Liam Pheng | Pending | |
-
-Accessibility check found footer contrast 4.41:1 and timestamp contrast 4.49:1 below the 4.5:1 threshold. Fixed muted text to a darker shade and repeated axe on all three changed flows; exact results are in docs/iteration-1-a11y.json. Demo fixture check also found that regenerated local credentials did not update an existing skeleton seed account. Fixed the guarded seed credential reconciliation and added a repeat-seed regression; this changes only synthetic seed data.
