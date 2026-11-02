@@ -1,0 +1,12 @@
+{
+  "unit": {"name": "Iteration One Squad", "echelon": "Squad"},
+  "users": [
+    {"username": "iteration_leader", "name": "Fictional Leader", "role": "owner"},
+    {"username": "iteration_member", "name": "Fictional Member", "role": "member"},
+    {"username": "iteration_outsider", "name": "Fictional Outsider", "role": null}
+  ],
+  "events": [
+    {"title": "Practice briefing", "starts_at": "2030-01-01T12:00:00+00:00", "location": "Demo Field"},
+    {"title": "Keep this formation", "starts_at": "2030-01-02T12:00:00+00:00", "location": "Demo Hall"}
+  ]
+}
