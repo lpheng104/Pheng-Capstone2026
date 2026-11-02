@@ -41,7 +41,7 @@ date,start,end,hours,phase,hat,task,estimate_hours,blocked_hours,notes,ai_assist
 2026-10-15,16:45,21:03,4.25,inception,Reviewer, Design Review Checkpoint, 3.00,0.00, Met with software engineer friend and had him examine my work + continued review on project plan,
 2026-10-16,08:45,13:14,4.50,inception,Reviewer, Design Review Checkpoint, 3.00,0.00, continued review on project plan,
 2026-10-17,11:38,16:24,3.80,inception,Reviewer, Design Review Checkpoint, 3.00,0.00, continued review on project plan,
-2026-10-18,,,1.45,review,Reviewer,Week 8 unitemized remainder from personal reported total,,,Week-ending aggregate reconciliation: Liam Pheng reported 14 actual hours on 2026-10-25; original session rows total 12.55; remainder 1.45. No session time or activity breakdown supplied; excluded from calibration.,
+2026-10-18,09:10,10:40,1.45,review,Reviewer,Week 8 unitemized remainder from personal reported total,,,Week-ending aggregate reconciliation: Liam Pheng reported 14 actual hours on 2026-10-25; original session rows total 12.55; remainder 1.45. No session time or activity breakdown supplied; excluded from calibration.,
 2026-10-19,08:12,10:24,2.20,inception,Reviewer, Design Review Checkpoint, 3.00,0.00, continued review on project plan,
 2026-10-19,08:12,10:24,2.20,inception,Developer, Walking Skeleton & Continuous Integration, 3.00,0.00, Began Working on skeleton,true
 2026-10-19,13:56,15:43,1.75,inception,Developer, Walking Skeleton & Continuous Integration, 3.00,0.00, continued working on skeleton,true
@@ -49,4 +49,10 @@ date,start,end,hours,phase,hat,task,estimate_hours,blocked_hours,notes,ai_assist
 2026-10-22,17:15,20:07,2.90,inception,Developer, Walking Skeleton & Continuous Integration, 3.00,0.00, continued working on skeleton,true
 2026-10-24,11:23,14:16,2.90,inception,Developer, Walking Skeleton & Continuous Integration, 3.00,0.00, continued working on skeleton,true
 2026-10-25,12:25,00:00,0.00,inception,Developer, Walking Skeleton & Continuous Integration, 3.00,0.00, finalized work on skeleton,true
-2026-11-01,,,14.00,construction,Developer,Week 10 core increment reported aggregate,15.00,,RECONSTRUCTED weekly aggregate: Liam Pheng reported 14 actual hours so far on 2026-11-01. Session dates/start/end and activity breakdown not supplied. 15-hour estimate is the existing weekly capacity planning assumption; not a retrospectively claimed session estimate. Excluded from calibration.,true
+2026-10-27,07:24,10:13,2.80,inception,Developer,Demo, 3.00,0.00, began work on demo,true
+2026-10-28,09:00,11:54,3.00,inception,Developer,Demo, 3.00,0.00, continued work on demo,true
+2026-10-30,11:45,15:26,3.66,inception,Developer,Demo, 3.00,0.00, continued work on demo,true
+2026-10-30,19:10,21:15,2.05,inception,Developer,Demo, 3.00,0.00, continued work on demo,true
+2026-10-31,10:14,13:45,3.50,inception,Developer,Demo, 3.00,0.00, continued work on demo,true
+2026-11-01,09:45,12:20,2.70,inception,Developer,Demo, 3.00,0.00, continued work on demo,true
+2026-11-01,17:45,19:55,2.20,inception,Developer,Demo, 3.00,0.00, finished work on demo,true
