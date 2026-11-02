@@ -112,7 +112,7 @@ def main():
         create_app().run(host='127.0.0.1', port=args.port, debug=False, use_reloader=False)
     elif args.verb == 'lint':
         subprocess.run([sys.executable,'-m','ruff','check','src','script',
-                        'tests/test_skeleton.py'],check=True)
+                        'tests/test_skeleton.py','tests/test_iteration1.py'],check=True)
     elif args.verb == 'test':
         subprocess.run([sys.executable,'-m','pytest','-q'],check=True)
     else:
