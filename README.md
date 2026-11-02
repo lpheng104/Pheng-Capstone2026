@@ -84,3 +84,11 @@ This can be navigated to by clicking the "Projects" tab on the top of the reposi
 
 ### What is Missing
 The walking skeleton is implemented and verified through real MongoDB and CI. Full product features, Render/Atlas acceptance, broader non-functional measurements and personal code review remain tracked separately; see docs/skeleton-trace.md.
+
+## Iteration 1 core increment
+
+Three implemented slices: FR-ACCT-03 password change, FR-CHAT-04 send message, FR-CLNDR-03 delete event. See [acceptance evidence](docs/iteration-1-evidence.md), [definition of done](docs/definition-of-done.md), [review record](docs/reviews/iteration-1-self-review.md) and [demo script](docs/demo/iteration-1-script.md). Personal review status is explicit; automated green does not certify a human review.
+
+After setup, run `.venv/Scripts/python script/seed_iteration1.py` on Windows, or `.venv/bin/python script/seed_iteration1.py` on Linux. This resets only the named fictional iteration fixture in a dedicated demo database. Sign in as `iteration_leader` or `iteration_member` with SKELETON_PASSWORD from the ignored .env; never commit or show that value. The leader sees Iteration One Squad with two events. The outsider has no unit access. Password changes sign out all sessions. Re-running the seed resets demo-account passwords and sessions.
+
+For real HTTP acceptance on a running server: `.venv/Scripts/python script/iteration1_http.py` (default port 5000). This intentionally resets the guarded demo fixture. Browser capture is optional tooling: Node.js with Playwright and its Chromium browser installed separately, then `node script/record_iteration1.cjs` with DEMO_BASE_URL and DEMO_OUTPUT as needed. Playwright is not a server runtime dependency. The committed driver creates a captioned automated five-minute browser recording, not a personal self-review.

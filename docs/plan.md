@@ -154,3 +154,7 @@ I explicitly chose to retain all current requirements on 2026-10-11. Requirement
 | Decision | Requirements affected | Hours recovered | MoSCoW before to after | Reason |
 |---|---|---|---|---|
 | Retain all current requirements | All version 0.4 FR/NFR IDs | 0 (no scope removed) | Unchanged for every requirement | The stated draft fits capacity, so I retained the current scope |
+
+## Iteration 1 actual progress — 2026-11-01
+
+See [iteration-1-burndown.md](iteration-1-burndown.md) for the evidence-based count burn-down, board movements, 14 reported actual hours and remaining personal gates. The original planning-hour baseline above is preserved. Three implemented slices pass automated acceptance; no planning package is declared complete solely from time spent.
