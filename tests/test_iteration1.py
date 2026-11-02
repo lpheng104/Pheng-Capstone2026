@@ -7,6 +7,7 @@ import pytest
 from werkzeug.security import check_password_hash
 
 from src.app import create_app
+from src.maintenance import seed
 
 
 @pytest.fixture
@@ -33,6 +34,17 @@ def post(client, path, data=None, follow=False):
     with client.session_transaction() as s:
         csrf = s['csrf']
     return client.post(path, data={**(data or {}), 'csrf': csrf}, follow_redirects=follow)
+
+
+def test_demo_setup_reconciles_rotated_local_secret_without_duplicating_fixture():
+    db = mongomock.MongoClient(tz_aware=True).test_seed
+    first = seed(db, 'First!Synthetic1')
+    second = seed(db, 'Second!Synthetic2')
+    assert first == second
+    assert db.users.count_documents({}) == 1
+    user = db.users.find_one({'username': 'skeleton_member'})
+    assert check_password_hash(user['password_hash'], 'Second!Synthetic2')
+    assert not check_password_hash(user['password_hash'], 'First!Synthetic1')
 
 
 def test_password_change_ac1_persists_hash_revokes_all_sessions_and_reauthenticates(world):

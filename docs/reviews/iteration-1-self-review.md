@@ -30,3 +30,5 @@ For each slice, inspect the linked route, template and tests. Explain the contro
 | FR-ACCT-03 | Pending Liam Pheng | Pending | |
 | FR-CHAT-04 | Pending Liam Pheng | Pending | |
 | FR-CLNDR-03 | Pending Liam Pheng | Pending | |
+
+Accessibility check found footer contrast 4.41:1 and timestamp contrast 4.49:1 below the 4.5:1 threshold. Fixed muted text to a darker shade and repeated axe on all three changed flows; exact results are in docs/iteration-1-a11y.json. Demo fixture check also found that regenerated local credentials did not update an existing skeleton seed account. Fixed the guarded seed credential reconciliation and added a repeat-seed regression; this changes only synthetic seed data.

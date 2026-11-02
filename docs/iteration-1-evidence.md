@@ -68,7 +68,7 @@ Evidence: [tests/test_iteration1.py](../tests/test_iteration1.py#L142); live HTT
 
 ## Verification results
 
-- Full local suite: 22 passed in 58.80 seconds. 1109 warnings originate from mongomock deprecated utcnow use; no failed tests.
+- Full local suite: 23 passed in 50.49 seconds. 1109 warnings originate from mongomock deprecated utcnow use; no failed tests.
 - Ruff: all checks passed. Build: passed, with source, migrations, seed and executable scripts included.
 - Real HTTP + MongoDB: script/iteration1_http.py passed for all three slices; uses real sockets and persisted records, not Flask test_client or mongomock.
 - Original skeleton live smoke and database-outage failure remain required CI gates.
@@ -90,3 +90,11 @@ Chat still requires refresh; no real-time push claim. No production deployment, 
 ## Process exceptions
 
 All new increment commits are honestly dated November 1. This supplies coherent commits, but cannot satisfy the separate requirement that at least eight commits be spread across the week. Hours source is a user-reported weekly aggregate; session intervals were not invented. Original Week 9 overlapping/reconstructed entries are preserved and flagged in hours report notes.
+
+## Accessibility and clean setup follow-up
+
+Axe-core 4.10.3 checked the password form, unit chat and delete confirmation in Chromium against the real local app. The first run found footer contrast 4.41:1 and timestamp contrast 4.49:1, both below 4.5:1. Darkened muted text and repeated the check: three pages, zero violations, zero critical/serious findings. Tab focus produced an explicit solid outline. Raw result: [iteration-1-a11y.json](iteration-1-a11y.json). This does not certify a full-product WCAG audit or a human usability observation.
+
+A regenerated local .env against an existing demo database exposed a seed credential mismatch. Updated the guarded synthetic skeleton account on seed and added the repeated-seed credential regression; the full suite now has 23 passing tests. The browser recording was scripted while the earlier 22-test suite was current; the added twenty-third test covers this setup follow-up.
+
+Initial hosted PR checks passed at 3fc5cbf: CI push run [41368264188](https://github.com/lpheng104/Pheng-Capstone2026/actions/runs/41368264188) and PR run [41368269500](https://github.com/lpheng104/Pheng-Capstone2026/actions/runs/41368269500). Final default-branch result is recorded after the follow-up checks complete.

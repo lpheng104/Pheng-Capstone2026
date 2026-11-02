@@ -9,7 +9,8 @@ def seed(database, password):
     if not (database.name.endswith('_skeleton') or database.name.startswith('test_')):
         raise ValueError('Seeding requires a *_skeleton or test_* database.')
     username = 'skeleton_member'
-    database.users.update_one({'username': username}, {'$setOnInsert': {
+    # AI-assisted 2026-11-01; docs/ai-usage.md. Reconcile only this guarded demo credential.
+    database.users.update_one({'username': username}, {'$set': {
         'username': username, 'name': 'Synthetic Member',
         'password_hash': generate_password_hash(password)}}, upsert=True)
     user = database.users.find_one({'username': username})

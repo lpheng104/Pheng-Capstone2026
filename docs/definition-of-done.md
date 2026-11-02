@@ -6,7 +6,7 @@ Adapted from the existing course-derived checklist in this repository for Iterat
 |---|---|---|
 | Stable requirement and verbatim acceptance | Exactly one traceability row; every written AC mapped to implementation and test | FR-ACCT-03, FR-CHAT-04, FR-CLNDR-03 mapped in iteration-1-evidence.md |
 | Observable end-to-end behavior | Route, UI, real database persistence and a handled failure | script/iteration1_http.py; committed seed; five-minute browser capture |
-| Regression and boundary checks | Entire suite, denied roles, missing CSRF and invalid input pass | 22 pytest cases; exact errors, password boundaries, message limits and cross-unit deletion |
+| Regression and boundary checks | Entire suite, denied roles, missing CSRF and invalid input pass | 23 pytest cases; exact errors, password boundaries, message limits and cross-unit deletion |
 | Traceability | tools/check-traceability.py exits zero | Record result in evidence document |
 | Credentials/configuration | Secret audit of history and source passes; every environment variable documented; no real personal/military data | Existing audit stage plus .env.example and README Run it |
 | Accessibility | Associated labels, visible keyboard focus, keyboard-operable controls; no serious/critical axe findings on changed flows | Automated browser/a11y evidence recorded separately; no full WCAG conformance claim |
