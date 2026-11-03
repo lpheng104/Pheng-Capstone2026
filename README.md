@@ -95,4 +95,4 @@ For real HTTP acceptance on a running server: `.venv/Scripts/python script/itera
 
 ## Hosted demo
 
-Deployment configuration is in `render.yaml`; follow [the Render demo guide](docs/render-demo.md). Secrets are supplied privately in Render, never committed. Public availability is pending until the hosted health and login checks succeed. The local app address remains http://127.0.0.1:5010.
+Deployment configuration is in `render.yaml`; follow [the Render demo guide](docs/render-demo.md). Secrets are supplied privately in Render, never committed. Live demo: [https://accountabilibuddy-demo.onrender.com](https://accountabilibuddy-demo.onrender.com). Hosted health, fictional-member login, Atlas-backed unit/events, secure cookie attributes, CSRF rejection and anonymous access checks passed on 2026-11-02. See [deployment verification](docs/render-demo-verification.md). The local app address remains http://127.0.0.1:5010.

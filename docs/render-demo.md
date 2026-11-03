@@ -2,7 +2,7 @@
 
 Owner: Liam Pheng. Instructor: Dr. Litman. Prepared 2026-11-02.
 
-The app uses Atlas successfully from the local development machine. render.yaml describes a free Render Python web service for the same fictional demonstration database. A public Render URL is verified only after a successful deployment, health check and authenticated request. Until then, deployment status is pending.
+The app uses Atlas successfully from the local development machine. render.yaml describes a free Render Python web service for the same fictional demonstration database. The public demo is live at [https://accountabilibuddy-demo.onrender.com](https://accountabilibuddy-demo.onrender.com). Render reported Live and the hosted health/authentication checks passed on 2026-11-02; see [the verification record](render-demo-verification.md).
 
 ## Configuration
 
