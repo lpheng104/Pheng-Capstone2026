@@ -92,3 +92,7 @@ Three implemented slices: FR-ACCT-03 password change, FR-CHAT-04 send message, F
 After setup, run `.venv/Scripts/python script/seed_iteration1.py` on Windows, or `.venv/bin/python script/seed_iteration1.py` on Linux. This resets only the named fictional iteration fixture in a dedicated demo database. Sign in as `iteration_leader` or `iteration_member` with SKELETON_PASSWORD from the ignored .env; never commit or show that value. The leader sees Iteration One Squad with two events. The outsider has no unit access. Password changes sign out all sessions. Re-running the seed resets demo-account passwords and sessions.
 
 For real HTTP acceptance on a running server: `.venv/Scripts/python script/iteration1_http.py` (default port 5000). This intentionally resets the guarded demo fixture. Browser capture is optional tooling: Node.js with Playwright and its Chromium browser installed separately, then `node script/record_iteration1.cjs` with DEMO_BASE_URL and DEMO_OUTPUT as needed. Playwright is not a server runtime dependency. The committed driver creates a captioned automated five-minute browser recording, not a personal self-review.
+
+## Hosted demo
+
+Deployment configuration is in `render.yaml`; follow [the Render demo guide](docs/render-demo.md). Secrets are supplied privately in Render, never committed. Public availability is pending until the hosted health and login checks succeed. The local app address remains http://127.0.0.1:5010.
