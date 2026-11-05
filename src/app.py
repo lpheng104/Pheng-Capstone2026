@@ -1,4 +1,3 @@
-# AI-generated 2026-09-17; see docs/ai-usage.md. Review before capstone submission.
 import os
 import re
 import secrets
