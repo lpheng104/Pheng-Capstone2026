@@ -1,0 +1,6 @@
+{
+  "invalid_id": "not-an-object-id",
+  "markup": "<script>alert(1)</script>",
+  "spaces": "   ",
+  "unknown_user": "fictional_missing_42087"
+}

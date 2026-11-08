@@ -1,0 +1,9 @@
+{
+  "event": {
+    "location": "Demo field",
+    "starts_at": "2030-01-02T06:00:00-06:00",
+    "title": "Fictional briefing"
+  },
+  "message": "Practice at the demo field.",
+  "unit": "Fictional Squad 42087"
+}
