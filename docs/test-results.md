@@ -2,11 +2,26 @@
 
 Owner: Liam Pheng. Instructor: Dr. Litman. Run date: 2026-11-08 (Central).
 
+## Committed CI run
+
+[GitHub Actions run 42529825389](https://github.com/lpheng104/Pheng-Capstone2026/actions/runs/42529825389)
+passed on November 8, 2026 against commit `4c992b060d7987c2292eb1140eed6fa13073616d`.
+Runner: Ubuntu 24.04, Python 3.12.14, disposable MongoDB 8.0.17.
+Command: `.venv/bin/python -m pytest -q -rx --junitxml=<runner-temp>/milestone11-junit.xml`
+with `M11_MONGO_PORT=27017`.
+
+The uploaded JUnit report records **70 passed, 4 strict expected failures,
+0 unexpected failures, 0 other skips**, including all three real MongoDB tests.
+Suite duration: **31.80 s**. CI also passed fixture
+reproduction, matrix audit, lint, credential scan, build and the live HTTP gates.
+This evidence update changes documentation only; it does not change the tested code.
+
+## Local full run and baseline reproduction
+
 The full local run tested a review candidate derived from commit `c5b89372a9f77579e01c75f73d155e8824918450`.
 The candidate was uncommitted at run time. SHA-256 of the tested source/fixture file manifest:
 `7b3b7fd785f69249325a9bce85cafcd7b423c683d4e0f3b4909e488c28723e55`. The observed cases and timings are in
-[milestone-11-run.json](milestone-11-run.json); the exact committed CI result, when available,
-is separate from this local observation.
+[milestone-11-run.json](milestone-11-run.json); the committed CI observation is recorded above.
 
 Environment: Windows course laptop, Python 3.12.14; MongoDB 8.0.17 loopback:27019. No connection to Atlas or Render was used.
 
