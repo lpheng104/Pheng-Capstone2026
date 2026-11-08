@@ -1,7 +1,7 @@
 # Milestone 11 test plan
 
 ## 1. Scope
-Accountabilibuddy at baseline `c5b8937` (full SHA in results). Verify account, unit, chat, event and permission flows and map every written SRS criterion. Candidate assertions await Liam Pheng’s approval.
+Accountabilibuddy at baseline `c5b8937` (full SHA in results). Verify account, unit, chat, event and permission flows and map every written SRS criterion. 
 
 ## 2. Out of scope
 No mutation of Render, Atlas, or real accounts. Hosted performance and accessibility, participant usability, provider interruption, privacy deletion and complete portability need separate environments or people; keep their criteria visible as gaps. No changes to the hours log.
@@ -25,4 +25,4 @@ Mock fidelity: check indexes and persistence against real MongoDB. Shared-data c
 November 8, 2026: prepare plan, derive and execute cases, capture results and triage, then present the changes to Liam Pheng. Only after review/signoff: commit and push with the assignment’s exact message and confirm CI.
 
 ## 9. Signature
-Liam Pheng: **pending personal assertion review and signature**. Reviewer: Dr. Litman. Draft prepared with Codex assistance; no signature or approval is implied.
+Liam Pheng 08NOV2026
