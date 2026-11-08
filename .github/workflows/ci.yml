@@ -45,7 +45,19 @@ jobs:
       - name: Audit secrets in full history and source
         run: .venv/bin/python script/audit.py --install
       - name: Test
-        run: .venv/bin/python script/test
+        env:
+          M11_MONGO_PORT: "27017"
+        run: .venv/bin/python -m pytest -q -rx --junitxml="${{ runner.temp }}/milestone11-junit.xml"
+      - name: Upload Milestone 11 test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone11-junit
+          path: ${{ runner.temp }}/milestone11-junit.xml
+      - name: Verify deterministic QA fixtures and criterion matrix
+        run: |
+          .venv/bin/python tests/data/generate.py --check
+          .venv/bin/python tools/milestone11_matrix.py --check
       - name: Build
         run: .venv/bin/python script/build
       - name: Start application

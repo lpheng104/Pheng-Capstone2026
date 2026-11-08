@@ -16,4 +16,8 @@ Adapted from the existing course-derived checklist in this repository for Iterat
 | Disclosure/process | Every surviving AI contribution disclosed; current honest hours; board and burn-down updated | AI entry 2026-11-01; reported 14-hour aggregate explicitly reconstructed; board remains In Progress while personal gates remain |
 | Demo | Five-minute seeded demo and accessible fallback recording, including failure path | Script and automated capture provided; Liam Pheng reviews recording before Canvas submission |
 
+Milestone 11 extends traceability to one row per acceptance criterion in `docs/traceability.csv`.
+Use `python tools/milestone11_matrix.py --check` for that matrix. The historical
+one-row-per-requirement design matrix is preserved as `docs/design-traceability.csv`.
+
 No task moves to Done with a failed or pending applicable gate. Current slice issues remain open/In Progress because personal review has not been supplied. The eight-commits-across-the-week criterion is assessed honestly from timestamps; November 1 commits cannot substitute for daily work earlier in the week.

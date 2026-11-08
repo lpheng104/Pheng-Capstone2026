@@ -1,0 +1,129 @@
+{
+  "baseline_commit": "c5b89372a9f77579e01c75f73d155e8824918450",
+  "candidate_commit": null,
+  "cases": {
+    "test_accounts_csrf_and_revoked_logout": "passed",
+    "test_chat_ac1_ac2_ac5_persists_username_time_and_is_visible_to_members": "passed",
+    "test_chat_ac3_exact_empty_message_error_no_write[   ]": "passed",
+    "test_chat_ac3_exact_empty_message_error_no_write[\\n\\t]": "passed",
+    "test_chat_ac3_exact_empty_message_error_no_write[]": "passed",
+    "test_chat_ac4_authorization_csrf_boundary_and_escaping": "passed",
+    "test_chat_message_size_boundaries": "passed",
+    "test_delete_event_ac1_ac2_selection_confirmation_and_persistence": "passed",
+    "test_delete_event_ac3_exact_invalid_event_error[6af0f4e90c6c926d0a7ebeb3]": "passed",
+    "test_delete_event_ac3_exact_invalid_event_error[not-an-id]": "passed",
+    "test_delete_event_ac4_ac5_cross_unit_member_and_csrf_denied": "passed",
+    "test_demo_setup_reconciles_rotated_local_secret_without_duplicating_fixture": "passed",
+    "test_event_date_boundaries[0-False]": "passed",
+    "test_event_date_boundaries[1-True]": "passed",
+    "test_event_date_boundaries[2-False]": "passed",
+    "test_event_date_boundaries[3-False]": "passed",
+    "test_expired_session_is_denied_even_before_ttl_cleanup": "passed",
+    "test_hostile_markup_is_rendered_as_text": "passed",
+    "test_login_throttle_and_weak_password": "passed",
+    "test_message_window_is_stable_and_does_not_allow_cross_unit_reads": "passed",
+    "test_nfr_sec_02_every_post_missing_or_modified_csrf": "passed",
+    "test_password_change_ac1_persists_hash_revokes_all_sessions_and_reauthenticates": "passed",
+    "test_password_change_ac2_invalid_password_never_overwrites[A!a]": "passed",
+    "test_password_change_ac2_invalid_password_never_overwrites[Aa!xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]": "passed",
+    "test_password_change_ac2_invalid_password_never_overwrites[NOLOWER!]": "passed",
+    "test_password_change_ac2_invalid_password_never_overwrites[NoSpecial1]": "passed",
+    "test_password_change_ac2_invalid_password_never_overwrites[noupper!]": "passed",
+    "test_password_change_ac2_invalid_password_never_overwrites[weak]": "passed",
+    "test_password_change_denies_anonymous_wrong_current_and_csrf": "passed",
+    "test_password_character_partition[AA!12345-False]": "passed",
+    "test_password_character_partition[Aa#12345-True]": "passed",
+    "test_password_character_partition[Aa$12345-True]": "passed",
+    "test_password_character_partition[Aa%12345-True]": "passed",
+    "test_password_character_partition[Aa012345-False]": "passed",
+    "test_password_character_partition[Aa@12345-True]": "passed",
+    "test_password_character_partition[aa!12345-False]": "passed",
+    "test_password_length_partition[0-False]": "passed",
+    "test_password_length_partition[1-True]": "passed",
+    "test_password_length_partition[2-True]": "passed",
+    "test_password_length_partition[3-False]": "passed",
+    "test_real_message_read_through_store": "passed",
+    "test_real_migration_ledger_and_validator": "passed",
+    "test_real_unique_username_survives_duplicate_write": "passed",
+    "test_unit_permissions_chat_and_attendance": "passed",
+    "test_written_criterion[FR-ACCT-01-AC1]": "passed",
+    "test_written_criterion[FR-ACCT-01-AC2]": "passed",
+    "test_written_criterion[FR-ACCT-02-AC1]": "passed",
+    "test_written_criterion[FR-ACCT-02-AC2]": "passed",
+    "test_written_criterion[FR-ACCT-04-AC1]": "passed",
+    "test_written_criterion[FR-ACCT-04-AC2]": "passed",
+    "test_written_criterion[FR-ACCT-04-AC3]": "passed",
+    "test_written_criterion[FR-ACCT-04-AC4]": "passed",
+    "test_written_criterion[FR-ACCT-05-AC1]": "passed",
+    "test_written_criterion[FR-ACCT-05-AC2]": "passed",
+    "test_written_criterion[FR-ACCT-06-AC1]": "passed",
+    "test_written_criterion[FR-ACCT-06-AC2]": "passed",
+    "test_written_criterion[FR-CHAT-01-AC1]": "xfail",
+    "test_written_criterion[FR-CHAT-04-AC3]": "passed",
+    "test_written_criterion[FR-CHAT-04-AC4]": "passed",
+    "test_written_criterion[FR-CHAT-05-AC1]": "passed",
+    "test_written_criterion[FR-CHAT-05-AC2]": "passed",
+    "test_written_criterion[FR-CHAT-05-AC5]": "passed",
+    "test_written_criterion[FR-CLNDR-01-AC1]": "xfail",
+    "test_written_criterion[FR-CLNDR-02-AC2]": "passed",
+    "test_written_criterion[FR-CLNDR-02-AC4]": "passed",
+    "test_written_criterion[FR-CLNDR-02-AC5]": "passed",
+    "test_written_criterion[FR-RANK-01-AC3]": "passed",
+    "test_written_criterion[FR-RANK-02-AC2]": "xfail",
+    "test_written_criterion[FR-RANK-05-AC3]": "passed",
+    "test_written_criterion[FR-UNIT-01-AC1]": "passed",
+    "test_written_criterion[FR-UNIT-01-AC4]": "passed",
+    "test_written_criterion[FR-UNIT-02-AC2]": "passed",
+    "test_written_criterion[FR-UNIT-02-AC3]": "passed",
+    "test_written_criterion[FR-UNIT-03-AC1]": "xfail"
+  },
+  "command": "M11_MONGO_PORT=27019 python -m pytest -q -rx",
+  "duration_seconds": 110.992,
+  "environment": "Windows course laptop, Python 3.12.14; MongoDB 8.0.17 loopback:27019",
+  "groups": {
+    "tests.acceptance.test_m11_criteria": {
+      "passed": 33,
+      "xfail": 4
+    },
+    "tests.integration.test_mongodb_m11": {
+      "passed": 3
+    },
+    "tests.test_app": {
+      "passed": 3
+    },
+    "tests.test_iteration1": {
+      "passed": 18
+    },
+    "tests.test_skeleton": {
+      "passed": 2
+    },
+    "tests.unit.test_password_m11": {
+      "passed": 11
+    }
+  },
+  "pre_fix_red": {
+    "cases": {
+      "test_written_criterion[FR-ACCT-01-AC2]": "failed",
+      "test_written_criterion[FR-ACCT-02-AC2]": "failed",
+      "test_written_criterion[FR-ACCT-06-AC2]": "failed",
+      "test_written_criterion[FR-CHAT-01-AC1]": "failed",
+      "test_written_criterion[FR-CLNDR-01-AC1]": "failed",
+      "test_written_criterion[FR-CLNDR-02-AC4]": "failed",
+      "test_written_criterion[FR-RANK-02-AC2]": "failed",
+      "test_written_criterion[FR-UNIT-01-AC4]": "failed",
+      "test_written_criterion[FR-UNIT-02-AC3]": "failed",
+      "test_written_criterion[FR-UNIT-03-AC1]": "failed"
+    },
+    "duration_seconds": 14.69,
+    "groups": {
+      "tests.acceptance.test_m11_criteria": {
+        "failed": 10
+      }
+    },
+    "timestamp": "2026-11-08T16:16:17.010320-06:00",
+    "total": 10
+  },
+  "test_source_sha256": "7b3b7fd785f69249325a9bce85cafcd7b423c683d4e0f3b4909e488c28723e55",
+  "timestamp": "2026-11-08T16:17:13.454334-06:00",
+  "total": 74
+}

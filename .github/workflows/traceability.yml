@@ -6,6 +6,9 @@ on:
       - "docs/traceability.csv"
       - "docs/requirements.md"
       - "tools/check-traceability.py"
+      - "tools/milestone11_matrix.py"
+      - "docs/milestone-11-run.json"
+      - "tests/acceptance/test_m11_criteria.py"
       - ".github/workflows/traceability.yml"
 
   pull_request:
@@ -13,6 +16,9 @@ on:
       - "docs/traceability.csv"
       - "docs/requirements.md"
       - "tools/check-traceability.py"
+      - "tools/milestone11_matrix.py"
+      - "docs/milestone-11-run.json"
+      - "tests/acceptance/test_m11_criteria.py"
 
   workflow_dispatch:
 
@@ -30,4 +36,4 @@ jobs:
           python-version: "3.12"
 
       - name: Run traceability check
-        run: python tools/check-traceability.py docs/traceability.csv
+        run: python tools/milestone11_matrix.py --check

@@ -96,3 +96,21 @@ For real HTTP acceptance on a running server: `.venv/Scripts/python script/itera
 ## Hosted demo
 
 Deployment configuration is in `render.yaml`; follow [the Render demo guide](docs/render-demo.md). Secrets are supplied privately in Render, never committed. Live demo: [https://accountabilibuddy-demo.onrender.com](https://accountabilibuddy-demo.onrender.com). Hosted health, fictional-member login, Atlas-backed unit/events, secure cookie attributes, CSRF rejection and anonymous access checks passed on 2026-11-02. See [deployment verification](docs/render-demo-verification.md). The local app address remains http://127.0.0.1:5010.
+
+## Milestone 11 verification
+
+See the [test plan](docs/test-plan.md), [test results](docs/test-results.md),
+[criterion matrix](docs/traceability.csv) and [defect log](docs/defect-log.md).
+The [legacy design matrix](docs/design-traceability.csv) preserves earlier design links.
+
+With the pinned Python environment active and a disposable MongoDB 8.0.17 running on
+loopback, set `M11_MONGO_PORT` to that server's port and run **`python -m pytest -q -rx`**.
+The suite loads the committed fictional happy/boundary/hostile data and automatically
+creates and cleans up isolated test databases. Without the port, the three real
+integration tests are skipped; CI sets it explicitly. Never point this suite at Atlas.
+
+Regenerate fixture inputs with `python tests/data/generate.py`; verify reproducibility with
+`python tests/data/generate.py --check`. Audit the criterion matrix with
+`python tools/milestone11_matrix.py --check` and calculate verified requirement
+coverage with `python code/coverage_report.py`. Expected failures remain visible;
+they are not verified requirements.

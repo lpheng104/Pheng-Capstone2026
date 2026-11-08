@@ -10,7 +10,7 @@ from flask import Flask, abort, flash, g, redirect, render_template, request, se
 from pymongo import ASCENDING, DESCENDING
 from pymongo.errors import DuplicateKeyError, PyMongoError
 from werkzeug.security import check_password_hash, generate_password_hash
-from src.identity import resolve_user
+from src.identity import password_valid, resolve_user
 from src.persistence import Store, connect, verify_schema
 from src.unit_access import AccessDenied, UnitNotFound
 from src.web import render_unit
@@ -66,10 +66,6 @@ def create_app(config=None, database=None):
         if (required and not value) or len(value) > maximum:
             abort(400, description=f'{name} is required and must be at most {maximum} characters.')
         return value
-
-    def password_valid(password):
-        return (8 <= len(password) <= 128 and re.search('[a-z]', password)
-                and re.search('[A-Z]', password) and re.search('[!@#$%]', password))
 
     def login_required(view):
         @wraps(view)
@@ -145,7 +141,8 @@ def create_app(config=None, database=None):
             elif username == app.config['ADMIN_USERNAME'] and (not app.config['ADMIN_SETUP_TOKEN'] or not secrets.compare_digest(app.config['ADMIN_SETUP_TOKEN'].encode(), request.form.get('setup_token', '').encode())):
                 flash('The administrator account requires the configured setup token.')
             elif not password_valid(password):
-                flash('Password needs 8–128 characters, uppercase, lowercase, and one of !@#$%.')
+                flash('Password does not meet the secure requirements. Use 8–128 characters, '
+                      'uppercase, lowercase, and one of !@#$%.')
             else:
                 try:
                     db.users.insert_one({'username': username, 'name': field('name', 80),
@@ -153,7 +150,7 @@ def create_app(config=None, database=None):
                     flash('Account created. Please sign in.')
                     return redirect(url_for('login'))
                 except DuplicateKeyError:
-                    flash('Username already in use.')
+                    flash('That username already is in use. Choose another username.')
         return render_template('auth.html', registering=True)
 
     @app.route('/login', methods=['GET', 'POST'])
@@ -228,6 +225,9 @@ def create_app(config=None, database=None):
     def create_unit():
         if g.user['username'] != app.config['ADMIN_USERNAME']:
             abort(403)
+        # AI-assisted 2026-11-08; see docs/ai-usage.md and DEF-M11-03.
+        if not request.form.get('name', '').strip():
+            abort(400, description='No unit name entered creation request cancelled')
         unit_id = db.units.insert_one({'name': field('name', 80), 'echelon': field('echelon', 30),
                                        'created_by': g.user['_id']}).inserted_id
         db.memberships.insert_one({'unit_id': unit_id, 'user_id': g.user['_id'], 'role': 'owner', 'rank': ''})
@@ -244,7 +244,7 @@ def create_app(config=None, database=None):
         unit, _ = membership(unit_id, leader=True)
         user = db.users.find_one({'username': field('username', 32).lower()})
         if not user:
-            flash('That user must register first.')
+            flash('Invalid user, add user request cancelled. That user must register first.')
         else:
             db.memberships.update_one({'unit_id': unit['_id'], 'user_id': user['_id']},
                                       {'$setOnInsert': {'role': 'member', 'rank': ''}}, upsert=True)
@@ -287,6 +287,8 @@ def create_app(config=None, database=None):
     @login_required
     def create_event(unit_id):
         unit, _ = membership(unit_id, leader=True)
+        if any(not request.form.get(name, '').strip() for name in ('title', 'starts_at', 'location')):
+            abort(400, description='Required event information missing, add calendar event request cancelled.')
         try:
             starts = datetime.fromisoformat(field('starts_at', 40))
             if starts.tzinfo is None:
