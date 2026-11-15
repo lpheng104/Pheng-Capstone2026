@@ -18,7 +18,6 @@ Results are recorded separately in the candidate evidence; an expected failure d
 
 Tested application commit: `2b2356597e57d3159494c3c508f01dfb65faff2c`.
 [Clean branch CI, run 43773631970](https://github.com/lpheng104/Pheng-Capstone2026/actions/runs/43773631970).
-This evidence entry is documentation only; the final tag still needs its own check.
 
 | Gate | Result |
 |---|---|
