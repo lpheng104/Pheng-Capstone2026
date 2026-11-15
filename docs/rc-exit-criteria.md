@@ -13,3 +13,19 @@ Recorded before candidate evaluation: 2026-11-15 Central. Baseline: `dc9ea326e0b
 | Candidate publication | Annotated tag on approved commit, pushed; exact tagged checkout passes. |
 
 Results are recorded separately in the candidate evidence; an expected failure does not verify a requirement.
+
+## Evaluation — 2026-11-15 Central
+
+Tested application commit: `2b2356597e57d3159494c3c508f01dfb65faff2c`.
+[Clean branch CI, run 43773631970](https://github.com/lpheng104/Pheng-Capstone2026/actions/runs/43773631970).
+This evidence entry is documentation only; the final tag still needs its own check.
+
+| Gate | Result |
+|---|---|
+| Clean checkout | **PASS for review commit.** Ubuntu 24.04 runner installed the updated hash lock, migrated and seeded real MongoDB, then passed 70 cases with 4 strict expected failures, no unexpected failures, and no integration skips. |
+| Seam coverage | **PASS for CI seams.** Live synthetic HTTP/MongoDB smoke and iteration acceptance passed. Real stop returned sanitized 503 with Retry-After in 2.339 s; health recovered in 0.345 s after restart and smoke passed again. Hosted candidate routing and comprehensive acknowledged-write verification remain untested. |
+| Performance | **PASS locally; hosted qualification pending.** 20 warm requests; final candidate p95 47.340 ms and 113,550 B HTML. NFR-PERF-01/02 remain unverified against their deployed condition. |
+| Security | **Pending owner review.** Seven evidence areas; 21 pinned packages rescanned with zero known matches after fixes. Open authorization defects and incomplete coverage are not accepted. |
+| Scope control | **Pending Liam Pheng.** Proposed REJECT and DEFER are documented; no scope decision or sign-off has been attributed to the owner. |
+| Product readiness | **FAIL.** 6/28 Must criteria sets fully verified; two S2 feature defects remain open. No full product release claim. |
+| Candidate publication | **Pending approval.** Draft branch only; no annotated tag pushed, and no tagged checkout verified. |
