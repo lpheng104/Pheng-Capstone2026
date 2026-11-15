@@ -114,3 +114,14 @@ Regenerate fixture inputs with `python tests/data/generate.py`; verify reproduci
 `python tools/milestone11_matrix.py --check` and calculate verified requirement
 coverage with `python code/coverage_report.py`. Expected failures remain visible;
 they are not verified requirements.
+## Milestone 12 candidate review
+
+Start from a fresh checkout of the approved candidate. With Python from `.python-version`
+and disposable MongoDB 8.0.17 on loopback port 27017, run `python script/setup`,
+then set `M11_MONGO_PORT=27017` in your shell and run `python script/test`.
+Use only default local synthetic settings for these checks. In a separate terminal,
+run `python script/start`, then run `python script/smoke --mutation-proof`.
+The CI workflow performs these steps on a fresh Linux runner and checks real MongoDB
+outage and recovery. See [exit criteria](docs/rc-exit-criteria.md),
+[integration seams](docs/rc-seams.md), [performance](docs/performance.md), and
+[security evidence](docs/security-review.md).

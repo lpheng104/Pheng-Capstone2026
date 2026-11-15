@@ -108,3 +108,13 @@ Status “fixed in draft” means reproduced red before the patch and green in t
 - **Regression:** `tests/acceptance/test_m11_criteria.py::test_written_criterion[FR-RANK-02-AC2]`.
 
 Existing Week 10 defect [#49](https://github.com/lpheng104/Pheng-Capstone2026/issues/49) remains separately tracked; it was not counted as a newly reproduced defect.
+
+## Milestone 12 findings — 2026-11-15
+
+| ID | Reproduction and expected/observed behavior | Severity / priority | Candidate disposition and verification |
+|---|---|---|---|
+| DEF-M12-01 | Load the realistic populated unit fixture defined in `code/measure_http.py`. Expect predictable read work as membership grows. The baseline repeated roster reads and made one lookup per user and event. The local latency threshold itself was not breached. | S3 unnecessary DB work; P2 before release | Batch reads and reuse authorized roster. Run identical 20-request workload; see performance.md. |
+| DEF-M12-02 | Stop disposable MongoDB after health is up. Existing 503 was sanitized but gave no explicit retry timing. | S3 recovery guidance; P2 small reliability fix | Add Retry-After: 5; verify full down/up transition with `script/rc_health.py` and original smoke. |
+| DEF-M12-03 | Run pip-audit on baseline pins. Expected no unresolved known reachable dependency advisory; seven matches found. | Severity and reachability vary by advisory; P1 patch before tag | Upgrade three pinned dependencies; verify advisory rows, rescan and run clean-install suite. See security-review.md. |
+
+The four Week 11 open defects remain open. No requirement was reclassified as verified solely because these fixes passed regression tests.

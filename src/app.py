@@ -116,7 +116,9 @@ def create_app(config=None, database=None):
     @app.errorhandler(PyMongoError)
     def database_error(error):
         app.logger.error('Database operation failed: %s', type(error).__name__)
-        return render_template('error.html', message='Database unavailable. Please try again shortly.'), 503
+        # AI-assisted 2026-11-15: advise bounded retry without exposing driver details.
+        return (render_template('error.html', message='Database unavailable. Please try again shortly.'),
+                503, {'Retry-After': '5'})
 
     @app.route('/health')
     def health():

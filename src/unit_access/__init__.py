@@ -25,6 +25,9 @@ def authorized_unit(store, unit_id, user_id):
 def roster(store, unit_id, user_id):
     unit, member = authorized_unit(store, unit_id, user_id)
     members = store.many('memberships', {'unit_id': unit['_id']})
+    # AI-assisted 2026-11-15; batch member lookups (DEF-M12-01).
+    people = {user['_id']: user for user in store.many(
+        'users', {'_id': {'$in': [row['user_id'] for row in members]}})}
     for row in members:
-        row['user'] = store.one('users', {'_id': row['user_id']})
+        row['user'] = people[row['user_id']]
     return unit, member, members

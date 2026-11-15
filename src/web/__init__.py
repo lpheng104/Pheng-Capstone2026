@@ -7,7 +7,8 @@ from src.unit_access import roster
 
 
 def render_unit(store, unit_id, user_id):
-    unit, member, members = roster(store, unit_id, user_id)
+    authorized_roster = roster(store, unit_id, user_id)
+    unit, member, members = authorized_roster
     return render_template('unit.html', unit=unit, member=member, members=members,
                            messages=latest_messages(store, unit_id, user_id),
-                           events=event_roster(store, unit_id, user_id))
+                           events=event_roster(store, unit_id, user_id, authorized_roster=authorized_roster))

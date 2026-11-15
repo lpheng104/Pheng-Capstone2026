@@ -744,3 +744,13 @@ All core design choices above are concrete. These questions concern baseline own
 | v0.1 | 2026-10-04 | Establish target contracts, component/state boundaries, schema migration, three flows, error policy and traceability. | Milestone 6 blueprint for implementation and review. |
 
 Reproduce static checks from repository root with `.\.venv\Scripts\python.exe code\spec-check.py docs\architecture.md docs\requirements.md`. The checker was authored locally because no course-provided `spec-check.py` was present or attached. It checks structure, reference coverage, contracts, state ownership, dependency cycles and required artifacts; it cannot establish semantic correctness, accessibility, security or provider behavior. Validation output is recorded in the Week 6 hours/verification entry. Local-only commits follow the owner's prior instruction; no remote push is performed.
+# Milestone 12 integration and dependency failure evidence
+
+See [Tier 1 seam map and tests](rc-seams.md). MongoDB Atlas and Render are external runtime dependencies. GitHub and PyPI affect install/deploy only.
+
+| Dependency | Slow | Down | Rate-limited | Changed response |
+|---|---|---|---|---|
+| MongoDB Atlas / DNS | Driver selection/connect deadlines 2 s; 5 s operation budget | Tested with real local MongoDB stop: sanitized 503, 5 s Retry-After; no fabricated data | Driver failure mapped to 503; no blind write retry; quota simulation pending | Unexpected stored schema checksum blocks startup; validator rejects malformed writes; novel provider response not injected |
+| Render | Free cold start may delay the first request; allow wake time | Use local setup or recorded demo; no automatic failover | Host may reject requests before Flask; wait and check platform logs, do not retry writes blindly | Health contract checks HTTP 200 and exact JSON; recheck proxy/TLS after platform changes |
+| GitHub (source, CI) | Wait for checks; do not deploy unverified revisions | Existing image can continue serving; use local checkout and defer release | Retry read-only operations later; no deployment retry loop | CI validates required artifacts and fails closed on missing steps |
+| PyPI (dependency install) | Let build fail and retry from a known network | Existing deployment remains; pinned approved cache can build offline if present | Retry build later, never discard hashes | Exact pins and SHA-256 checks reject changed artifacts |

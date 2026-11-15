@@ -71,12 +71,17 @@ jobs:
         run: .venv/bin/python script/iteration1_http.py
       - name: Prove smoke fails when MongoDB is unavailable
         run: |
+          .venv/bin/python script/rc_health.py up
           docker stop "${{ job.services.mongodb.id }}"
+          .venv/bin/python script/rc_health.py down
           if .venv/bin/python script/smoke; then
             echo "ERROR: smoke incorrectly passed without MongoDB"
             exit 1
           fi
           echo "NEGATIVE SMOKE PASS: unavailable MongoDB correctly returned nonzero"
+          docker start "${{ job.services.mongodb.id }}"
+          .venv/bin/python script/rc_health.py recover
+          .venv/bin/python script/smoke
       - name: Deliberate red-run gate
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.prove_failure }}
         run: |

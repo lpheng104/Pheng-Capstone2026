@@ -77,6 +77,12 @@ def rows():
                 status, note = 'partial', 'One prohibited administrative action checked; full hierarchy absent.'
             if rid == 'FR-CLNDR-02' and status == 'passed':
                 status, note = 'partial', 'Unit events verified; separately created calendar prerequisite absent.'
+            if rid in {'NFR-PERF-01', 'NFR-PERF-02'}:
+                note = 'Milestone 12: local full-volume comparison in docs/performance.md; hosted evidence pending.'
+            if rid == 'NFR-REL-02':
+                note = 'Milestone 12: CI outage/recovery smoke; full acknowledged-write evidence still pending.'
+            if rid == 'NFR-SEC-03':
+                note = 'Milestone 12: candidate dependency audit and pin upgrades; see docs/security-review.md.'
             yield dict(zip(FIELDS, (rid, priority, cid, test, level, status, defect, criterion, note)))
 
 
