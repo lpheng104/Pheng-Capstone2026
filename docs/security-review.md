@@ -1,6 +1,6 @@
 # Milestone 12 security review — evidence for owner review
 
-Owner: Liam Pheng. Evidence collected 2026-11-15 Central. Advisory IDs below link directly to GitHub Advisory Database records. Reachability notes are draft source/configuration inferences for Liam Pheng to verify; no personal finding or risk acceptance is attributed to Liam Pheng.
+Owner: Liam Pheng. Evidence collected 2026-11-15 Central
 
 | Area | Evidence | Finding and disposition |
 |---|---|---|
