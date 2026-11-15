@@ -2,12 +2,14 @@
 
 | Date | Request | Disposition | Destination |
 |---|---|---|---|
-| 2026-11-15 | [CR-001: native mobile](docs/change-requests/CR-001-native-mobile.md) | Proposed REJECT; Liam Pheng review pending | Existing native mobile exclusions |
-| 2026-11-15 | [CR-002: event tracker](docs/change-requests/CR-002-event-accountability.md) | Proposed DEFER; Liam Pheng review pending | [B-12-01](docs/backlog.md#b-12-01--dedicated-event-accountability-tracker) |
+| 2026-11-15 | [CR-001: native mobile](docs/change-requests/CR-001-native-mobile.md) | REJECT — Liam Pheng | Existing native mobile exclusions |
+| 2026-11-15 | [CR-002: event tracker](docs/change-requests/CR-002-event-accountability.md) | DEFER — Liam Pheng | [B-12-01](docs/backlog.md#b-12-01--dedicated-event-accountability-tracker) |
 
-Notable changes follow the Keep a Changelog structure. Version `v0.9.0-rc.1` is proposed; the tag is not published from this review draft.
+Notable changes follow the Keep a Changelog structure.
 
-## [Unreleased] — Milestone 12 candidate
+## [Unreleased]
+
+## [0.9.0-rc.1] — 2026-11-15
 
 ### Added
 - Clean-checkout integration gates and outage/recovery checks (NFR-REL-02, NFR-MAINT-01).

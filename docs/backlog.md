@@ -2,7 +2,7 @@
 
 ## B-12-01 — Dedicated event accountability tracker
 
-Proposed destination for CR-002 (owner disposition pending; no baseline change). Draft estimate: 8–12 hours. Schedule after member revocation and group isolation. Existing attendance intentions are not an acknowledgement tracker.
+Destination for CR-002, deferred on 2026-11-15. Estimate: 8–12 hours. Schedule after member revocation and group isolation. Existing attendance intentions are not an acknowledgement tracker.
 
 Preserved acceptance criteria from [FR-CLNDR-04](requirements.md#fr-clndr-04--accountability-tracker-event-deferred-pending-week-8-review):
 

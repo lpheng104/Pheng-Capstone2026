@@ -354,6 +354,8 @@ could interpret a word two ways, it belongs here.
 
 ### FR-CLNDR-04 — Accountability Tracker Event (Deferred pending week 8 review)
 
+**Release disposition (2026-11-15): Deferred.** See [CR-002](change-requests/CR-002-event-accountability.md) and [backlog B-12-01](backlog.md#b-12-01--dedicated-event-accountability-tracker). The requirement and acceptance criteria below remain in the record.
+
 **Priority:** Should
 **Requirement:** Administrative users shall be able to enable accountability tracking for an existing Acountabilibuddy calendar event.
 **Rationale:** Military units require the ability to track which personnel have acknowledged or confirmed their attendance for scheduled events.

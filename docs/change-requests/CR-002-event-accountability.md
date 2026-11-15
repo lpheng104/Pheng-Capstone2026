@@ -6,4 +6,4 @@ Source: FR-CLNDR-04 was already flagged as deferred pending Week 8 review. This 
 - **Blast radius:** event data, membership rules, leadership UI, persistence and regression fixtures.
 - **Risk both ways:** accepting now may delay access revocation and group isolation; deferring leaves leaders with attendance intentions but no dedicated acknowledgement tracker.
 
-**Proposed disposition: DEFER to backlog B-12-01, after member-removal and group access controls.** Review the preserved criteria and estimate before approving the scope change. No requirement has been removed.
+**Disposition: DEFER to backlog B-12-01, after member-removal and group access controls.** Acceptance criteria are preserved. No requirement has been removed.
