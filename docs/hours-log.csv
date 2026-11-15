@@ -62,3 +62,10 @@ date,start,end,hours,phase,hat,task,estimate_hours,blocked_hours,notes,ai_assist
 2026-11-06,19:00,23:14,3.25,inception,tester,test plan, 3.00,0.00, continued test plan and defect log,true
 2026-11-07,08:29,11:15,2.75,inception,tester,test plan, 3.00,0.00, continued test plan and defect log,true
 2026-11-08,13:00,16:39,3.70,inception,tester,test plan, 3.00,0.00, finished test plan and defect log,true
+2026-11-09,07:00,10:24,3.45,inception,developer/change manager,Integrated Release Candidate & Change log, 3.00,0.00, began Integrated Release Candidate & Change log ,true
+2026-11-09,19:30,21:04,1.50,inception,developer/change manager,Integrated Release Candidate & Change log, 3.00,0.00, continued work on Integrated Release Candidate & Change log ,true
+2026-11-11,09:20,12:08,2.75,inception,developer/change manager,Integrated Release Candidate & Change log, 3.00,0.00, continued work on Integrated Release Candidate & Change log ,true
+2026-11-12,11:45,14:02,2.25,inception,developer/change manager,Integrated Release Candidate & Change log, 3.00,0.00, continued work on Integrated Release Candidate & Change log ,true
+2026-11-13,19:36,22:38,3.00,inception,developer/change manager,Integrated Release Candidate & Change log, 3.00,0.00, continued work on Integrated Release Candidate & Change log ,true
+2026-11-14,08:48,10:00,1.25,inception,developer/change manager,Integrated Release Candidate & Change log, 3.00,0.00, continued work on Integrated Release Candidate & Change log ,true
+2026-11-15,15:54,17:58,2.00,inception,developer/change manager,Integrated Release Candidate & Change log, 3.00,0.00, finished work on Integrated Release Candidate & Change log and commited everything from local repository ,true
