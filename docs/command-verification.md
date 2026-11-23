@@ -2,6 +2,8 @@
 
 Prepared 2026-11-22. **Personal execution not yet recorded.** Expected signals in README/runbook are instructions to verify, not invented human outputs. Do not mark them done from an assistant or CI check.
 
+Liam Pheng subsequently clarified that he installed the dependencies in a fresh environment and accessed existing accounts/chats through Atlas on November 20, 19:30–20:00. That reported solo check is recorded in clean-machine-test.md. Its exact commands and outputs were not supplied, and it predates the revised documentation; it does not fill the command-by-command ledger below.
+
 | Group | Commands / UI steps | Existing source of expected signal | Liam Pheng actual output/date | Status |
 |---|---|---|---|---|
 | Prerequisites | Git/Python/MongoDB versions, TCP check, optional Docker version/run | Version pin, migration requirements; Git drafting-machine check only | pending | pending personal verification |

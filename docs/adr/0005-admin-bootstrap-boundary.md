@@ -1,7 +1,7 @@
 # ADR 0005 — Global admin bootstrap and unit roles are separate
 
 - Recorded: 2026-11-22, retrospectively.
-- Status: implemented behavior; documentation draft awaiting Liam Pheng review.
+- Status: implemented behavior; documentation reviewed by Liam Pheng on 2026-11-22 (see ../milestone-13-review.md).
 - Owner/reviewer: Liam Pheng. The assistant records observable code, not a new decision in the owner's name.
 - Evidence: src/app.py registration, is_admin context, create_unit route and membership helper.
 
