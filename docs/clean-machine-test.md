@@ -1,6 +1,6 @@
 # Milestone 13 human clean-machine record — NOT RUN
 
-Owner: Liam Pheng. Instructor: Dr. Litman. Prepared: 2026-11-22. **No human test results have been supplied. This form is incomplete and earns no claimed human-test pass.** Assistant/CI runs and fictional examples cannot fill it. Record the tester's observations without sharing secrets.
+Owner: Liam Pheng. Instructor: Dr. Litman. Prepared: 2026-11-22. **No repository-based human clean-machine results have been supplied. This form is incomplete and earns no claimed clean-machine pass.** A separate [November 18 hosted user check](hosted-user-test-2026-11-18.md) records Nikita Adamov's reported functional testing and refresh-related chat feedback. Assistant/CI runs and fictional examples cannot fill this form.
 
 ## Before the clock starts
 

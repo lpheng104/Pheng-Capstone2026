@@ -73,6 +73,10 @@ memos, or the reflections is generated text.
 
 ## Successor-facing dependency: Render hosting
 
+### Supplement: hosted user report recorded on 2026-11-22
+
+Codex organized Liam Pheng's supplied November 18, 08:30–09:00 account of Nikita Adamov's hosted registration, administrator-assisted unit membership, messaging, attendance response and login/logout. It preserved the relayed chat-refresh feedback as an indirect report, left unspecified versions/time zone/commit unfilled, and did not convert the session into a clean-machine installation test or invent a rerun. Source: Liam Pheng's account in this conversation; personal review of the resulting record is pending.
+
 There is no AI inference feature or model API in Accountabilibuddy. The most volatile operational dependency described here is Render's managed web service; Atlas remains its separate persistent datastore. Draft recorded 2026-11-22; personal verification pending.
 
 | Field | What a successor needs |
