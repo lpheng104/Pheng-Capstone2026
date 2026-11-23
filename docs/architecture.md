@@ -1,8 +1,46 @@
 # Technical Specification — Accountabilibuddy
 
+## 0 — Overview (as built)
+
+Documentation baseline: main commit `6bd899a6cb3f996a8b1309e06f5c7e9e01b30008`, November 22, 2026. Historical Week 6 target design remains below. Its older FR-AUTH/FR-EVT identifiers and design promises do not supersede the current requirements/criterion matrix.
+
+```mermaid
+flowchart LR
+  B[Browser] -->|HTTPS forms and cookies| H[Render / Gunicorn]
+  H -->|WSGI request| A[Flask routes and templates]
+  A -->|session token and membership checks| I[Identity / unit access]
+  A -->|authorized reads| S[Messaging / scheduling]
+  I -->|users / sessions / memberships| D[MongoDB Atlas or local MongoDB]
+  S -->|messages / events / responses| D
+  A -->|validated writes| D
+  C[Setup and migration tools] -->|schema ledger / fictional seed| D
+```
+
+Accountabilibuddy is a server-rendered Flask demonstration for fictional units. Browser forms submit to `src/app.py`; Jinja templates render the results. Public hosting uses Gunicorn on Render with Atlas; the local README path uses a separate loopback MongoDB. This is not a deployment of the entire target requirements set.
+
+Authentication resolves a signed-cookie token through MongoDB sessions and users. Unit membership is checked server-side before scoped reads and writes; unit owners and leaders have different permissions from standard members. Rank is a displayed label, not a grant. The current code and [ADR 0001](adr/ADR%200001) describe session revocation; expiry is enforced by the query rather than relying on asynchronous TTL deletion.
+
+Read services live in `src/web`, `identity`, `unit_access`, `messaging`, `scheduling` and `persistence`. Many writes remain Flask route closures, so the component folders are not independent deployed microservices. PyMongo timeouts bound the storage calls; unexpected database failures map to a sanitized 503. Main still performs per-member and per-event reads; batching exists only in the separate Milestone 12 candidate until merged.
+
+The versioned schema in `migrations/0001_initial.json` defines users, units, memberships, messages, events, responses, sessions, login attempts and a migration ledger. Setup creates a dedicated fictional fixture; the app checks the migration checksum on startup. Render startup does not seed or restore data. Read [ADRs 0002 and 0003](adr/README.md) with their original proposed status and the later [deployment evidence](render-demo-verification.md), rather than treating an old proposal as a dated sign-off.
+
+The thing that would surprise a new reader is that the global administrator is **one configured username**, while unit leadership is stored in memberships: an administrator setup token is not a login password and does not create a second global admin. [Retrospective ADR 0005](adr/0005-admin-bootstrap-boundary.md) records that implemented boundary. There is no AI inference feature; the most volatile operational behavior comes from hosted services and their network/free-tier policies. See the successor dependency note in the AI log.
+
+### As-built contract corrections to the historical design below
+
+| Contract area | Current implementation / limit |
+|---|---|
+| Responsibility | `src/app.py` still owns most writes; component services assemble authorized read models. |
+| Interface | HTML GET/forms with POST CSRF tokens; invalid fields can use HTTP 400 or a flashed form error; auth failures redirect to login. |
+| Session | MongoDB token + expiry; logout removes token; password replacement revokes all account sessions. |
+| Message model | One unit-wide latest-100 window; separate named/private groups are not delivered. |
+| Scheduling | Unit events and response upserts; event deletion exists, contrary to the older out-of-scope statement. No explicit calendar lifecycle. |
+| Persistence | Hash-verified migration ledger and validators exist. Unit creation and event cleanup are multi-write operations without a claimed transaction. |
+| Deployment | Active Render revision can differ from main and from the tagged candidate; consult its recorded SHA. |
+
 Version: v0.1 · Date: 2026-10-04 · Author: Liam Pheng · Status: Completed version0.1
 
-Requirements baseline this design satisfies: [requirements.md](requirements.md), version 0.4. This is the target design for the remaining implementation work, not a declaration that the current prototype meets every contract. The owner must read and approve it before changing its status to Baselined. The existing Flask/MongoDB constraint is retained; decisions refine [ADRs 0001–0004](adr/0001-session-revocation.md).
+Requirements baseline this design satisfies: [requirements.md](requirements.md), version 0.4. This is the target design for the remaining implementation work, not a declaration that the current prototype meets every contract. The owner must read and approve it before changing its status to Baselined. The existing Flask/MongoDB constraint is retained; decisions refine [ADRs 0001–0004](adr/ADR%200001).
 
 ## 1. Purpose and Scope
 
